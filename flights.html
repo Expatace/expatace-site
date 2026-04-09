@@ -1,0 +1,2174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Direct Flights to Your New Home — ExpatAce</title>
+  <meta name="description" content="Find direct flights from your US city to your expat destination. See which airlines fly nonstop and search for the best fares.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #ffffff;
+      --off-white: #f9fafb;
+      --ink: #111827;
+      --ink-2: #374151;
+      --ink-3: #6b7280;
+      --ink-4: #9ca3af;
+      --border: #e5e7eb;
+      --border-2: #d1d5db;
+      --green: #059669;
+      --green-bg: #ecfdf5;
+      --green-border: #a7f3d0;
+      --amber: #d97706;
+      --amber-bg: #fffbeb;
+      --amber-border: #fcd34d;
+      --red: #dc2626;
+      --red-bg: #fef2f2;
+      --red-border: #fca5a5;
+      --teal: #0891b2;
+      --teal-bg: #ecfeff;
+      --teal-border: #a5f3fc;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .nav-logo-text {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .nav-back {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--teal);
+      text-decoration: none;
+    }
+    .nav-back:hover { text-decoration: underline; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--off-white);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--ink-3);
+      line-height: 1.7;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /* ── TOOL ── */
+    .tool-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 24px 72px;
+    }
+
+    .tool-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+    }
+
+    .tool-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 560px) {
+      .tool-row { grid-template-columns: 1fr; }
+      .tool-card { padding: 24px; }
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .field-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+    }
+    .field-select {
+      appearance: none;
+      background: var(--off-white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;
+      border: 1.5px solid var(--border-2);
+      border-radius: 10px;
+      padding: 13px 40px 13px 14px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--ink);
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.15s;
+      width: 100%;
+    }
+    .field-select:focus { border-color: var(--teal); }
+
+    .btn-find {
+      width: 100%;
+      background: var(--ink);
+      color: var(--white);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.15s;
+      letter-spacing: -0.01em;
+    }
+    .btn-find:hover { background: var(--ink-2); }
+
+    /* ── RESULTS ── */
+    #results { display: none; }
+    #results.visible { display: block; }
+
+    .results-header {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-4);
+      margin-bottom: 16px;
+    }
+
+    /* Direct flight card */
+    .flight-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .flight-card:hover {
+      border-color: var(--teal-border);
+      box-shadow: 0 2px 12px rgba(8,145,178,0.08);
+    }
+    .flight-info { flex: 1; }
+    .flight-route {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .flight-airline {
+      font-size: 0.85rem;
+      color: var(--ink-3);
+    }
+    .flight-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 100px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .badge-year { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+    .badge-seasonal { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+    .flight-action {
+      white-space: nowrap;
+    }
+    .btn-search {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn-search:hover { opacity: 0.85; }
+
+    /* No direct card */
+    .no-direct-card {
+      background: var(--red-bg);
+      border: 1px solid var(--red-border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .no-direct-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    .no-direct-sub {
+      font-size: 0.875rem;
+      color: var(--ink-2);
+      line-height: 1.6;
+    }
+
+    /* Nearest hub card */
+    .nearest-card {
+      background: var(--teal-bg);
+      border: 1px solid var(--teal-border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 12px;
+    }
+    .nearest-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .nearest-city {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .nearest-airlines {
+      font-size: 0.875rem;
+      color: var(--ink-2);
+      margin-bottom: 16px;
+    }
+    .btn-nearest {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn-nearest:hover { opacity: 0.85; }
+
+    /* Thailand special */
+    .special-card {
+      background: var(--amber-bg);
+      border: 1px solid var(--amber-border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 12px;
+    }
+    .special-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .special-body {
+      font-size: 0.875rem;
+      color: var(--ink-2);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .data-note {
+      font-size: 0.75rem;
+      color: var(--ink-4);
+      line-height: 1.6;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      margin-top: 24px;
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      background: #0f172a;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .page-footer p {
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+    .page-footer a { color: #9ca3af; }
+  </style>
+  <link rel="canonical" href="https://expatace.com/flights.html">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Find direct flights from US cities to 34 expat destinations. 554 routes covering all major US departure cities.">
+  <meta property="og:image" content="https://expatace.com/imgpanama.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Direct Flights to Your New Home — ExpatAce">
+  <meta name="twitter:description" content="Find direct flights from US cities to 34 expat destinations. 554 routes covering all major US departure cities.">
+  <meta name="twitter:image" content="https://expatace.com/imgpanama.jpg">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">
+      <span>✈️</span>
+      <span class="nav-logo-text">ExpatAce</span>
+    </a>
+    <div style="display:flex;gap:24px;font-size:13px;font-weight:500">
+      <a href="/" style="color:#64748b;text-decoration:none">Home</a>
+      <a href="destinations.html" style="color:#64748b;text-decoration:none">Destinations</a>
+      <a href="flights.html" style="color:#0f172a;font-weight:700;text-decoration:none;border-bottom:1.5px solid #0f172a">Flights</a>
+      <a href="news.html" style="color:#64748b;text-decoration:none">News</a>
+      <a href="/#about" style="color:#64748b;text-decoration:none">About</a>
+    </div>
+    <a href="/" style="background:#0f172a;color:#fff;font-size:13px;font-weight:700;padding:9px 18px;border-radius:8px;text-decoration:none">Take the Quiz →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-eyebrow">Direct Flights Finder</span>
+  <h1 class="hero-title">Can you fly direct?</h1>
+  <p class="hero-sub">Use this tool to explore which countries you can reach nonstop from your home airport — a great starting point for planning your move abroad. <strong>This is not a complete or definitive flight guide.</strong> We cover major nonstop routes from 34 North American cities to popular expat destinations, but not every airline, route, or seasonal schedule is listed. Routes change frequently. For a full, up-to-date flight search, visit our partner <a href="https://www.skyscanner.com" target="_blank" rel="noopener" style="color:#1a73e8;font-weight:600;">Skyscanner</a> — always verify and book there before making any travel decisions.</p>
+</div>
+
+<!-- TOOL -->
+<div class="tool-wrap">
+
+  <div class="tool-card">
+    <div class="tool-row">
+      <div class="field-group">
+        <label class="field-label" for="from-select">I'm flying from</label>
+        <select class="field-select" id="from-select" onchange="filterDestinations()">
+          <option value="">— Select your city —</option>
+          <optgroup label="United States — East Coast">
+            <option value="JFK">New York (JFK)</option>
+            <option value="EWR">Newark (EWR)</option>
+            <option value="BOS">Boston</option>
+            <option value="PHL">Philadelphia</option>
+            <option value="IAD">Washington DC</option>
+            <option value="RDU">Raleigh-Durham</option>
+            <option value="CLT">Charlotte</option>
+            <option value="ATL">Atlanta</option>
+            <option value="BNA">Nashville</option>
+            <option value="MCO">Orlando</option>
+            <option value="TPA">Tampa</option>
+            <option value="MIA">Miami</option>
+            <option value="FLL">Fort Lauderdale</option>
+          </optgroup>
+          <optgroup label="United States — Midwest & South">
+            <option value="ORD">Chicago</option>
+            <option value="DTW">Detroit</option>
+            <option value="MSP">Minneapolis</option>
+            <option value="IAH">Houston</option>
+            <option value="DFW">Dallas</option>
+            <option value="AUS">Austin</option>
+            <option value="DEN">Denver</option>
+            <option value="SLC">Salt Lake City</option>
+          </optgroup>
+          <optgroup label="United States — West Coast">
+            <option value="SEA">Seattle</option>
+            <option value="PDX">Portland</option>
+            <option value="SFO">San Francisco</option>
+            <option value="LAX">Los Angeles</option>
+            <option value="LAS">Las Vegas</option>
+            <option value="PHX">Phoenix</option>
+            <option value="SAN">San Diego</option>
+            <option value="HNL">Honolulu</option>
+          </optgroup>
+          <optgroup label="Canada">
+            <option value="YYZ">Toronto</option>
+            <option value="YUL">Montreal</option>
+            <option value="YVR">Vancouver</option>
+            <option value="YYC">Calgary</option>
+            <option value="YEG">Edmonton</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="to-select">I want to move to</label>
+        <select class="field-select" id="to-select" disabled>
+          <option value="">— Pick a city first —</option>
+        </select>
+        <div id="dest-note" style="font-size:0.75rem;color:var(--ink-4);margin-top:4px;min-height:16px;"></div>
+      </div>
+    </div>
+    <button class="btn-find" onclick="findFlights()">Find Direct Flights →</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results">
+    <p class="results-header" id="results-label"></p>
+    <div id="results-content"></div>
+    <p class="data-note">
+      ✱ Route data sourced from airline announcements and Wendy Perrin's nonstop flight database, updated March 2026. Routes — especially seasonal services — change frequently. Always verify availability directly with the airline before planning your move. Seasonal routes typically operate May–October. <strong>Year-round</strong> routes operate all year.
+    </p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <p>© 2026 ExpatAce &nbsp;·&nbsp; <a href="/privacy.html" style="color:#94a3b8;text-decoration:none">Privacy Policy</a> &nbsp;·&nbsp; <a href="/privacy.html#do-not-sell" style="color:#94a3b8;text-decoration:none">Do Not Sell My Information</a> · <a href="/">Home</a> · <a href="/privacy.html">Privacy Policy</a> · General information only, not travel advice.</p>
+</footer>
+
+<script>
+// ══════════════════════════════════════════════
+// FLIGHT DATA
+// Updated: March 2026
+// Sources: Wendy Perrin nonstop database, airline press releases, AFAR
+// ══════════════════════════════════════════════
+
+// Nearest major hub for each city
+const NEAREST_HUB = {
+  EWR: 'JFK', // Newark → treated as NYC
+  // SAN removed — has its own direct international routes
+  LAS: 'LAX',
+  PHX: 'LAX',
+  PDX: 'SEA',
+  AUS: 'DFW',
+  MCO: 'MIA',
+  TPA: 'MIA',
+  FLL: 'MIA',
+  CLT: 'PHL',
+  DTW: 'ORD',
+  MSP: 'ORD',
+  DEN: 'DFW',
+  YYC: 'YVR',
+  SLC: 'LAX',
+  BNA: 'ATL',
+  HNL: 'LAX',
+  YEG: 'YYC',
+  RDU: 'IAD',
+};
+
+const HUB_NAMES = {
+  JFK: 'New York (JFK)', LAX: 'Los Angeles', MIA: 'Miami', ORD: 'Chicago',
+  SFO: 'San Francisco', BOS: 'Boston', DFW: 'Dallas', IAD: 'Washington DC',
+  PHL: 'Philadelphia', ATL: 'Atlanta', SEA: 'Seattle', IAH: 'Houston',
+  YYZ: 'Toronto', YUL: 'Montreal', YVR: 'Vancouver',
+};
+
+// Route data: city → country → array of {airline, route, type, link}
+// type: 'year' = year-round, 'seasonal' = seasonal (May-Oct typically)
+// link: Skyscanner search deep link
+
+const sk = (from, to) => `https://www.skyscanner.com/transport/flights/${from.toLowerCase()}/${to.toLowerCase()}/`;
+
+const ROUTES = {
+  ATL: {
+    canada: [
+      {airline:'Delta', route:'Atlanta → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/atl/yyz/'},
+    ],
+    costarica: [
+      {airline:'Delta', route:'Atlanta → San José', type:'year', link:'https://www.skyscanner.com/transport/flights/atl/sjo/'},
+      {airline:'Delta', route:'Atlanta → Liberia', type:'year', link:'https://www.skyscanner.com/transport/flights/atl/lir/'},
+    ],
+    dominicanrepublic: [
+      {airline:'Delta', route:'Atlanta → Punta Cana', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/atl/puj/'},
+    ],
+    france: [
+      {airline:'Delta', route:'Atlanta → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/atl/cdg/'},
+    ],
+    germany: [
+      {airline:'Lufthansa', route:'Atlanta → Frankfurt', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/atl/fra/'},
+    ],
+    jamaica: [
+      {airline:'Delta', route:'Atlanta → Montego Bay', type:'year', link:'https://www.skyscanner.com/transport/flights/atl/mbj/'},
+    ],
+    japan: [
+      {airline:'Delta', route:'Atlanta → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/atl/nrt/'},
+    ],
+    mexico: [
+      {airline:'Delta', route:'Atlanta → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/atl/cun/'},
+    ],
+    netherlands: [
+      {airline:'Delta', route:'Atlanta → Amsterdam', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/atl/ams/'},
+    ],
+    panama: [
+      {airline:'Copa Airlines', route:'Atlanta → Panama City', type:'year', link:'https://www.skyscanner.com/transport/flights/atl/pty/'},
+    ],
+    peru: [
+      {airline:'Delta', route:'Atlanta → Lima', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/atl/lim/'},
+    ],
+    southkorea: [
+      {airline:'Delta', route:'Atlanta → Seoul', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/atl/icn/'},
+    ],
+    uae: [
+      {airline:'Emirates', route:'Atlanta → Dubai', type:'year', link:'https://www.skyscanner.com/transport/flights/atl/dxb/'},
+    ],
+    uk: [
+      {airline:'Delta', route:'Atlanta → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/atl/lhr/'},
+    ],
+  },
+  AUS: {
+    canada: [
+      {airline:'WestJet', route:'Austin → Calgary', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/aus/yyc/'},
+    ],
+    mexico: [
+      {airline:'American Airlines', route:'Austin → Cancun', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/aus/cun/'},
+      {airline:'Aeromexico', route:'Austin → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/aus/mex/'},
+      {airline:'American Airlines', route:'Austin → Monterrey', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/aus/mty/'},
+    ],
+    uk: [
+      {airline:'British Airways', route:'Austin → London Heathrow', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/aus/lhr/'},
+    ],
+  },
+  BOS: {
+    canada: [
+      {airline:'Air Canada', route:'Boston → Montreal', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/bos/yul/'},
+    ],
+    france: [
+      {airline:'Air France', route:'Boston → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/bos/cdg/'},
+    ],
+    ireland: [
+      {airline:'Aer Lingus', route:'Boston → Dublin', type:'year', link:'https://www.skyscanner.com/transport/flights/bos/dub/'},
+    ],
+    japan: [
+      {airline:'Japan Airlines', route:'Boston → Tokyo', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/bos/nrt/'},
+    ],
+    mexico: [
+      {airline:'Delta', route:'Boston → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/bos/cun/'},
+    ],
+    portugal: [
+      {airline:'TAP Air Portugal', route:'Boston → Lisbon', type:'year', link:'https://www.skyscanner.com/transport/flights/bos/lis/'},
+    ],
+    spain: [
+      {airline:'Iberia', route:'Boston → Madrid', type:'year', link:'https://www.skyscanner.com/transport/flights/bos/mad/'},
+    ],
+    uk: [
+      {airline:'British Airways', route:'Boston → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/bos/lhr/'},
+    ],
+  },
+  CLT: {
+    bahamas: [
+      {airline:'American Airlines', route:'Charlotte → Nassau', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/clt/nas/'},
+    ],
+    canada: [
+      {airline:'American Airlines', route:'Charlotte → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/clt/yyz/'},
+      {airline:'American Airlines', route:'Charlotte → Calgary', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/clt/yyc/'},
+    ],
+    dominicanrepublic: [
+      {airline:'American Airlines', route:'Charlotte → Punta Cana', type:'year', link:'https://www.skyscanner.com/transport/flights/clt/puj/'},
+    ],
+    france: [
+      {airline:'American Airlines', route:'Charlotte → Paris CDG', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/clt/cdg/'},
+    ],
+    germany: [
+      {airline:'American Airlines', route:'Charlotte → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/clt/fra/'},
+    ],
+    greece: [
+      {airline:'American Airlines', route:'Charlotte → Athens', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/clt/ath/'},
+    ],
+    italy: [
+      {airline:'American Airlines', route:'Charlotte → Rome', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/clt/fco/'},
+    ],
+    mexico: [
+      {airline:'American Airlines', route:'Charlotte → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/clt/cun/'},
+    ],
+    netherlands: [
+      {airline:'American Airlines', route:'Charlotte → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/clt/ams/'},
+    ],
+    spain: [
+      {airline:'American Airlines', route:'Charlotte → Madrid', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/clt/mad/'},
+    ],
+    uk: [
+      {airline:'American Airlines', route:'Charlotte → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/clt/lhr/'},
+    ],
+  },
+  DEN: {
+    mexico: [
+      {airline:'United', route:'Denver → Cancun', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/den/cun/'},
+    ],
+  },
+  DFW: {
+    australia: [
+      {airline:'Qantas', route:'Dallas → Sydney', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/dfw/syd/'},
+    ],
+    brazil: [
+      {airline:'LATAM', route:'Dallas → São Paulo', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/dfw/gru/'},
+    ],
+    canada: [
+      {airline:'Air Canada', route:'Dallas → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/yyz/'},
+    ],
+    chile: [
+      {airline:'LATAM', route:'Dallas → Santiago', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/dfw/scl/'},
+    ],
+    colombia: [
+      {airline:'Avianca', route:'Dallas → Bogotá', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/bog/'},
+    ],
+    france: [
+      {airline:'Air France', route:'Dallas → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/cdg/'},
+    ],
+    germany: [
+      {airline:'Lufthansa', route:'Dallas → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/fra/'},
+    ],
+    ireland: [
+      {airline:'Aer Lingus', route:'Dallas → Dublin', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/dfw/dub/'},
+    ],
+    italy: [
+      {airline:'American', route:'Dallas → Rome', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/fco/'},
+    ],
+    japan: [
+      {airline:'Japan Airlines', route:'Dallas → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/nrt/'},
+    ],
+    mexico: [
+      {airline:'American', route:'Dallas → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/cun/'},
+      {airline:'American', route:'Dallas → Los Cabos', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/sjd/'},
+      {airline:'American', route:'Dallas → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/mex/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'Dallas → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/ams/'},
+    ],
+    peru: [
+      {airline:'American', route:'Dallas → Lima', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/lim/'},
+    ],
+    portugal: [
+      {airline:'TAP Air Portugal', route:'Dallas → Lisbon', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/lis/'},
+    ],
+    qatar: [
+      {airline:'Qatar Airways', route:'Dallas → Doha', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/doh/'},
+    ],
+    southkorea: [
+      {airline:'Korean Air', route:'Dallas → Seoul', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/icn/'},
+    ],
+    spain: [
+      {airline:'Iberia', route:'Dallas → Madrid', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/mad/'},
+    ],
+    uae: [
+      {airline:'Emirates', route:'Dallas → Dubai', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/dxb/'},
+      {airline:'Etihad Airways', route:'Dallas → Abu Dhabi', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/auh/'},
+    ],
+    uk: [
+      {airline:'American', route:'Dallas → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/dfw/lhr/'},
+    ],
+  },
+  DTW: {
+    mexico: [
+      {airline:'Delta', route:'Detroit → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/dtw/cun/'},
+      {airline:'Delta', route:'Detroit → Puerto Vallarta', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/dtw/pvr/'},
+    ],
+  },
+  EWR: {
+    canada: [
+      {airline:'Air Canada', route:'Newark (EWR) → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/yyz/'},
+      {airline:'Air Canada', route:'Newark (EWR) → Montreal', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/yul/'},
+      {airline:'Air Canada', route:'Newark (EWR) → Vancouver', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/yvr/'},
+    ],
+    uk: [
+      {airline:'United', route:'Newark (EWR) → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/lhr/'},
+      {airline:'British Airways', route:'Newark (EWR) → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/lhr/'},
+      {airline:'United', route:'Newark (EWR) → Glasgow', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/ewr/gla/'},
+    ],
+    france: [
+      {airline:'Air France', route:'Newark (EWR) → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/cdg/'},
+      {airline:'United', route:'Newark (EWR) → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/cdg/'},
+    ],
+    germany: [
+      {airline:'United', route:'Newark (EWR) → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/fra/'},
+      {airline:'Lufthansa', route:'Newark (EWR) → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/fra/'},
+      {airline:'Lufthansa', route:'Newark (EWR) → Munich', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/muc/'},
+    ],
+    portugal: [
+      {airline:'TAP Air Portugal', route:'Newark (EWR) → Lisbon', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/lis/'},
+    ],
+    spain: [
+      {airline:'Iberia', route:'Newark (EWR) → Madrid', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/mad/'},
+      {airline:'United', route:'Newark (EWR) → Madrid', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/mad/'},
+    ],
+    italy: [
+      {airline:'ITA Airways', route:'Newark (EWR) → Rome', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/fco/'},
+      {airline:'United', route:'Newark (EWR) → Rome', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/fco/'},
+      {airline:'United', route:'Newark (EWR) → Milan', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/mxp/'},
+      {airline:'United', route:'Newark (EWR) → Venice', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/ewr/vce/'},
+    ],
+    greece: [
+      {airline:'United', route:'Newark (EWR) → Athens', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/ewr/ath/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'Newark (EWR) → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/ams/'},
+      {airline:'United', route:'Newark (EWR) → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/ams/'},
+    ],
+    switzerland: [
+      {airline:'Swiss', route:'Newark (EWR) → Zurich', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/zrh/'},
+    ],
+    ireland: [
+      {airline:'Aer Lingus', route:'Newark (EWR) → Dublin', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/dub/'},
+      {airline:'United', route:'Newark (EWR) → Dublin', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/dub/'},
+    ],
+    norway: [
+      {airline:'SAS', route:'Newark (EWR) → Oslo', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/osl/'},
+    ],
+    poland: [
+      {airline:'LOT', route:'Newark (EWR) → Warsaw', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/waw/'},
+    ],
+    uae: [
+      {airline:'Emirates', route:'Newark (EWR) → Dubai', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/dxb/'},
+    ],
+    israel: [
+      {airline:'El Al', route:'Newark (EWR) → Tel Aviv', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/tlv/'},
+      {airline:'United', route:'Newark (EWR) → Tel Aviv', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/tlv/'},
+    ],
+    india: [
+      {airline:'Air India', route:'Newark (EWR) → Delhi', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/del/'},
+      {airline:'Air India', route:'Newark (EWR) → Mumbai', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/bom/'},
+    ],
+    singapore: [
+      {airline:'Singapore Airlines', route:'Newark (EWR) → Singapore', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/sin/'},
+    ],
+    japan: [
+      {airline:'United', route:'Newark (EWR) → Tokyo Narita', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/nrt/'},
+    ],
+    southkorea: [
+      {airline:'Korean Air', route:'Newark (EWR) → Seoul', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/icn/'},
+    ],
+    mexico: [
+      {airline:'United', route:'Newark (EWR) → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/cun/'},
+      {airline:'United', route:'Newark (EWR) → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/mex/'},
+    ],
+    costarica: [
+      {airline:'United', route:'Newark (EWR) → San José', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/sjo/'},
+    ],
+    panama: [
+      {airline:'United', route:'Newark (EWR) → Panama City', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/pty/'},
+    ],
+    colombia: [
+      {airline:'United', route:'Newark (EWR) → Bogotá', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/bog/'},
+      {airline:'Avianca', route:'Newark (EWR) → Bogotá', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/bog/'},
+    ],
+    peru: [
+      {airline:'United', route:'Newark (EWR) → Lima', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/lim/'},
+    ],
+    dominicanrepublic: [
+      {airline:'United', route:'Newark (EWR) → Punta Cana', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/puj/'},
+    ],
+    jamaica: [
+      {airline:'United', route:'Newark (EWR) → Montego Bay', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/mbj/'},
+    ],
+    bahamas: [
+      {airline:'United', route:'Newark (EWR) → Nassau', type:'year', link:'https://www.skyscanner.com/transport/flights/ewr/nas/'},
+    ],
+    morocco: [
+      {airline:'United', route:'Newark (EWR) → Marrakech', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/ewr/rak/'},
+    ],
+  },
+  FLL: {
+    aruba: [
+      {airline:'Spirit', route:'Fort Lauderdale → Aruba', type:'year', link:'https://www.skyscanner.com/transport/flights/fll/aua/'},
+    ],
+    bahamas: [
+      {airline:'Bahamasair', route:'Fort Lauderdale → Nassau', type:'year', link:'https://www.skyscanner.com/transport/flights/fll/nas/'},
+    ],
+    colombia: [
+      {airline:'Avianca', route:'Fort Lauderdale → Bogotá', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/fll/bog/'},
+    ],
+    costarica: [
+      {airline:'Spirit', route:'Fort Lauderdale → Liberia', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/fll/lir/'},
+    ],
+    dominicanrepublic: [
+      {airline:'Spirit', route:'Fort Lauderdale → Punta Cana', type:'year', link:'https://www.skyscanner.com/transport/flights/fll/puj/'},
+    ],
+    mexico: [
+      {airline:'Spirit', route:'Fort Lauderdale → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/fll/cun/'},
+    ],
+    panama: [
+      {airline:'Copa Airlines', route:'Fort Lauderdale → Panama City', type:'year', link:'https://www.skyscanner.com/transport/flights/fll/pty/'},
+    ],
+  },
+  IAD: {
+    france: [
+      {airline:'Air France', route:'Washington DC → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/iad/cdg/'},
+    ],
+    germany: [
+      {airline:'Lufthansa', route:'Washington DC → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/iad/fra/'},
+    ],
+    italy: [
+      {airline:'ITA Airways', route:'Washington DC → Rome', type:'year', link:'https://www.skyscanner.com/transport/flights/iad/fco/'},
+    ],
+    japan: [
+      {airline:'Japan Airlines', route:'Washington DC → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/iad/nrt/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'Washington DC → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/iad/ams/'},
+    ],
+    portugal: [
+      {airline:'TAP Air Portugal', route:'Washington DC → Lisbon', type:'year', link:'https://www.skyscanner.com/transport/flights/iad/lis/'},
+    ],
+    qatar: [
+      {airline:'Qatar Airways', route:'Washington DC → Doha', type:'year', link:'https://www.skyscanner.com/transport/flights/iad/doh/'},
+    ],
+    spain: [
+      {airline:'Iberia', route:'Washington DC → Madrid', type:'year', link:'https://www.skyscanner.com/transport/flights/iad/mad/'},
+    ],
+    uae: [
+      {airline:'Emirates', route:'Washington DC → Dubai', type:'year', link:'https://www.skyscanner.com/transport/flights/iad/dxb/'},
+      {airline:'Etihad Airways', route:'Washington DC → Abu Dhabi', type:'year', link:'https://www.skyscanner.com/transport/flights/iad/auh/'},
+    ],
+    uk: [
+      {airline:'British Airways', route:'Washington DC → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/iad/lhr/'},
+    ],
+  },
+  IAH: {
+    costarica: [
+      {airline:'United', route:'Houston → San José', type:'year', link:'https://www.skyscanner.com/transport/flights/iah/sjo/'},
+    ],
+    mexico: [
+      {airline:'United', route:'Houston → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/iah/cun/'},
+      {airline:'Aeromexico', route:'Houston → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/iah/mex/'},
+    ],
+    panama: [
+      {airline:'Copa Airlines', route:'Houston → Panama City', type:'year', link:'https://www.skyscanner.com/transport/flights/iah/pty/'},
+    ],
+  },
+  JFK: {
+    argentina: [
+      {airline:'LATAM', route:'New York (JFK) → Buenos Aires', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/jfk/eze/'},
+    ],
+    bahamas: [
+      {airline:'JetBlue', route:'New York (JFK) → Nassau', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/nas/'},
+    ],
+    brazil: [
+      {airline:'LATAM', route:'New York (JFK) → São Paulo', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/jfk/gru/'},
+    ],
+    canada: [
+      {airline:'Air Canada', route:'New York (JFK) → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/yyz/'},
+      {airline:'Delta', route:'New York (JFK) → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/yyz/'},
+      {airline:'Air Canada', route:'New York (JFK) → Montreal', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/yul/'},
+    ],
+    colombia: [
+      {airline:'Avianca', route:'New York (JFK) → Bogotá', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/bog/'},
+    ],
+    denmark: [
+      {airline:'SAS', route:'New York (JFK) → Copenhagen', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/jfk/cph/'},
+    ],
+    dominicanrepublic: [
+      {airline:'JetBlue', route:'New York (JFK) → Santo Domingo', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/sdq/'},
+    ],
+    france: [
+      {airline:'Air France', route:'New York (JFK) → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/cdg/'},
+      {airline:'Delta', route:'New York (JFK) → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/cdg/'},
+    ],
+    germany: [
+      {airline:'Lufthansa', route:'New York (JFK) → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/fra/'},
+      {airline:'Condor', route:'New York (JFK) → Frankfurt', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/jfk/fra/'},
+    ],
+    greece: [
+      {airline:'Aegean Airlines', route:'New York (JFK) → Athens', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/ath/'},
+      {airline:'Delta', route:'New York (JFK) → Athens', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/jfk/ath/'},
+    ],
+    iceland: [
+      {airline:'Icelandair', route:'New York (JFK) → Reykjavik', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/kef/'},
+    ],
+    ireland: [
+      {airline:'Aer Lingus', route:'New York (JFK) → Dublin', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/dub/'},
+      {airline:'Delta', route:'New York (JFK) → Dublin', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/dub/'},
+    ],
+    israel: [
+      {airline:'El Al', route:'New York (JFK) → Tel Aviv', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/tlv/'},
+      {airline:'Delta', route:'New York (JFK) → Tel Aviv', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/jfk/tlv/'},
+    ],
+    italy: [
+      {airline:'ITA Airways', route:'New York (JFK) → Rome', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/fco/'},
+      {airline:'Delta', route:'New York (JFK) → Rome', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/jfk/fco/'},
+    ],
+    japan: [
+      {airline:'Japan Airlines', route:'New York (JFK) → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/nrt/'},
+    ],
+    mexico: [
+      {airline:'JetBlue', route:'New York (JFK) → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/cun/'},
+      {airline:'Delta', route:'New York (JFK) → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/cun/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'New York (JFK) → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/ams/'},
+      {airline:'Delta', route:'New York (JFK) → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/ams/'},
+    ],
+    peru: [
+      {airline:'LATAM', route:'New York (JFK) → Lima', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/lim/'},
+    ],
+    portugal: [
+      {airline:'TAP Air Portugal', route:'New York (JFK) → Lisbon', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/lis/'},
+    ],
+    southkorea: [
+      {airline:'Korean Air', route:'New York (JFK) → Seoul', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/icn/'},
+    ],
+    spain: [
+      {airline:'Iberia', route:'New York (JFK) → Madrid', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/mad/'},
+      {airline:'Level', route:'New York (JFK) → Barcelona', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/bcn/'},
+    ],
+    switzerland: [
+      {airline:'Swiss', route:'New York (JFK) → Zurich', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/zrh/'},
+    ],
+    uae: [
+      {airline:'Emirates', route:'New York (JFK) → Dubai', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/dxb/'},
+      {airline:'Etihad Airways', route:'New York (JFK) → Abu Dhabi', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/auh/'},
+    ],
+    uk: [
+      {airline:'British Airways', route:'New York (JFK) → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/lhr/'},
+      {airline:'Virgin Atlantic', route:'New York (JFK) → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/jfk/lhr/'},
+    ],
+  },
+  LAS: {
+    australia: [
+      {airline:'Qantas', route:'Las Vegas → Sydney', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/las/syd/'},
+    ],
+    canada: [
+      {airline:'Air Canada', route:'Las Vegas → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/las/yyz/'},
+      {airline:'Porter Airlines', route:'Las Vegas → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/las/yyz/'},
+      {airline:'Air Canada', route:'Las Vegas → Vancouver', type:'year', link:'https://www.skyscanner.com/transport/flights/las/yvr/'},
+      {airline:'Air Canada', route:'Las Vegas → Montreal', type:'year', link:'https://www.skyscanner.com/transport/flights/las/yul/'},
+    ],
+    france: [
+      {airline:'Air France', route:'Las Vegas → Paris CDG', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/las/cdg/'},
+    ],
+    germany: [
+      {airline:'Condor', route:'Las Vegas → Frankfurt', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/las/fra/'},
+      {airline:'Discover Airlines', route:'Las Vegas → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/las/fra/'},
+      {airline:'Discover Airlines', route:'Las Vegas → Munich', type:'year', link:'https://www.skyscanner.com/transport/flights/las/muc/'},
+    ],
+    ireland: [
+      {airline:'Aer Lingus', route:'Las Vegas → Dublin', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/las/dub/'},
+    ],
+    mexico: [
+      {airline:'Aeromexico', route:'Las Vegas → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/las/cun/'},
+      {airline:'Aeromexico', route:'Las Vegas → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/las/mex/'},
+      {airline:'Alaska Airlines', route:'Las Vegas → Puerto Vallarta', type:'year', link:'https://www.skyscanner.com/transport/flights/las/pvr/'},
+      {airline:'Alaska Airlines', route:'Las Vegas → Los Cabos', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/las/sjd/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'Las Vegas → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/las/ams/'},
+      {airline:'Delta', route:'Las Vegas → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/las/ams/'},
+    ],
+    southkorea: [
+      {airline:'Korean Air', route:'Las Vegas → Seoul', type:'year', link:'https://www.skyscanner.com/transport/flights/las/icn/'},
+    ],
+    switzerland: [
+      {airline:'Swiss', route:'Las Vegas → Zurich', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/las/zrh/'},
+      {airline:'Edelweiss Air', route:'Las Vegas → Zurich', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/las/zrh/'},
+    ],
+    uk: [
+      {airline:'British Airways', route:'Las Vegas → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/las/lhr/'},
+      {airline:'Virgin Atlantic', route:'Las Vegas → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/las/lhr/'},
+      {airline:'Norse Atlantic', route:'Las Vegas → London Gatwick', type:'year', link:'https://www.skyscanner.com/transport/flights/las/lgw/'},
+    ],
+  },
+  LAX: {
+    argentina: [
+      {airline:'LATAM', route:'Los Angeles → Buenos Aires', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/eze/'},
+    ],
+    australia: [
+      {airline:'Qantas', route:'Los Angeles → Sydney', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/syd/'},
+      {airline:'United', route:'Los Angeles → Sydney', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/syd/'},
+      {airline:'Delta', route:'Los Angeles → Sydney', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/syd/'},
+      {airline:'Qantas', route:'Los Angeles → Melbourne', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/mel/'},
+    ],
+    brazil: [
+      {airline:'LATAM', route:'Los Angeles → São Paulo', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/gru/'},
+    ],
+    canada: [
+      {airline:'Air Canada', route:'Los Angeles → Vancouver', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/yvr/'},
+      {airline:'WestJet', route:'Los Angeles → Vancouver', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/yvr/'},
+      {airline:'Air Canada', route:'Los Angeles → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/yyz/'},
+      {airline:'Air Canada', route:'Los Angeles → Montreal', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/yul/'},
+    ],
+    chile: [
+      {airline:'LATAM', route:'Los Angeles → Santiago', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/scl/'},
+    ],
+    colombia: [
+      {airline:'Avianca', route:'Los Angeles → Bogotá', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/bog/'},
+    ],
+    costarica: [
+      {airline:'Delta', route:'Los Angeles → San José', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/sjo/'},
+    ],
+    ecuador: [
+      {airline:'Avianca', route:'Los Angeles → Quito', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/uio/'},
+    ],
+    france: [
+      {airline:'Air France', route:'Los Angeles → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/cdg/'},
+    ],
+    germany: [
+      {airline:'Lufthansa', route:'Los Angeles → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/fra/'},
+    ],
+    greece: [
+      {airline:'Aegean Airlines', route:'Los Angeles → Athens', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/ath/'},
+    ],
+    israel: [
+      {airline:'El Al', route:'Los Angeles → Tel Aviv', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/tlv/'},
+    ],
+    italy: [
+      {airline:'ITA Airways', route:'Los Angeles → Rome', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/fco/'},
+      {airline:'ITA Airways', route:'Los Angeles → Milan', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/mxp/'},
+    ],
+    japan: [
+      {airline:'Japan Airlines', route:'Los Angeles → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/nrt/'},
+      {airline:'ANA', route:'Los Angeles → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/nrt/'},
+      {airline:'Japan Airlines', route:'Los Angeles → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/hnd/'},
+    ],
+    mexico: [
+      {airline:'Delta', route:'Los Angeles → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/cun/'},
+      {airline:'Spirit', route:'Los Angeles → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/cun/'},
+      {airline:'Delta', route:'Los Angeles → Puerto Vallarta', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/pvr/'},
+      {airline:'Alaska Airlines', route:'Los Angeles → Puerto Vallarta', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/pvr/'},
+      {airline:'Sun Country', route:'Los Angeles → Puerto Vallarta', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/pvr/'},
+      {airline:'Alaska Airlines', route:'Los Angeles → Los Cabos', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/sjd/'},
+      {airline:'United', route:'Los Angeles → Los Cabos', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/sjd/'},
+      {airline:'Spirit', route:'Los Angeles → Los Cabos', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/sjd/'},
+      {airline:'Aeromexico', route:'Los Angeles → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/mex/'},
+      {airline:'American', route:'Los Angeles → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/mex/'},
+      {airline:'Delta', route:'Los Angeles → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/mex/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'Los Angeles → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/ams/'},
+    ],
+    newzealand: [
+      {airline:'Air New Zealand', route:'Los Angeles → Auckland', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/akl/'},
+      {airline:'Qantas', route:'Los Angeles → Auckland', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/akl/'},
+    ],
+    panama: [
+      {airline:'Copa Airlines', route:'Los Angeles → Panama City', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/pty/'},
+    ],
+    peru: [
+      {airline:'LATAM', route:'Los Angeles → Lima', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/lim/'},
+    ],
+    philippines: [
+      {airline:'Philippine Airlines', route:'Los Angeles → Manila', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/mnl/'},
+      {airline:'EVA Air', route:'Los Angeles → Manila', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/mnl/'},
+    ],
+    portugal: [
+      {airline:'TAP Air Portugal', route:'Los Angeles → Lisbon', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/lis/'},
+    ],
+    qatar: [
+      {airline:'Qatar Airways', route:'Los Angeles → Doha', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/doh/'},
+    ],
+    singapore: [
+      {airline:'Singapore Airlines', route:'Los Angeles → Singapore', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/sin/'},
+      {airline:'United', route:'Los Angeles → Singapore', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/sin/'},
+    ],
+    southkorea: [
+      {airline:'Korean Air', route:'Los Angeles → Seoul', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/icn/'},
+      {airline:'Asiana', route:'Los Angeles → Seoul', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/icn/'},
+    ],
+    spain: [
+      {airline:'Iberia', route:'Los Angeles → Madrid', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/mad/'},
+      {airline:'Level', route:'Los Angeles → Barcelona', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/bcn/'},
+    ],
+    switzerland: [
+      {airline:'Swiss', route:'Los Angeles → Zurich', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/zrh/'},
+    ],
+    thailand: [
+      {airline:'Thai Airways', route:'Los Angeles → Bangkok', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/bkk/'},
+      {airline:'EVA Air', route:'Los Angeles → Bangkok', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/bkk/'},
+    ],
+    uae: [
+      {airline:'Emirates', route:'Los Angeles → Dubai', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/dxb/'},
+    ],
+    uk: [
+      {airline:'British Airways', route:'Los Angeles → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/lhr/'},
+      {airline:'Virgin Atlantic', route:'Los Angeles → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/lax/lhr/'},
+    ],
+    vietnam: [
+      {airline:'Vietnam Airlines', route:'Los Angeles → Ho Chi Minh City', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/lax/sgn/'},
+    ],
+  },
+  MCO: {
+    france: [
+      {airline:'Air France', route:'Orlando → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/mco/cdg/'},
+    ],
+    germany: [
+      {airline:'Discover Airlines', route:'Orlando → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/mco/fra/'},
+      {airline:'Discover Airlines', route:'Orlando → Munich', type:'year', link:'https://www.skyscanner.com/transport/flights/mco/muc/'},
+    ],
+    iceland: [
+      {airline:'Icelandair', route:'Orlando → Reykjavik', type:'year', link:'https://www.skyscanner.com/transport/flights/mco/kef/'},
+    ],
+    ireland: [
+      {airline:'Aer Lingus', route:'Orlando → Dublin', type:'year', link:'https://www.skyscanner.com/transport/flights/mco/dub/'},
+    ],
+    mexico: [
+      {airline:'Frontier', route:'Orlando → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/mco/cun/'},
+    ],
+    portugal: [
+      {airline:'TAP Air Portugal', route:'Orlando → Lisbon', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mco/lis/'},
+    ],
+    spain: [
+      {airline:'Iberia', route:'Orlando → Madrid', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mco/mad/'},
+    ],
+    uk: [
+      {airline:'Virgin Atlantic', route:'Orlando → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/mco/lhr/'},
+      {airline:'British Airways', route:'Orlando → London Gatwick', type:'year', link:'https://www.skyscanner.com/transport/flights/mco/lgw/'},
+      {airline:'Norse Atlantic', route:'Orlando → London Gatwick', type:'year', link:'https://www.skyscanner.com/transport/flights/mco/lgw/'},
+    ],
+  },
+  MIA: {
+    argentina: [
+      {airline:'LATAM', route:'Miami → Buenos Aires', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/eze/'},
+      {airline:'American', route:'Miami → Buenos Aires', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/eze/'},
+      {airline:'Aerolineas Argentinas', route:'Miami → Buenos Aires', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/eze/'},
+    ],
+    aruba: [
+      {airline:'American', route:'Miami → Aruba', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/aua/'},
+      {airline:'JetBlue', route:'Miami → Aruba', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/aua/'},
+    ],
+    bahamas: [
+      {airline:'American', route:'Miami → Nassau', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/nas/'},
+      {airline:'Delta', route:'Miami → Nassau', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/nas/'},
+    ],
+    barbados: [
+      {airline:'American', route:'Miami → Bridgetown', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/bgi/'},
+    ],
+    belize: [
+      {airline:'American', route:'Miami → Belize City', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/bze/'},
+    ],
+    brazil: [
+      {airline:'LATAM', route:'Miami → São Paulo', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/gru/'},
+      {airline:'American', route:'Miami → São Paulo', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/gru/'},
+      {airline:'LATAM', route:'Miami → Rio de Janeiro', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/gig/'},
+      {airline:'American', route:'Miami → Rio de Janeiro', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/gig/'},
+    ],
+    canada: [
+      {airline:'Air Canada', route:'Miami → Toronto', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/yyz/'},
+    ],
+    chile: [
+      {airline:'LATAM', route:'Miami → Santiago', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/scl/'},
+      {airline:'American', route:'Miami → Santiago', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/scl/'},
+    ],
+    colombia: [
+      {airline:'Avianca', route:'Miami → Bogotá', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/bog/'},
+      {airline:'American', route:'Miami → Bogotá', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/bog/'},
+      {airline:'LATAM', route:'Miami → Bogotá', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/bog/'},
+      {airline:'Avianca', route:'Miami → Medellín', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/mde/'},
+      {airline:'American', route:'Miami → Medellín', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/mde/'},
+      {airline:'Avianca', route:'Miami → Cartagena', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/ctg/'},
+      {airline:'Avianca', route:'Miami → Cali', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/clo/'},
+    ],
+    costarica: [
+      {airline:'American', route:'Miami → San José', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/sjo/'},
+      {airline:'Delta', route:'Miami → San José', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/sjo/'},
+      {airline:'American', route:'Miami → Liberia', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/lir/'},
+    ],
+    curacao: [
+      {airline:'American', route:'Miami → Curaçao', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/cur/'},
+    ],
+    denmark: [
+      {airline:'SAS', route:'Miami → Copenhagen', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/cph/'},
+      {airline:'Norse Atlantic', route:'Miami → Copenhagen', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/cph/'},
+    ],
+    dominicanrepublic: [
+      {airline:'American', route:'Miami → Santo Domingo', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/sdq/'},
+      {airline:'JetBlue', route:'Miami → Santo Domingo', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/sdq/'},
+      {airline:'American', route:'Miami → Punta Cana', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/puj/'},
+      {airline:'Spirit', route:'Miami → Punta Cana', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/puj/'},
+    ],
+    ecuador: [
+      {airline:'Avianca', route:'Miami → Quito', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/uio/'},
+      {airline:'American', route:'Miami → Quito', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/uio/'},
+      {airline:'Avianca', route:'Miami → Guayaquil', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/gye/'},
+    ],
+    finland: [
+      {airline:'Finnair', route:'Miami → Helsinki', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/hel/'},
+    ],
+    france: [
+      {airline:'Air France', route:'Miami → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/cdg/'},
+      {airline:'French Bee', route:'Miami → Paris Orly', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/ory/'},
+    ],
+    germany: [
+      {airline:'Condor', route:'Miami → Frankfurt', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/fra/'},
+      {airline:'Lufthansa', route:'Miami → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/fra/'},
+      {airline:'Norse Atlantic', route:'Miami → Berlin', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/ber/'},
+      {airline:'Lufthansa', route:'Miami → Munich', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/muc/'},
+    ],
+    greece: [
+      {airline:'Aegean Airlines', route:'Miami → Athens', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/ath/'},
+    ],
+    guatemala: [
+      {airline:'Avianca', route:'Miami → Guatemala City', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/gua/'},
+    ],
+    honduras: [
+      {airline:'Avianca', route:'Miami → San Pedro Sula', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/sap/'},
+    ],
+    iceland: [
+      {airline:'Icelandair', route:'Miami → Reykjavik', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/kef/'},
+    ],
+    ireland: [
+      {airline:'Aer Lingus', route:'Miami → Dublin', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/dub/'},
+    ],
+    israel: [
+      {airline:'El Al', route:'Miami → Tel Aviv', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/tlv/'},
+    ],
+    italy: [
+      {airline:'ITA Airways', route:'Miami → Rome', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/fco/'},
+      {airline:'American', route:'Miami → Milan', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/mxp/'},
+    ],
+    jamaica: [
+      {airline:'American', route:'Miami → Kingston', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/kin/'},
+      {airline:'Delta', route:'Miami → Kingston', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/kin/'},
+      {airline:'American', route:'Miami → Montego Bay', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/mbj/'},
+      {airline:'JetBlue', route:'Miami → Montego Bay', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/mbj/'},
+    ],
+    mexico: [
+      {airline:'American', route:'Miami → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/cun/'},
+      {airline:'Delta', route:'Miami → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/cun/'},
+      {airline:'Aeromexico', route:'Miami → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/mex/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'Miami → Amsterdam', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/ams/'},
+    ],
+    nicaragua: [
+      {airline:'Avianca', route:'Miami → Managua', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/mga/'},
+    ],
+    norway: [
+      {airline:'Norse Atlantic', route:'Miami → Oslo', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/osl/'},
+    ],
+    panama: [
+      {airline:'Copa Airlines', route:'Miami → Panama City', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/pty/'},
+    ],
+    peru: [
+      {airline:'LATAM', route:'Miami → Lima', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/lim/'},
+      {airline:'American', route:'Miami → Lima', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/lim/'},
+    ],
+    poland: [
+      {airline:'LOT', route:'Miami → Warsaw', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/waw/'},
+    ],
+    portugal: [
+      {airline:'TAP Air Portugal', route:'Miami → Lisbon', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/lis/'},
+      {airline:'TAP Air Portugal', route:'Miami → Porto', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/opo/'},
+    ],
+    qatar: [
+      {airline:'Qatar Airways', route:'Miami → Doha', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/doh/'},
+    ],
+    sintmaarten: [
+      {airline:'American', route:'Miami → St Maarten', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/sxm/'},
+    ],
+    spain: [
+      {airline:'Iberia', route:'Miami → Madrid', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/mad/'},
+      {airline:'Level', route:'Miami → Barcelona', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/bcn/'},
+    ],
+    sweden: [
+      {airline:'Norse Atlantic', route:'Miami → Stockholm', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/mia/arn/'},
+    ],
+    trinidad: [
+      {airline:'American', route:'Miami → Port of Spain', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/pos/'},
+    ],
+    uae: [
+      {airline:'Emirates', route:'Miami → Dubai', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/dxb/'},
+    ],
+    uk: [
+      {airline:'British Airways', route:'Miami → London Gatwick', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/lgw/'},
+      {airline:'Norse Atlantic', route:'Miami → London Gatwick', type:'year', link:'https://www.skyscanner.com/transport/flights/mia/lgw/'},
+    ],
+  },
+  MSP: {
+    canada: [
+      {airline:'Delta', route:'Minneapolis → Toronto', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/msp/yyz/'},
+    ],
+    mexico: [
+      {airline:'Sun Country', route:'Minneapolis → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/msp/cun/'},
+    ],
+  },
+  ORD: {
+    canada: [
+      {airline:'United', route:'Chicago → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/ord/yyz/'},
+    ],
+    colombia: [
+      {airline:'Avianca', route:'Chicago → Bogotá', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/ord/bog/'},
+    ],
+    costarica: [
+      {airline:'American', route:'Chicago → San José', type:'year', link:'https://www.skyscanner.com/transport/flights/ord/sjo/'},
+    ],
+    france: [
+      {airline:'Air France', route:'Chicago → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/ord/cdg/'},
+    ],
+    germany: [
+      {airline:'United', route:'Chicago → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/ord/fra/'},
+    ],
+    greece: [
+      {airline:'United', route:'Chicago → Athens', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/ord/ath/'},
+    ],
+    ireland: [
+      {airline:'Aer Lingus', route:'Chicago → Dublin', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/ord/dub/'},
+    ],
+    italy: [
+      {airline:'ITA Airways', route:'Chicago → Rome', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/ord/fco/'},
+    ],
+    japan: [
+      {airline:'Japan Airlines', route:'Chicago → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/ord/nrt/'},
+      {airline:'ANA', route:'Chicago → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/ord/hnd/'},
+    ],
+    mexico: [
+      {airline:'American', route:'Chicago → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/ord/cun/'},
+      {airline:'American', route:'Chicago → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/ord/mex/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'Chicago → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/ord/ams/'},
+    ],
+    panama: [
+      {airline:'Copa Airlines', route:'Chicago → Panama City', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/ord/pty/'},
+    ],
+    portugal: [
+      {airline:'TAP Air Portugal', route:'Chicago → Lisbon', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/ord/lis/'},
+    ],
+    qatar: [
+      {airline:'Qatar Airways', route:'Chicago → Doha', type:'year', link:'https://www.skyscanner.com/transport/flights/ord/doh/'},
+    ],
+    southkorea: [
+      {airline:'Korean Air', route:'Chicago → Seoul', type:'year', link:'https://www.skyscanner.com/transport/flights/ord/icn/'},
+    ],
+    uae: [
+      {airline:'Emirates', route:'Chicago → Dubai', type:'year', link:'https://www.skyscanner.com/transport/flights/ord/dxb/'},
+      {airline:'Etihad Airways', route:'Chicago → Abu Dhabi', type:'year', link:'https://www.skyscanner.com/transport/flights/ord/auh/'},
+    ],
+    uk: [
+      {airline:'American', route:'Chicago → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/ord/lhr/'},
+    ],
+  },
+  PDX: {
+    canada: [
+      {airline:'Air Canada', route:'Portland → Vancouver', type:'year', link:'https://www.skyscanner.com/transport/flights/pdx/yvr/'},
+      {airline:'Alaska Airlines', route:'Portland → Vancouver', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/pdx/yvr/'},
+      {airline:'WestJet', route:'Portland → Calgary', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/pdx/yyc/'},
+    ],
+    germany: [
+      {airline:'Condor', route:'Portland → Frankfurt', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/pdx/fra/'},
+    ],
+    iceland: [
+      {airline:'Icelandair', route:'Portland → Reykjavik', type:'year', link:'https://www.skyscanner.com/transport/flights/pdx/kef/'},
+    ],
+    mexico: [
+      {airline:'Alaska Airlines', route:'Portland → Cancun', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/pdx/cun/'},
+      {airline:'Alaska Airlines', route:'Portland → Puerto Vallarta', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/pdx/pvr/'},
+      {airline:'Alaska Airlines', route:'Portland → Los Cabos', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/pdx/sjd/'},
+      {airline:'Volaris', route:'Portland → Guadalajara', type:'year', link:'https://www.skyscanner.com/transport/flights/pdx/gdl/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'Portland → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/pdx/ams/'},
+    ],
+    uk: [
+      {airline:'British Airways', route:'Portland → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/pdx/lhr/'},
+    ],
+  },
+  PHL: {
+    canada: [
+      {airline:'Air Canada', route:'Philadelphia → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/yyz/'},
+      {airline:'American Airlines', route:'Philadelphia → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/yyz/'},
+      {airline:'Air Canada', route:'Philadelphia → Montreal', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/yul/'},
+    ],
+    dominicanrepublic: [
+      {airline:'American Airlines', route:'Philadelphia → Punta Cana', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/puj/'},
+    ],
+    france: [
+      {airline:'American Airlines', route:'Philadelphia → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/cdg/'},
+    ],
+    germany: [
+      {airline:'American Airlines', route:'Philadelphia → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/fra/'},
+    ],
+    ireland: [
+      {airline:'American Airlines', route:'Philadelphia → Dublin', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/dub/'},
+    ],
+    italy: [
+      {airline:'American Airlines', route:'Philadelphia → Rome', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/fco/'},
+    ],
+    mexico: [
+      {airline:'American Airlines', route:'Philadelphia → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/cun/'},
+    ],
+    netherlands: [
+      {airline:'American Airlines', route:'Philadelphia → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/ams/'},
+    ],
+    portugal: [
+      {airline:'TAP Air Portugal', route:'Philadelphia → Lisbon', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/lis/'},
+    ],
+    spain: [
+      {airline:'American Airlines', route:'Philadelphia → Madrid', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/mad/'},
+    ],
+    switzerland: [
+      {airline:'American Airlines', route:'Philadelphia → Zurich', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/zrh/'},
+    ],
+    uk: [
+      {airline:'American Airlines', route:'Philadelphia → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/lhr/'},
+      {airline:'British Airways', route:'Philadelphia → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/phl/lhr/'},
+    ],
+  },
+  PHX: {
+    canada: [
+      {airline:'Air Canada', route:'Phoenix → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/yyz/'},
+      {airline:'Porter Airlines', route:'Phoenix → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/yyz/'},
+      {airline:'WestJet', route:'Phoenix → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/yyz/'},
+      {airline:'Air Canada', route:'Phoenix → Vancouver', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/yvr/'},
+      {airline:'WestJet', route:'Phoenix → Vancouver', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/yvr/'},
+      {airline:'Porter Airlines', route:'Phoenix → Vancouver', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/phx/yvr/'},
+      {airline:'Air Canada', route:'Phoenix → Montreal', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/phx/yul/'},
+      {airline:'WestJet', route:'Phoenix → Calgary', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/yyc/'},
+      {airline:'Air Canada', route:'Phoenix → Calgary', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/phx/yyc/'},
+    ],
+    france: [
+      {airline:'Air France', route:'Phoenix → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/cdg/'},
+    ],
+    mexico: [
+      {airline:'American Airlines', route:'Phoenix → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/cun/'},
+      {airline:'American Airlines', route:'Phoenix → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/mex/'},
+      {airline:'Aeromexico', route:'Phoenix → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/mex/'},
+      {airline:'American Airlines', route:'Phoenix → Guadalajara', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/gdl/'},
+      {airline:'American Airlines', route:'Phoenix → Puerto Vallarta', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/pvr/'},
+      {airline:'American Airlines', route:'Phoenix → Los Cabos', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/sjd/'},
+      {airline:'American Airlines', route:'Phoenix → Monterrey', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/mty/'},
+    ],
+    taiwan: [
+      {airline:'China Airlines', route:'Phoenix → Taipei', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/phx/tpe/'},
+    ],
+    uk: [
+      {airline:'British Airways', route:'Phoenix → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/phx/lhr/'},
+      {airline:'American Airlines', route:'Phoenix → London Heathrow', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/phx/lhr/'},
+    ],
+  },
+  SAN: {
+    canada: [
+      {airline:'Air Canada', route:'San Diego → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/san/yyz/'},
+      {airline:'Air Canada', route:'San Diego → Vancouver', type:'year', link:'https://www.skyscanner.com/transport/flights/san/yvr/'},
+      {airline:'WestJet', route:'San Diego → Calgary', type:'year', link:'https://www.skyscanner.com/transport/flights/san/yyc/'},
+      {airline:'Air Canada', route:'San Diego → Montreal', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/san/yul/'},
+    ],
+    france: [
+      {airline:'Air France', route:'San Diego → Paris CDG', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/san/cdg/'},
+    ],
+    germany: [
+      {airline:'Lufthansa', route:'San Diego → Munich', type:'year', link:'https://www.skyscanner.com/transport/flights/san/muc/'},
+    ],
+    japan: [
+      {airline:'Japan Airlines', route:'San Diego → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/san/nrt/'},
+    ],
+    mexico: [
+      {airline:'Alaska Airlines', route:'San Diego → Puerto Vallarta', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/san/pvr/'},
+      {airline:'Alaska Airlines', route:'San Diego → Los Cabos', type:'year', link:'https://www.skyscanner.com/transport/flights/san/sjd/'},
+      {airline:'Southwest Airlines', route:'San Diego → Los Cabos', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/san/sjd/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'San Diego → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/san/ams/'},
+    ],
+    uk: [
+      {airline:'British Airways', route:'San Diego → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/san/lhr/'},
+    ],
+  },
+  SEA: {
+    canada: [
+      {airline:'Alaska Airlines', route:'Seattle → Vancouver', type:'year', link:'https://www.skyscanner.com/transport/flights/sea/yvr/'},
+      {airline:'Air Canada', route:'Seattle → Vancouver', type:'year', link:'https://www.skyscanner.com/transport/flights/sea/yvr/'},
+    ],
+    japan: [
+      {airline:'Japan Airlines', route:'Seattle → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/sea/nrt/'},
+    ],
+    southkorea: [
+      {airline:'Korean Air', route:'Seattle → Seoul', type:'year', link:'https://www.skyscanner.com/transport/flights/sea/icn/'},
+    ],
+    uk: [
+      {airline:'British Airways', route:'Seattle → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/sea/lhr/'},
+    ],
+  },
+  SFO: {
+    australia: [
+      {airline:'Qantas', route:'San Francisco → Sydney', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/syd/'},
+    ],
+    canada: [
+      {airline:'Air Canada', route:'San Francisco → Vancouver', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/yvr/'},
+      {airline:'Air Canada', route:'San Francisco → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/yyz/'},
+    ],
+    france: [
+      {airline:'Air France', route:'San Francisco → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/cdg/'},
+    ],
+    germany: [
+      {airline:'United', route:'San Francisco → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/fra/'},
+      {airline:'Lufthansa', route:'San Francisco → Munich', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/sfo/muc/'},
+    ],
+    italy: [
+      {airline:'United', route:'San Francisco → Rome', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/fco/'},
+    ],
+    japan: [
+      {airline:'Japan Airlines', route:'San Francisco → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/nrt/'},
+      {airline:'ANA', route:'San Francisco → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/nrt/'},
+      {airline:'United', route:'San Francisco → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/hnd/'},
+    ],
+    mexico: [
+      {airline:'United', route:'San Francisco → Cancun', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/sfo/cun/'},
+      {airline:'Alaska Airlines', route:'San Francisco → Puerto Vallarta', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/sfo/pvr/'},
+      {airline:'Alaska Airlines', route:'San Francisco → Los Cabos', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/sjd/'},
+    ],
+    netherlands: [
+      {airline:'United', route:'San Francisco → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/ams/'},
+    ],
+    newzealand: [
+      {airline:'Air New Zealand', route:'San Francisco → Auckland', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/akl/'},
+    ],
+    philippines: [
+      {airline:'Philippine Airlines', route:'San Francisco → Manila', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/mnl/'},
+    ],
+    portugal: [
+      {airline:'TAP Air Portugal', route:'San Francisco → Lisbon', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/sfo/lis/'},
+    ],
+    singapore: [
+      {airline:'Singapore Airlines', route:'San Francisco → Singapore', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/sin/'},
+    ],
+    southkorea: [
+      {airline:'Korean Air', route:'San Francisco → Seoul', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/icn/'},
+    ],
+    spain: [
+      {airline:'Level', route:'San Francisco → Barcelona', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/sfo/bcn/'},
+    ],
+    switzerland: [
+      {airline:'United', route:'San Francisco → Zurich', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/zrh/'},
+    ],
+    thailand: [
+      {airline:'Singapore Airlines', route:'San Francisco → Bangkok', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/sfo/bkk/'},
+    ],
+    uae: [
+      {airline:'Emirates', route:'San Francisco → Dubai', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/dxb/'},
+    ],
+    uk: [
+      {airline:'British Airways', route:'San Francisco → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/lhr/'},
+      {airline:'Virgin Atlantic', route:'San Francisco → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/sfo/lhr/'},
+    ],
+  },
+  TPA: {
+    france: [
+      {airline:'Air France', route:'Tampa → Paris CDG', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/tpa/cdg/'},
+    ],
+    germany: [
+      {airline:'Discover Airlines', route:'Tampa → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/tpa/fra/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'Tampa → Amsterdam', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/tpa/ams/'},
+    ],
+    portugal: [
+      {airline:'TAP Air Portugal', route:'Tampa → Lisbon', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/tpa/lis/'},
+    ],
+    uk: [
+      {airline:'Virgin Atlantic', route:'Tampa → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/tpa/lhr/'},
+    ],
+  },
+  YUL: {
+    belgium: [
+      {airline:'Brussels Airlines', route:'Montreal → Brussels', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yul/bru/'},
+    ],
+    dominicanrepublic: [
+      {airline:'Air Transat', route:'Montreal → Punta Cana', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yul/puj/'},
+    ],
+    france: [
+      {airline:'Air Canada', route:'Montreal → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/yul/cdg/'},
+      {airline:'Air France', route:'Montreal → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/yul/cdg/'},
+    ],
+    israel: [
+      {airline:'El Al', route:'Montreal → Tel Aviv', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yul/tlv/'},
+    ],
+    mexico: [
+      {airline:'Aeromexico', route:'Montreal → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/yul/mex/'},
+      {airline:'Air Transat', route:'Montreal → Cancun', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yul/cun/'},
+    ],
+    morocco: [
+      {airline:'Royal Air Maroc', route:'Montreal → Casablanca', type:'year', link:'https://www.skyscanner.com/transport/flights/yul/cmn/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'Montreal → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/yul/ams/'},
+    ],
+    portugal: [
+      {airline:'TAP Air Portugal', route:'Montreal → Lisbon', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yul/lis/'},
+    ],
+    uk: [
+      {airline:'Air Canada', route:'Montreal → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/yul/lhr/'},
+    ],
+  },
+  YVR: {
+    australia: [
+      {airline:'Air Canada', route:'Vancouver → Sydney', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/syd/'},
+      {airline:'Air Canada', route:'Vancouver → Melbourne', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/mel/'},
+    ],
+    france: [
+      {airline:'Air Canada', route:'Vancouver → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/cdg/'},
+    ],
+    germany: [
+      {airline:'Lufthansa', route:'Vancouver → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/fra/'},
+      {airline:'Air Canada', route:'Vancouver → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/fra/'},
+    ],
+    india: [
+      {airline:'Air India', route:'Vancouver → Delhi', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/del/'},
+    ],
+    japan: [
+      {airline:'Air Canada', route:'Vancouver → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/nrt/'},
+      {airline:'Japan Airlines', route:'Vancouver → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/nrt/'},
+      {airline:'ANA', route:'Vancouver → Tokyo', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/hnd/'},
+    ],
+    mexico: [
+      {airline:'Aeromexico', route:'Vancouver → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/mex/'},
+      {airline:'WestJet', route:'Vancouver → Cancun', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yvr/cun/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'Vancouver → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/ams/'},
+    ],
+    newzealand: [
+      {airline:'Air Canada', route:'Vancouver → Auckland', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/akl/'},
+    ],
+    singapore: [
+      {airline:'Singapore Airlines', route:'Vancouver → Singapore', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/sin/'},
+    ],
+    southkorea: [
+      {airline:'Air Canada', route:'Vancouver → Seoul', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/icn/'},
+      {airline:'Korean Air', route:'Vancouver → Seoul', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/icn/'},
+    ],
+    thailand: [
+      {airline:'Air Canada', route:'Vancouver → Bangkok', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/bkk/'},
+    ],
+    uk: [
+      {airline:'Air Canada', route:'Vancouver → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/lhr/'},
+      {airline:'British Airways', route:'Vancouver → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/yvr/lhr/'},
+    ],
+  },
+  YYC: {
+    france: [
+      {airline:'WestJet', route:'Calgary → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/yyc/cdg/'},
+    ],
+    germany: [
+      {airline:'Discover Airlines', route:'Calgary → Frankfurt', type:'year', link:'https://www.skyscanner.com/transport/flights/yyc/fra/'},
+      {airline:'Condor', route:'Calgary → Frankfurt', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yyc/fra/'},
+      {airline:'Discover Airlines', route:'Calgary → Munich', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yyc/muc/'},
+    ],
+    iceland: [
+      {airline:'WestJet', route:'Calgary → Reykjavik', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yyc/kef/'},
+    ],
+    ireland: [
+      {airline:'WestJet', route:'Calgary → Dublin', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yyc/dub/'},
+    ],
+    italy: [
+      {airline:'WestJet', route:'Calgary → Rome', type:'year', link:'https://www.skyscanner.com/transport/flights/yyc/fco/'},
+    ],
+    mexico: [
+      {airline:'WestJet', route:'Calgary → Cancun', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yyc/cun/'},
+      {airline:'WestJet', route:'Calgary → Los Cabos', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yyc/sjd/'},
+      {airline:'WestJet', route:'Calgary → Puerto Vallarta', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yyc/pvr/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'Calgary → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/yyc/ams/'},
+    ],
+    spain: [
+      {airline:'WestJet', route:'Calgary → Barcelona', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yyc/bcn/'},
+    ],
+    switzerland: [
+      {airline:'Edelweiss Air', route:'Calgary → Zurich', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yyc/zrh/'},
+    ],
+    uk: [
+      {airline:'Air Canada', route:'Calgary → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/yyc/lhr/'},
+      {airline:'WestJet', route:'Calgary → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/yyc/lhr/'},
+      {airline:'WestJet', route:'Calgary → Edinburgh', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yyc/edi/'},
+    ],
+  },
+  YYZ: {
+    costarica: [
+      {airline:'Air Canada', route:'Toronto → San José', type:'year', link:'https://www.skyscanner.com/transport/flights/yyz/sjo/'},
+      {airline:'WestJet', route:'Toronto → Liberia', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yyz/lir/'},
+    ],
+    mexico: [
+      {airline:'Air Canada', route:'Toronto → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/yyz/cun/'},
+    ],
+  },
+  BNA: {
+    canada: [
+      {airline:'Air Canada', route:'Nashville → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/bna/yyz/'},
+      {airline:'WestJet', route:'Nashville → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/bna/yyz/'},
+      {airline:'Air Canada', route:'Nashville → Montreal', type:'year', link:'https://www.skyscanner.com/transport/flights/bna/yul/'},
+      {airline:'Air Canada', route:'Nashville → Vancouver', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/bna/yvr/'},
+      {airline:'WestJet', route:'Nashville → Vancouver', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/bna/yvr/'},
+      {airline:'WestJet', route:'Nashville → Calgary', type:'year', link:'https://www.skyscanner.com/transport/flights/bna/yyc/'},
+    ],
+    dominicanrepublic: [
+      {airline:'American Airlines', route:'Nashville → Punta Cana', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/bna/puj/'},
+    ],
+    iceland: [
+      {airline:'Icelandair', route:'Nashville → Reykjavik', type:'year', link:'https://www.skyscanner.com/transport/flights/bna/kef/'},
+    ],
+    ireland: [
+      {airline:'Aer Lingus', route:'Nashville → Dublin', type:'year', link:'https://www.skyscanner.com/transport/flights/bna/dub/'},
+    ],
+    jamaica: [
+      {airline:'Southwest Airlines', route:'Nashville → Montego Bay', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/bna/mbj/'},
+    ],
+    mexico: [
+      {airline:'American Airlines', route:'Nashville → Cancun', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/bna/cun/'},
+      {airline:'Delta', route:'Nashville → Cancun', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/bna/cun/'},
+      {airline:'Southwest Airlines', route:'Nashville → Cancun', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/bna/cun/'},
+      {airline:'Southwest Airlines', route:'Nashville → Los Cabos', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/bna/sjd/'},
+    ],
+    uk: [
+      {airline:'British Airways', route:'Nashville → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/bna/lhr/'},
+    ],
+  },
+  HNL: {
+    australia: [
+      {airline:'Qantas', route:'Honolulu → Sydney', type:'year', link:'https://www.skyscanner.com/transport/flights/hnl/syd/'},
+    ],
+    canada: [
+      {airline:'Air Canada', route:'Honolulu → Vancouver', type:'year', link:'https://www.skyscanner.com/transport/flights/hnl/yvr/'},
+      {airline:'WestJet', route:'Honolulu → Vancouver', type:'year', link:'https://www.skyscanner.com/transport/flights/hnl/yvr/'},
+      {airline:'Air Canada', route:'Honolulu → Toronto', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/hnl/yyz/'},
+      {airline:'WestJet', route:'Honolulu → Calgary', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/hnl/yyc/'},
+    ],
+    japan: [
+      {airline:'Japan Airlines', route:'Honolulu → Tokyo Haneda', type:'year', link:'https://www.skyscanner.com/transport/flights/hnl/hnd/'},
+      {airline:'Japan Airlines', route:'Honolulu → Tokyo Narita', type:'year', link:'https://www.skyscanner.com/transport/flights/hnl/nrt/'},
+      {airline:'ANA', route:'Honolulu → Tokyo Haneda', type:'year', link:'https://www.skyscanner.com/transport/flights/hnl/hnd/'},
+      {airline:'Delta', route:'Honolulu → Tokyo Haneda', type:'year', link:'https://www.skyscanner.com/transport/flights/hnl/hnd/'},
+      {airline:'Japan Airlines', route:'Honolulu → Osaka', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/hnl/kix/'},
+    ],
+    newzealand: [
+      {airline:'Air New Zealand', route:'Honolulu → Auckland', type:'year', link:'https://www.skyscanner.com/transport/flights/hnl/akl/'},
+    ],
+    southkorea: [
+      {airline:'Korean Air', route:'Honolulu → Seoul', type:'year', link:'https://www.skyscanner.com/transport/flights/hnl/icn/'},
+    ],
+  },
+  RDU: {
+    canada: [
+      {airline:'Air Canada', route:'Raleigh-Durham → Toronto', type:'year', link:'https://www.skyscanner.com/transport/flights/rdu/yyz/'},
+    ],
+    dominicanrepublic: [
+      {airline:'American Airlines', route:'Raleigh-Durham → Punta Cana', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/rdu/puj/'},
+    ],
+    iceland: [
+      {airline:'Icelandair', route:'Raleigh-Durham → Reykjavik', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/rdu/kef/'},
+    ],
+    mexico: [
+      {airline:'American Airlines', route:'Raleigh-Durham → Cancun', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/rdu/cun/'},
+      {airline:'Southwest Airlines', route:'Raleigh-Durham → Cancun', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/rdu/cun/'},
+    ],
+    uk: [
+      {airline:'American Airlines', route:'Raleigh-Durham → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/rdu/lhr/'},
+    ],
+  },
+  SLC: {
+    canada: [
+      {airline:'Air Canada', route:'Salt Lake City → Toronto', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/slc/yyz/'},
+      {airline:'Delta', route:'Salt Lake City → Vancouver', type:'year', link:'https://www.skyscanner.com/transport/flights/slc/yvr/'},
+      {airline:'Delta', route:'Salt Lake City → Calgary', type:'year', link:'https://www.skyscanner.com/transport/flights/slc/yyc/'},
+    ],
+    france: [
+      {airline:'Delta', route:'Salt Lake City → Paris CDG', type:'year', link:'https://www.skyscanner.com/transport/flights/slc/cdg/'},
+    ],
+    mexico: [
+      {airline:'Delta', route:'Salt Lake City → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/slc/cun/'},
+      {airline:'Delta', route:'Salt Lake City → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/slc/mex/'},
+      {airline:'Aeromexico', route:'Salt Lake City → Mexico City', type:'year', link:'https://www.skyscanner.com/transport/flights/slc/mex/'},
+      {airline:'Aeromexico', route:'Salt Lake City → Guadalajara', type:'year', link:'https://www.skyscanner.com/transport/flights/slc/gdl/'},
+      {airline:'Volaris', route:'Salt Lake City → Guadalajara', type:'year', link:'https://www.skyscanner.com/transport/flights/slc/gdl/'},
+      {airline:'Delta', route:'Salt Lake City → Puerto Vallarta', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/slc/pvr/'},
+      {airline:'Delta', route:'Salt Lake City → Los Cabos', type:'year', link:'https://www.skyscanner.com/transport/flights/slc/sjd/'},
+    ],
+    netherlands: [
+      {airline:'Delta', route:'Salt Lake City → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/slc/ams/'},
+      {airline:'KLM', route:'Salt Lake City → Amsterdam', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/slc/ams/'},
+    ],
+    peru: [
+      {airline:'Delta', route:'Salt Lake City → Lima', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/slc/lim/'},
+    ],
+    southkorea: [
+      {airline:'Delta', route:'Salt Lake City → Seoul', type:'year', link:'https://www.skyscanner.com/transport/flights/slc/icn/'},
+    ],
+    uk: [
+      {airline:'Delta', route:'Salt Lake City → London Heathrow', type:'year', link:'https://www.skyscanner.com/transport/flights/slc/lhr/'},
+    ],
+  },
+  YEG: {
+    dominicanrepublic: [
+      {airline:'WestJet', route:'Edmonton → Punta Cana', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yeg/puj/'},
+    ],
+    iceland: [
+      {airline:'WestJet', route:'Edmonton → Reykjavik', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yeg/kef/'},
+    ],
+    jamaica: [
+      {airline:'WestJet', route:'Edmonton → Montego Bay', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yeg/mbj/'},
+    ],
+    mexico: [
+      {airline:'WestJet', route:'Edmonton → Cancun', type:'year', link:'https://www.skyscanner.com/transport/flights/yeg/cun/'},
+      {airline:'WestJet', route:'Edmonton → Puerto Vallarta', type:'year', link:'https://www.skyscanner.com/transport/flights/yeg/pvr/'},
+      {airline:'WestJet', route:'Edmonton → Los Cabos', type:'seasonal', link:'https://www.skyscanner.com/transport/flights/yeg/sjd/'},
+    ],
+    netherlands: [
+      {airline:'KLM', route:'Edmonton → Amsterdam', type:'year', link:'https://www.skyscanner.com/transport/flights/yeg/ams/'},
+    ],
+  },
+};
+const CITY_NAMES = {
+  JFK:'New York (JFK)', EWR:'Newark (EWR)', BOS:'Boston', MIA:'Miami',
+  IAD:'Washington DC', PHL:'Philadelphia', ATL:'Atlanta', ORD:'Chicago',
+  DFW:'Dallas', LAX:'Los Angeles', SFO:'San Francisco', SEA:'Seattle',
+  IAH:'Houston', DEN:'Denver', LAS:'Las Vegas', PHX:'Phoenix',
+  SAN:'San Diego', DTW:'Detroit', MSP:'Minneapolis', MCO:'Orlando',
+  CLT:'Charlotte', FLL:'Fort Lauderdale', AUS:'Austin', PDX:'Portland',
+  TPA:'Tampa', SLC:'Salt Lake City', BNA:'Nashville', HNL:'Honolulu',
+  YYZ:'Toronto', YUL:'Montreal', YVR:'Vancouver', YYC:'Calgary',
+  YEG:'Edmonton', RDU:'Raleigh-Durham',
+};
+
+const COUNTRY_NAMES = {
+  uk:'United Kingdom', france:'France', germany:'Germany', portugal:'Portugal',
+  spain:'Spain', italy:'Italy', greece:'Greece', netherlands:'Netherlands',
+  switzerland:'Switzerland', ireland:'Ireland', denmark:'Denmark',
+  sweden:'Sweden', norway:'Norway', finland:'Finland', iceland:'Iceland',
+  poland:'Poland', mexico:'Mexico', canada:'Canada', costarica:'Costa Rica',
+  panama:'Panama', colombia:'Colombia', ecuador:'Ecuador', peru:'Peru',
+  chile:'Chile', argentina:'Argentina', brazil:'Brazil',
+  japan:'Japan', southkorea:'South Korea', thailand:'Thailand',
+  australia:'Australia', newzealand:'New Zealand', philippines:'Philippines',
+  singapore:'Singapore', vietnam:'Vietnam',
+  uae:'UAE (Dubai)', qatar:'Qatar', israel:'Israel',
+  dominicanrepublic:'Dominican Republic', bahamas:'Bahamas', jamaica:'Jamaica',
+  barbados:'Barbados', trinidad:'Trinidad & Tobago', curacao:'Curaçao',
+  aruba:'Aruba', sintmaarten:'Sint Maarten',
+  belize:'Belize', guatemala:'Guatemala', honduras:'Honduras', nicaragua:'Nicaragua',
+  taiwan:'Taiwan', hongkong:'Hong Kong', india:'India',
+  belgium:'Belgium', morocco:'Morocco',
+};
+
+const ALL_COUNTRIES = [
+  {value:'argentina', label:'🇦🇷 Argentina'},
+  {value:'aruba', label:'🇦🇼 Aruba'},
+  {value:'australia', label:'🇦🇺 Australia'},
+  {value:'bahamas', label:'🇧🇸 Bahamas'},
+  {value:'barbados', label:'🇧🇧 Barbados'},
+  {value:'belgium', label:'🇧🇪 Belgium'},
+  {value:'belize', label:'🇧🇿 Belize'},
+  {value:'brazil', label:'🇧🇷 Brazil'},
+  {value:'canada', label:'🇨🇦 Canada'},
+  {value:'chile', label:'🇨🇱 Chile'},
+  {value:'colombia', label:'🇨🇴 Colombia'},
+  {value:'costarica', label:'🇨🇷 Costa Rica'},
+  {value:'curacao', label:'🇨🇼 Curaçao'},
+  {value:'denmark', label:'🇩🇰 Denmark'},
+  {value:'dominicanrepublic', label:'🇩🇴 Dominican Republic'},
+  {value:'ecuador', label:'🇪🇨 Ecuador'},
+  {value:'finland', label:'🇫🇮 Finland'},
+  {value:'france', label:'🇫🇷 France'},
+  {value:'germany', label:'🇩🇪 Germany'},
+  {value:'greece', label:'🇬🇷 Greece'},
+  {value:'guatemala', label:'🇬🇹 Guatemala'},
+  {value:'honduras', label:'🇭🇳 Honduras'},
+  {value:'hongkong', label:'🇭🇰 Hong Kong'},
+  {value:'iceland', label:'🇮🇸 Iceland'},
+  {value:'india', label:'🇮🇳 India'},
+  {value:'ireland', label:'🇮🇪 Ireland'},
+  {value:'israel', label:'🇮🇱 Israel'},
+  {value:'italy', label:'🇮🇹 Italy'},
+  {value:'jamaica', label:'🇯🇲 Jamaica'},
+  {value:'japan', label:'🇯🇵 Japan'},
+  {value:'mexico', label:'🇲🇽 Mexico'},
+  {value:'morocco', label:'🇲🇦 Morocco'},
+  {value:'netherlands', label:'🇳🇱 Netherlands'},
+  {value:'newzealand', label:'🇳🇿 New Zealand'},
+  {value:'nicaragua', label:'🇳🇮 Nicaragua'},
+  {value:'norway', label:'🇳🇴 Norway'},
+  {value:'panama', label:'🇵🇦 Panama'},
+  {value:'peru', label:'🇵🇪 Peru'},
+  {value:'philippines', label:'🇵🇭 Philippines'},
+  {value:'poland', label:'🇵🇱 Poland'},
+  {value:'portugal', label:'🇵🇹 Portugal'},
+  {value:'qatar', label:'🇶🇦 Qatar'},
+  {value:'singapore', label:'🇸🇬 Singapore'},
+  {value:'sintmaarten', label:'🇸🇽 Sint Maarten'},
+  {value:'southkorea', label:'🇰🇷 South Korea'},
+  {value:'spain', label:'🇪🇸 Spain'},
+  {value:'sweden', label:'🇸🇪 Sweden'},
+  {value:'switzerland', label:'🇨🇭 Switzerland'},
+  {value:'taiwan', label:'🇹🇼 Taiwan'},
+  {value:'thailand', label:'🇹🇭 Thailand'},
+  {value:'trinidad', label:'🇹🇹 Trinidad & Tobago'},
+  {value:'uae', label:'🇦🇪 UAE (Dubai)'},
+  {value:'uk', label:'🇬🇧 United Kingdom'},
+  {value:'vietnam', label:'🇻🇳 Vietnam'},
+];
+
+function findFlights() {
+  const from = document.getElementById('from-select').value;
+  const to   = document.getElementById('to-select').value;
+
+  if (!from || !to) {
+    alert('Please select both a departure city and a destination country.');
+    return;
+  }
+
+  const resultsDiv = document.getElementById('results');
+  const labelEl    = document.getElementById('results-label');
+  const contentEl  = document.getElementById('results-content');
+
+  resultsDiv.classList.add('visible');
+  labelEl.textContent = `Results for ${CITY_NAMES[from] || from} → ${COUNTRY_NAMES[to]}`;
+
+  // Look up routes
+  const cityData = ROUTES[from] || {};
+  let routes = cityData[to];
+
+  // If we have routes data
+  if (routes !== undefined) {
+    if (routes.length > 0) {
+      // Direct flights found
+      let html = '';
+      for (const r of routes) {
+        const badge = r.type === 'year'
+          ? '<span class="flight-badge badge-year">Year-round</span>'
+          : '<span class="flight-badge badge-seasonal">Seasonal</span>';
+        html += `
+          <div class="flight-card">
+            <div class="flight-info">
+              <div class="flight-route">✈️ ${r.route} ${badge}</div>
+              <div class="flight-airline">${r.airline}</div>
+            </div>
+            <div class="flight-action">
+              <a href="${r.link}" target="_blank" rel="noopener" class="btn-search">Search Flights →</a>
+            </div>
+          </div>`;
+      }
+      contentEl.innerHTML = html;
+    } else {
+      // Empty array — no direct from this city
+      contentEl.innerHTML = buildNoDirectWithNearest(from, to);
+    }
+  } else {
+    // City not in our data for this country — check nearest hub
+    contentEl.innerHTML = buildNoDirectWithNearest(from, to);
+  }
+
+  resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function buildNoDirectWithNearest(from, to) {
+  const fromName    = CITY_NAMES[from] || from;
+  const countryName = COUNTRY_NAMES[to];
+  const hubCode     = NEAREST_HUB[from] || null;
+
+  let html = `
+    <div class="no-direct-card">
+      <div class="no-direct-title">No direct flights from ${fromName} to ${countryName}</div>
+      <div class="no-direct-sub">There are no nonstop routes from ${fromName} to ${countryName} at this time.</div>
+    </div>`;
+
+  if (hubCode) {
+    const hubName   = CITY_NAMES[hubCode] || hubCode;
+    const hubRoutes = (ROUTES[hubCode] || {})[to] || [];
+    const airlines  = hubRoutes.length > 0
+      ? hubRoutes.map(r => r.airline).filter((v,i,a) => a.indexOf(v)===i).join(', ')
+      : null;
+
+    html += `
+      <div class="nearest-card">
+        <div class="nearest-label">Nearest departure city with direct flights</div>
+        <div class="nearest-city">✈️ ${hubName}</div>
+        ${airlines ? `<div class="nearest-airlines">${airlines}</div>` : ''}
+        <a href="${sk(hubCode, getMainAirport(to))}" target="_blank" rel="noopener" class="btn-nearest">Search Flights from ${hubName} →</a>
+      </div>`;
+  } else {
+    html += `
+      <div class="nearest-card">
+        <div class="nearest-label">What to do</div>
+        <div class="nearest-airlines">Search for one-stop connections from ${fromName}. Major hubs like New York (JFK), Los Angeles, or Miami will have the best options.</div>
+        <a href="https://www.skyscanner.com/transport/flights/${from.toLowerCase()}/${getMainAirport(to)}/" target="_blank" rel="noopener" class="btn-nearest">Search All Flights →</a>
+      </div>`;
+  }
+
+  return html;
+}
+
+function buildThailand(from) {
+  const fromName = CITY_NAMES[from] || from;
+  const isCanadian = ['YYZ','YUL','YVR','YYC'].includes(from);
+
+  let html = `
+    <div class="special-card">
+      <div class="special-title">⚠️ No nonstop flights from ${fromName} to Thailand</div>
+      <div class="special-body">
+        There are currently no nonstop flights from any US city to Bangkok. The only direct North American service is <strong>Air Canada from Vancouver → Bangkok</strong> (year-round from 2026). Americans typically connect via Tokyo (JAL/ANA), Seoul (Korean Air), Hong Kong (Cathay Pacific), or Taipei (EVA Air) — with total journey times of 18–22 hours.
+      </div>`;
+
+  if (isCanadian && from === 'YVR') {
+    html += `
+      <div class="flight-card" style="background:#fff; margin-top:12px;">
+        <div class="flight-info">
+          <div class="flight-route">✈️ Vancouver → Bangkok (Suvarnabhumi)
+            <span class="flight-badge badge-year">Year-round from 2026</span>
+          </div>
+          <div class="flight-airline">Air Canada · ~15h 55m nonstop</div>
+        </div>
+        <div class="flight-action">
+          <a href="${sk('YVR','BKK')}" target="_blank" rel="noopener" class="btn-search">Search →</a>
+        </div>
+      </div>`;
+  } else if (isCanadian) {
+    const hubName = CITY_NAMES['YVR'];
+    html += `<div class="nearest-card" style="margin-top:12px;">
+      <div class="nearest-label">Nearest direct option for Canadians</div>
+      <div class="nearest-city">✈️ ${hubName}</div>
+      <div class="nearest-airlines">Air Canada — Vancouver → Bangkok, year-round from 2026</div>
+      <a href="${sk('YVR','BKK')}" target="_blank" rel="noopener" class="btn-nearest">Search from Vancouver →</a>
+    </div>`;
+  } else {
+    html += `<div class="nearest-card" style="margin-top:12px;">
+      <div class="nearest-label">Best connection options from ${fromName}</div>
+      <div class="nearest-airlines">Fly via Tokyo (JAL or ANA), Seoul (Korean Air), or Taipei (EVA Air) for the fastest connections. Most routes run 18–22 hours total with one stop.</div>
+      <a href="${sk(from,'BKK')}" target="_blank" rel="noopener" class="btn-nearest">Search Connecting Flights →</a>
+    </div>`;
+  }
+
+  html += `</div>`;
+  return html;
+}
+
+
+function filterDestinations() {
+  const from = document.getElementById('from-select').value;
+  const toSelect = document.getElementById('to-select');
+  const noteEl = document.getElementById('dest-note');
+  const fromName = CITY_NAMES[from] || '';
+
+  // Reset
+  toSelect.innerHTML = '';
+  toSelect.disabled = !from;
+
+  if (!from) {
+    toSelect.innerHTML = '<option value="">— Pick a city first —</option>';
+    noteEl.textContent = '';
+    return;
+  }
+
+  const cityRoutes = ROUTES[from] || {};
+  const direct = [];
+
+  ALL_COUNTRIES.forEach(c => {
+    const routes = cityRoutes[c.value];
+    const hasDirect = Array.isArray(routes) && routes.length > 0;
+    if (hasDirect) direct.push(c);
+  });
+
+  if (direct.length === 0) {
+    toSelect.innerHTML = '<option value="">No direct routes in our data</option>';
+    noteEl.textContent = `No direct international routes found from ${fromName} in our database. Try Skyscanner for all options.`;
+    return;
+  }
+
+  const placeholder = document.createElement('option');
+  placeholder.value = '';
+  placeholder.textContent = '— Select a country —';
+  toSelect.appendChild(placeholder);
+
+  direct.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c.value;
+    opt.textContent = c.label;
+    toSelect.appendChild(opt);
+  });
+
+  noteEl.textContent = `${direct.length} direct destination${direct.length !== 1 ? 's' : ''} from ${fromName}`;
+}
+
+function getMainAirport(country) {
+  const airports = {
+    uk:'LHR', france:'CDG', germany:'FRA', portugal:'LIS', spain:'MAD',
+    italy:'FCO', greece:'ATH', netherlands:'AMS', switzerland:'ZRH',
+    ireland:'DUB', denmark:'CPH', sweden:'ARN', norway:'OSL', finland:'HEL',
+    iceland:'KEF', poland:'WAW',
+    mexico:'CUN', canada:'YYZ', costarica:'SJO', panama:'PTY',
+    colombia:'BOG', ecuador:'UIO', peru:'LIM', chile:'SCL',
+    argentina:'EZE', brazil:'GRU',
+    japan:'NRT', southkorea:'ICN', thailand:'BKK', australia:'SYD',
+    newzealand:'AKL', philippines:'MNL', singapore:'SIN', vietnam:'SGN',
+    uae:'DXB', qatar:'DOH', israel:'TLV',
+    dominicanrepublic:'SDQ', bahamas:'NAS', jamaica:'MBJ',
+    barbados:'BGI', trinidad:'POS', curacao:'CUR', aruba:'AUA',
+    sintmaarten:'SXM', belize:'BZE', guatemala:'GUA',
+    honduras:'SAP', nicaragua:'MGA',
+  };
+  return airports[country] || 'XXX';
+}
+</script>
+
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#e2e8f0;padding:16px 24px;z-index:9999;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;font-size:13px;box-shadow:0 -4px 20px rgba(0,0,0,0.3)">
+  <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <p style="margin:0;line-height:1.5;color:#cbd5e1">We use Google Analytics to understand how visitors use our site. No advertising cookies. No data sales. <a href="/privacy.html" style="color:#5eead4;text-decoration:underline">Privacy Policy</a></p>
+    <div style="display:flex;gap:10px;flex-shrink:0">
+      <button onclick="setCookieConsent('declined')" style="background:transparent;border:1px solid #475569;color:#94a3b8;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-family:inherit;white-space:nowrap">Decline Analytics</button>
+      <button onclick="setCookieConsent('accepted')" style="background:#1a7a6e;border:none;color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;white-space:nowrap">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var consent = localStorage.getItem('expatace_consent');
+  if (!consent) { document.getElementById('cookie-banner').style.display='block'; }
+})();
+function setCookieConsent(val) {
+  localStorage.setItem('expatace_consent', val);
+  document.getElementById('cookie-banner').style.display='none';
+  if (val === 'declined') {
+    // Disable GA if declined
+    window['ga-disable-G-JF8N471XBX'] = true;
+  }
+}
+</script>
+
+
+  <div style="max-width:1100px;margin:32px auto 0;padding:16px 24px;background:#f7f9fc;border:1px solid #e2e8f0;border-radius:8px">
+    <p style="font-size:0.75rem;color:#718096;line-height:1.75">ExpatAce is an independent information aggregator. Nothing on this site constitutes legal, tax, financial, immigration, or professional advice of any kind. Always consult qualified professionals before making any decisions. Some links may be affiliate links — we may earn a commission at no extra cost to you.</p>
+  </div>
+</body>
+</html>

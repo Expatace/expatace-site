@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ExpatAce — Find Your Perfect City to Live Abroad</title>
+  <meta name="description" content="Answer up to 16 questions and ExpatAce matches you to real cities — personalised to your budget, lifestyle, safety needs and goals. The data-driven relocation engine for people ready to move abroad.">
+  <meta property="og:title" content="ExpatAce — Find Your Perfect City to Live Abroad">
+  <meta property="og:url" content="https://expatace.com">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Answer 16 questions and ExpatAce matches you to the exact cities where your dollar buys a safer, richer life abroad. Built for Americans and Canadians.">
+  <meta property="og:image" content="https://expatace.com/imgpanama.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ExpatAce — Find Your Perfect City to Live Abroad">
+  <meta name="twitter:description" content="Answer 16 questions and ExpatAce matches you to the exact cities where your dollar buys a safer, richer life abroad. Built for Americans and Canadians.">
+  <meta name="twitter:image" content="https://expatace.com/imgpanama.jpg">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JF8N471XBX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JF8N471XBX');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --ink:#0f1923;--ink2:#2d3748;--ink3:#4a5568;--ink4:#718096;--ink5:#a0aec0;
+      --border:#e2e8f0;--border2:#cbd5e0;
+      --bg:#ffffff;--bg2:#f7f9fc;--bg3:#eef2f7;
+      --teal:#0891b2;--teal-dark:#0e7490;--teal-light:#e0f2fe;--teal-pale:#f0f9ff;
+      --green:#059669;--green-bg:#ecfdf5;
+      --amber:#d97706;--amber-bg:#fffbeb;
+      --red:#dc2626;--red-bg:#fef2f2;
+      --radius:14px;--radius-sm:8px;
+      --shadow:0 1px 3px rgba(0,0,0,0.08),0 4px 16px rgba(0,0,0,0.06);
+      --shadow-lg:0 4px 6px rgba(0,0,0,0.05),0 10px 40px rgba(0,0,0,0.10);
+    }
+    html{font-size:16px;scroll-behavior:smooth}
+    body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh}
+    .screen{display:none;min-height:100vh}
+    .screen.active{display:block}
+    .nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;cursor:pointer}
+    .nav-logo-text{font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:800;color:var(--ink);letter-spacing:-0.02em}
+    .nav-links{display:flex;gap:24px}
+    .nav-link{font-size:0.875rem;font-weight:500;color:var(--ink3);text-decoration:none;cursor:pointer;transition:color 0.15s}
+    .nav-link:hover{color:var(--ink)}
+    .nav-cta{background:var(--teal);color:#fff;font-size:0.85rem;font-weight:700;padding:9px 22px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;transition:background 0.15s,transform 0.1s;white-space:nowrap;letter-spacing:0.01em}
+    .nav-cta:hover{background:#1a7a9a;transform:translateY(-1px)}
+    @media(max-width:600px){.nav-links{display:none}}
+    #screen-home{padding-top:60px}
+    .hero{background:var(--bg2);border-bottom:1px solid var(--border);padding:80px 24px 72px;text-align:center;position:relative;overflow:hidden}
+    .hero-bg-img{position:absolute;top:0;right:0;width:50%;height:100%;object-fit:cover;object-position:center;z-index:0;mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,0.18) 30%,rgba(0,0,0,0.60) 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,rgba(0,0,0,0.18) 30%,rgba(0,0,0,0.60) 100%);pointer-events:none}
+    @media(max-width:700px){.hero-bg-img{display:none}}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(8,145,178,0.06) 0%,transparent 70%);pointer-events:none}
+    .hero-inner{max-width:700px;margin:0 auto;position:relative}
+    .hero-badge{display:inline-block;background:rgba(8,145,178,0.10);border:1px solid rgba(8,145,178,0.25);color:var(--teal-dark);font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:20px}
+    .hero-eyebrow{font-size:1rem;font-weight:700;color:var(--ink3);margin-bottom:10px;letter-spacing:-0.01em}
+    .hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(3rem,8vw,5.2rem);font-weight:900;line-height:1.0;letter-spacing:-0.03em;margin-bottom:8px;color:var(--ink)}
+    .hero-title-sub{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:16px;color:var(--ink3)}
+    .hero-tagline{font-size:0.95rem;font-weight:600;color:var(--teal);letter-spacing:0.02em;margin-bottom:36px}
+    .hero-sub{font-size:1.05rem;color:var(--ink3);line-height:1.7;margin-bottom:44px;font-weight:400;max-width:560px;margin-left:auto;margin-right:auto;display:none}
+    .entry-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:620px;margin:0 auto 40px}
+    @media(max-width:560px){.entry-grid{grid-template-columns:1fr}}
+    .entry-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius);padding:24px 20px;cursor:pointer;text-align:left;transition:border-color 0.2s,box-shadow 0.2s;-webkit-tap-highlight-color:transparent;box-shadow:var(--shadow)}
+    .entry-card:hover{border-color:var(--teal);box-shadow:var(--shadow-lg)}
+    .entry-card-icon{font-size:1.8rem;margin-bottom:12px;display:block}
+    .entry-card-title{font-size:0.97rem;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3}
+    .entry-card-sub{font-size:0.8rem;color:var(--ink4);line-height:1.55}
+    .entry-card-cta{margin-top:14px;font-size:0.78rem;font-weight:700;color:var(--teal)}
+    .hero-trust{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
+    .trust-item{font-size:0.75rem;color:var(--ink4)}
+    .section{padding:72px 24px}
+    .section-alt{background:var(--bg2)}
+    .section-inner{max-width:1100px;margin:0 auto}
+    .section-eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+    .section-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;letter-spacing:-0.02em;line-height:1.15;color:var(--ink);margin-bottom:14px}
+    .section-sub{font-size:0.97rem;color:var(--ink3);line-height:1.7;max-width:560px;margin-bottom:40px}
+    .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+    .step-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;position:relative}
+    .step-num{position:absolute;top:-13px;left:24px;background:var(--teal);color:#fff;font-size:0.7rem;font-weight:800;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+    .step-icon{font-size:1.7rem;margin-bottom:12px;display:block}
+    .step-title{font-size:0.93rem;font-weight:700;margin-bottom:8px;color:var(--ink)}
+    .step-desc{font-size:0.83rem;color:var(--ink3);line-height:1.65}
+    .browse-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+    .browse-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:border-color 0.2s,transform 0.15s,box-shadow 0.15s}
+    .browse-card:hover{border-color:var(--teal);transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+    .browse-card-img{width:100%;height:160px;object-fit:cover;display:block}
+    .browse-card-body{padding:16px}
+    .browse-card-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .browse-flag{font-size:1.6rem;flex-shrink:0}
+    .browse-card-title{flex:1}
+    .browse-name{font-size:0.95rem;font-weight:700;color:var(--ink);display:block}
+    .browse-cost{font-size:0.75rem;color:var(--teal);font-weight:600}
+    .browse-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+    .browse-tag{font-size:0.68rem;font-weight:600;color:var(--ink3);background:var(--bg3);border:1px solid var(--border);border-radius:100px;padding:2px 8px}
+    .browse-desc{font-size:0.8rem;color:var(--ink3);line-height:1.55;margin-bottom:12px}
+    .browse-cta{font-size:0.78rem;font-weight:700;color:var(--teal)}
+    .newsletter{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:64px 24px;text-align:center}
+    .newsletter-inner{max-width:500px;margin:0 auto}
+    .newsletter-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.6rem,3.5vw,2.1rem);font-weight:800;color:var(--ink);margin-bottom:12px;letter-spacing:-0.02em}
+    .newsletter-sub{font-size:0.9rem;color:var(--ink3);line-height:1.7;margin-bottom:24px}
+    .newsletter-form{display:flex;gap:10px;max-width:400px;margin:0 auto 10px}
+    @media(max-width:480px){.newsletter-form{flex-direction:column}}
+    .newsletter-input{flex:1;background:var(--bg);border:1.5px solid var(--border2);border-radius:10px;padding:12px 16px;font-size:0.88rem;color:var(--ink);font-family:inherit;outline:none}
+    .newsletter-input::placeholder{color:var(--ink5)}
+    .newsletter-input:focus{border-color:var(--teal)}
+    .newsletter-btn{background:var(--teal);color:#fff;font-family:inherit;font-size:0.85rem;font-weight:700;padding:12px 18px;border-radius:10px;border:none;cursor:pointer;white-space:nowrap}
+    .newsletter-fine{font-size:0.72rem;color:var(--ink4)}
+    .footer{background:#070f1c;border-top:1px solid #1a2640;padding:48px 24px 32px}
+    .footer-inner{max-width:1100px;margin:0 auto 32px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+    @media(max-width:700px){.footer-inner{grid-template-columns:1fr 1fr}}
+    @media(max-width:420px){.footer-inner{grid-template-columns:1fr}}
+    .footer-logo{font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-weight:800;color:#f1f5f9;display:block;margin-bottom:10px}
+    .footer-tagline{font-size:0.78rem;color:#475569;line-height:1.6}
+    .footer-group-title{font-size:0.67rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#64748b;margin-bottom:12px}
+    .footer-link{display:block;font-size:0.78rem;color:#475569;text-decoration:none;cursor:pointer;margin-bottom:7px;transition:color 0.15s}
+    .footer-link:hover{color:#94a3b8}
+    .footer-bottom{max-width:1100px;margin:0 auto;border-top:1px solid #1a2640;padding-top:20px}
+    .footer-disclaimer{font-size:0.68rem;color:#334155;line-height:1.65;margin-bottom:10px}
+    .footer-copy{font-size:0.68rem;color:#334155}
+    #screen-quiz{background:var(--bg)}
+    .quiz-header{background:var(--bg);border-bottom:1px solid var(--border);padding:14px 24px 12px;position:sticky;top:0;z-index:10}
+    .quiz-meta{display:flex;justify-content:space-between;align-items:center;max-width:580px;margin:0 auto 10px}
+    .quiz-step-label{font-size:0.78rem;font-weight:600;color:var(--ink3)}
+    .quiz-back{font-size:0.78rem;color:var(--teal);background:none;border:none;cursor:pointer;font-family:inherit;padding:0}
+    .progress-bar{max-width:580px;margin:0 auto;height:3px;background:var(--border);border-radius:100px;overflow:hidden}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),#38bdf8);border-radius:100px;transition:width 0.4s ease}
+    .quiz-body{max-width:580px;margin:0 auto;padding:36px 24px 60px}
+    .q-pill{display:inline-block;background:var(--teal-light);color:var(--teal-dark);font-size:0.68rem;font-weight:700;padding:3px 10px;border-radius:100px;margin-bottom:16px;letter-spacing:0.04em;text-transform:uppercase}
+    .q-emoji{font-size:2.2rem;display:block;margin-bottom:14px}
+    .q-text{font-family:'Playfair Display',Georgia,serif;font-size:1.45rem;font-weight:800;line-height:1.25;margin-bottom:8px;color:var(--ink);letter-spacing:-0.02em}
+    .q-subtext{font-size:0.85rem;color:var(--ink4);line-height:1.6;margin-bottom:26px}
+    .options-grid{display:flex;flex-direction:column;gap:10px}
+    .option-btn{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius);padding:14px 18px;cursor:pointer;text-align:left;display:flex;align-items:center;gap:14px;transition:all 0.15s;-webkit-tap-highlight-color:transparent;width:100%}
+    .option-btn:hover{border-color:var(--teal);background:var(--teal-pale)}
+    .option-btn.selected{border-color:var(--teal);background:var(--teal-pale)}
+    .opt-icon{font-size:1.35rem;flex-shrink:0;width:30px;text-align:center}
+    .opt-text{flex:1}
+    .opt-label{font-size:0.92rem;font-weight:600;color:var(--ink);display:block}
+    .opt-sub{font-size:0.78rem;color:var(--ink4);display:block;margin-top:2px}
+    .opt-check{width:20px;height:20px;border-radius:50%;border:2px solid var(--border2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.7rem;transition:all 0.15s}
+    .option-btn.selected .opt-check{background:var(--teal);border-color:var(--teal);color:#fff}
+    .custom-wrap{display:none;margin-top:12px;padding:16px;background:var(--teal-pale);border:1.5px solid var(--teal-light);border-radius:var(--radius)}
+    .custom-wrap.visible{display:block}
+    .custom-label{font-size:0.8rem;color:var(--ink3);font-weight:500;margin-bottom:8px}
+    .custom-row{display:flex;gap:10px;align-items:center}
+    .custom-prefix{font-size:1rem;font-weight:700;color:var(--teal)}
+    .custom-input{flex:1;background:#fff;border:1.5px solid var(--border2);border-radius:8px;padding:11px 14px;font-size:0.95rem;font-family:inherit;color:var(--ink);outline:none}
+    .custom-input:focus{border-color:var(--teal)}
+    .custom-btn{background:var(--teal);color:#fff;border:none;border-radius:8px;padding:11px 16px;font-size:0.85rem;font-weight:700;cursor:pointer;font-family:inherit}
+    #screen-loading.active{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg);text-align:center;padding:40px}
+    .loading-globe{font-size:4rem;animation:spin 1.2s linear infinite;display:block;margin-bottom:20px}
+    .loading-title{font-family:'Playfair Display',Georgia,serif;font-size:1.5rem;font-weight:800;color:var(--ink);margin-bottom:8px}
+    .loading-sub{font-size:0.875rem;color:var(--ink4);margin-bottom:28px;line-height:1.6}
+    .loading-dots{display:flex;gap:8px;justify-content:center}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 1.2s ease-in-out infinite}
+    .dot:nth-child(2){animation-delay:0.2s}
+    .dot:nth-child(3){animation-delay:0.4s}
+    #screen-results{background:var(--bg2)}
+    .results-hero{background:var(--ink);padding:40px 24px 36px;text-align:center}
+    .results-hero-inner{max-width:600px;margin:0 auto}
+    .results-badge{display:inline-block;background:rgba(103,232,249,0.15);border:1px solid rgba(103,232,249,0.3);color:#67e8f9;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:14px}
+    .results-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.5rem,3.5vw,2rem);font-weight:800;color:#fff;margin-bottom:8px;letter-spacing:-0.02em}
+    .results-sub{font-size:0.87rem;color:#94a3b8;line-height:1.6}
+    .results-body{max-width:620px;margin:0 auto;padding:24px 16px 60px}
+    .result-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:14px;box-shadow:var(--shadow)}
+    .rc-top{padding:20px 20px 16px}
+    .rc-rank-row{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+    .rank-badge{font-size:0.67rem;font-weight:800;padding:3px 10px;border-radius:100px;letter-spacing:0.04em}
+    .rank-1{background:linear-gradient(135deg,#fbbf24,#d97706);color:#fff}
+    .rank-2{background:linear-gradient(135deg,#94a3b8,#64748b);color:#fff}
+    .rank-3{background:linear-gradient(135deg,#cd7c3a,#92400e);color:#fff}
+    .rank-other{background:var(--bg3);color:var(--ink3)}
+    .match-pct{font-size:0.75rem;font-weight:700;color:var(--green)}
+    .safety-pill{font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:100px;margin-left:auto}
+    .safety-high{background:var(--green-bg);color:var(--green)}
+    .safety-medium{background:var(--amber-bg);color:var(--amber)}
+    .safety-low{background:var(--red-bg);color:var(--red)}
+    .rc-main{display:flex;align-items:flex-start;gap:14px}
+    .rc-flag{font-size:2.4rem;line-height:1;flex-shrink:0}
+    .rc-info{flex:1}
+    .rc-city{font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:800;color:var(--ink);letter-spacing:-0.02em}
+    .rc-country{font-size:0.8rem;color:var(--ink4);margin-top:1px}
+    .rc-cost{display:inline-flex;align-items:center;gap:5px;background:var(--green-bg);border:1px solid rgba(5,150,105,0.2);color:var(--green);font-size:0.72rem;font-weight:700;padding:3px 9px;border-radius:100px;margin-top:7px}
+    .rc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+    .rc-tag{background:var(--bg3);border:1px solid var(--border);color:var(--ink3);font-size:0.68rem;font-weight:600;padding:2px 8px;border-radius:100px}
+    .rc-blurb{font-size:0.83rem;color:var(--ink3);line-height:1.65;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+    .rc-costs{padding:12px 20px;background:var(--bg2);border-top:1px solid var(--border)}
+    .costs-label{font-size:0.62rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink5);margin-bottom:9px}
+    .costs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+    @media(max-width:400px){.costs-grid{grid-template-columns:repeat(2,1fr)}}
+    .cost-item{text-align:center;padding:6px 4px;background:var(--bg);border-radius:6px}
+    .cost-val{font-size:0.85rem;font-weight:700;color:var(--ink)}
+    .cost-key{font-size:0.6rem;color:var(--ink4);margin-top:2px}
+    .rc-data-note{font-size:0.63rem;color:var(--ink5);padding:5px 20px 9px;background:var(--bg2);border-top:1px solid var(--border);font-style:italic}
+    .edu-flag{font-size:0.75rem;color:#854d0e;background:#fefce8;border-top:1px solid #fde68a;padding:8px 20px;line-height:1.5}
+    .rc-affiliates{padding:12px 20px;border-top:1px solid var(--border)}
+    .aff-label{font-size:0.62rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink5);margin-bottom:9px}
+    .aff-links{display:flex;flex-direction:column;gap:6px}
+    .aff-btn{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;text-decoration:none;transition:border-color 0.15s}
+    .aff-btn:hover{border-color:var(--teal)}
+    .aff-icon{font-size:0.95rem;flex-shrink:0}
+    .aff-text{flex:1}
+    .aff-name{font-size:0.8rem;font-weight:600;color:var(--ink);display:block}
+    .aff-desc{font-size:0.7rem;color:var(--ink4);display:block}
+    .aff-arrow{color:var(--ink5);font-size:0.8rem}
+    .email-card{background:linear-gradient(135deg,var(--teal-pale),#f0f4ff);border:1px solid rgba(8,145,178,0.18);border-radius:14px;padding:22px 18px;margin-bottom:14px;text-align:center}
+    .email-emoji{font-size:1.7rem;display:block;margin-bottom:9px}
+    .email-title{font-family:'Playfair Display',Georgia,serif;font-size:1rem;font-weight:800;color:var(--ink);margin-bottom:6px}
+    .email-sub{font-size:0.8rem;color:var(--ink3);line-height:1.6;margin-bottom:14px}
+    .email-form{display:flex;flex-direction:column;gap:9px}
+    .email-input{background:#fff;border:1.5px solid var(--border2);border-radius:10px;padding:12px 16px;font-size:0.88rem;font-family:inherit;color:var(--ink);outline:none;-webkit-appearance:none}
+    .email-input:focus{border-color:var(--teal)}
+    .email-input::placeholder{color:var(--ink5)}
+    .btn-email{background:var(--ink);color:#fff;border:none;border-radius:10px;padding:13px;font-size:0.88rem;font-weight:700;cursor:pointer;font-family:inherit}
+    .email-fine{font-size:0.68rem;color:var(--ink5);margin-top:5px}
+    .email-success{display:none;color:var(--green);font-weight:600;font-size:0.85rem;padding:8px 0}
+    .btn-retake{display:block;width:100%;background:transparent;border:1.5px solid var(--border);border-radius:12px;padding:12px;color:var(--ink3);font-size:0.85rem;font-weight:600;cursor:pointer;font-family:inherit;margin-bottom:10px;transition:border-color 0.15s}
+    .btn-retake:hover{border-color:var(--border2)}
+    .safety-note{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-top:8px}
+    .safety-note p{font-size:0.68rem;color:var(--ink4);line-height:1.65}
+    .safety-note a{color:var(--teal);text-decoration:none}
+    @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+    @keyframes pulse{0%,100%{opacity:0.3;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .fade-in{animation:fadeUp 0.3s ease forwards}
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:1000;align-items:center;justify-content:center;padding:20px}
+  .modal-overlay.open{display:flex}
+  /* FOOTER */
+  .site-footer{background:var(--ink);color:rgba(255,255,255,0.6);font-family:var(--sans);font-size:12px;padding:20px 0;margin-top:0}
+  .footer-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .footer-logo{font-size:15px;font-weight:700;color:#fff;letter-spacing:-0.02em}
+  .footer-links{display:flex;gap:20px}
+  .footer-links a{color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.15s}
+  .footer-links a:hover{color:#fff}
+  .footer-copy{color:rgba(255,255,255,0.4)}
+  .footer-copy a{color:rgba(255,255,255,0.4)}
+  @media(max-width:600px){.footer-inner{flex-direction:column;text-align:center;gap:10px}}
+  .modal-box{background:#fff;border-radius:16px;width:100%;max-width:480px;max-height:80vh;display:flex;flex-direction:column;overflow:hidden}
+  .modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border)}
+  .modal-title{font-size:1rem;font-weight:700;color:var(--ink)}
+  .modal-close{background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--ink3);padding:4px 8px}
+  .modal-search{border:none;border-bottom:1px solid var(--border);padding:12px 20px;font-size:0.9rem;font-family:inherit;outline:none;color:var(--ink)}
+  .modal-list{overflow-y:auto;padding:8px 0}
+  .modal-country-item{display:flex;align-items:center;gap:12px;padding:10px 20px;cursor:pointer;transition:background 0.1s}
+  .modal-country-item:hover{background:var(--bg2)}
+  .modal-country-flag{font-size:1.4rem}
+  .modal-country-name{flex:1;font-size:0.9rem;font-weight:600;color:var(--ink)}
+  .modal-country-cost{font-size:0.8rem;color:var(--ink3)}
+  </style>
+  <link rel="canonical" href="https://expatace.com/">
+</head>
+<body>
+
+<nav class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/"><span class="nav-logo-text">✈ ExpatAce</span></a>
+    <div class="nav-links">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="destinations.html">Destinations</a>
+      <a class="nav-link" href="flights.html">Flights</a>
+      <a class="nav-link" href="news.html">News</a>
+      <a class="nav-link" href="methodology.html">Methodology</a>
+      <a class="nav-link" href="why-americans.html">Why Americans</a>
+      <a class="nav-link" href="#about">About</a>
+    </div>
+    <button class="nav-cta" onclick="startQuiz()">Take the Quiz →</button>
+  </div>
+</nav>
+
+<section id="screen-home" class="screen active">
+    <div class="hero">
+    <img src="imgpanama.jpg" alt="Panama City skyline" class="hero-bg-img">
+    <div class="hero-inner">
+      <a href="why-americans.html" style="text-decoration:none"><span class="hero-badge">🇺🇸 &nbsp; Optimized for Americans</span></a>
+      <div class="hero-eyebrow">The data-driven relocation engine for people ready to move abroad.</div>
+      <h1 class="hero-title">Your Dollar Goes Further Abroad.</h1>
+      <p class="hero-title-sub">Explore an upgraded retirement abroad.</p>
+      <p class="hero-tagline">Americans are overpaying for a lower quality of life. Our 2026 destination engine finds the exact cities where your dollar buys a safer, richer, more intentional life.</p>
+      <button onclick="startQuiz()" style="display:block;margin:0 auto 20px;background:var(--teal);color:#fff;font-size:1.1rem;font-weight:800;padding:16px 40px;border-radius:12px;border:none;cursor:pointer;font-family:inherit;letter-spacing:0.01em;box-shadow:0 4px 18px rgba(32,142,173,0.35);transition:transform 0.15s,box-shadow 0.15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 24px rgba(32,142,173,0.45)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 18px rgba(32,142,173,0.35)'">Find My Perfect City →</button>
+      <div style="border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;padding:12px 0;margin-bottom:28px">
+        <div style="font-size:0.72rem;font-weight:600;color:#94a3b8;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px">Verified data sources</div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px">
+          <span style="display:inline-flex;align-items:center;gap:6px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;padding:6px 14px;font-size:0.78rem;font-weight:600;color:#334155">🛡️ Safety-Screened (GPI 2025/26)</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;padding:6px 14px;font-size:0.78rem;font-weight:600;color:#334155">📊 Numbeo Verified Costs</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;padding:6px 14px;font-size:0.78rem;font-weight:600;color:#334155">📋 IRS Tax Optimized</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;padding:6px 14px;font-size:0.78rem;font-weight:600;color:#334155">🎓 PISA Education Data</span>
+        </div>
+      </div>
+      <div class="entry-grid">
+        <div class="entry-card" onclick="startQuiz()">
+          <span class="entry-card-icon">🎯</span>
+          <div class="entry-card-title">I don't know where to go</div>
+          <div class="entry-card-sub">Answer up to 16 questions. We score 102 cities across 49 countries and show your top 5 city matches — not just countries.</div>
+          <button onclick="startQuiz()" style="margin-top:14px;width:100%;background:var(--teal);color:#fff;font-size:0.82rem;font-weight:700;padding:10px 16px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;transition:background 0.15s" onmouseover="this.style.background='#1a7a9a'" onmouseout="this.style.background='var(--teal)'">Take the quiz →</button>
+        </div>
+        <div class="entry-card" onclick="openCountryModal()">
+          <span class="entry-card-icon">🗺️</span>
+          <div class="entry-card-title">I have a country in mind</div>
+          <div class="entry-card-sub">Browse destinations with city comparisons, real cost data, and visa info.</div>
+          <button onclick="openCountryModal()" style="margin-top:14px;width:100%;background:transparent;color:var(--teal);font-size:0.82rem;font-weight:700;padding:10px 16px;border-radius:8px;border:2px solid var(--teal);cursor:pointer;font-family:inherit;transition:all 0.15s" onmouseover="this.style.background='var(--teal)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--teal)'">Browse countries →</button>
+        </div>
+      </div>
+      <div class="hero-trust">
+        <span class="trust-item">📊 Numbeo verified data</span>
+        <span class="trust-item">🛡️ GPI safety screening</span>
+        <span class="trust-item">🌍 102 cities · 49 countries</span>
+        <span class="trust-item">✅ Free</span>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-inner">
+      <p class="section-eyebrow">How it works</p>
+      <h2 class="section-title">City-level precision.<br>Not generic lists.</h2>
+      <p class="section-sub">Most expat tools show you the same top 10 countries. ExpatAce scores thousands of cities against your specific answers and shows you the real matches.</p>
+      <div class="steps-grid">
+        <div class="step-card"><div class="step-num">1</div><span class="step-icon">📋</span><h3 class="step-title">16 Questions to Your New Life</h3><p class="step-desc">We cross-reference your budget against Numbeo cost-of-living, GPI safety scores, PISA education data, and 2026 tax treaties to find your top 5 global matches.</p></div>
+        <div class="step-card"><div class="step-num">2</div><span class="step-icon">🔬</span><h3 class="step-title">We score every city</h3><p class="step-desc">Our engine cross-references your answers against cost, safety, climate, QoL, and expat infrastructure for every city in our database.</p></div>
+        <div class="step-card"><div class="step-num">3</div><span class="step-icon">🎯</span><h3 class="step-title">Get your top 5 cities</h3><p class="step-desc">Ranked by fit. Real cost breakdowns, safety scores, and the tools you need to take the next step.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="section section-alt" id="countries">
+    <div class="section-inner" style="text-align:center">
+      <p class="section-eyebrow">Popular destinations</p>
+      <h2 class="section-title">Where are North Americans moving?</h2>
+      <p class="section-sub">Explore the top 12 countries North Americans are choosing — ranked by survey data from 116,000+ expats. Full cost breakdowns, visa info, and city comparisons.</p>
+      <a href="destinations.html" style="display:inline-block;background:var(--ink);color:#fff;font-size:0.9rem;font-weight:700;padding:13px 28px;border-radius:var(--radius);text-decoration:none;margin-top:8px">View Popular Destinations →</a>
+    </div>
+  </div>
+    <div class="section" id="about">
+    <div class="section-inner">
+      <p class="section-eyebrow">Why ExpatAce</p>
+      <h2 class="section-title">A decision engine.<br>Not a travel blog.</h2>
+      <p class="section-sub">We source every number, date it, and attribute it. No sponsored content. Data you can trust.</p>
+      <div class="steps-grid">
+        <div class="step-card" style="padding-top:24px"><span class="step-icon">🎯</span><h3 class="step-title">City-level precision</h3><p class="step-desc">Spain isn't one place. Barcelona costs twice Extremadura. We match you to the right city, not just the right country.</p></div>
+        <div class="step-card" style="padding-top:24px"><span class="step-icon">📊</span><h3 class="step-title">Verified, sourced data</h3><p class="step-desc">Cost data from Numbeo — the world's largest cost of living database. Safety from Global Peace Index 2025. Every figure sourced and dated.</p></div>
+        <div class="step-card" style="padding-top:24px"><span class="step-icon">🛡️</span><h3 class="step-title">Safety-first screening</h3><p class="step-desc">Every destination screened against GPI 2025. Countries below our safety threshold are not in our results.</p></div>
+        <div class="step-card" style="padding-top:24px"><span class="step-icon">🇺🇸</span><h3 class="step-title">Optimized for Americans</h3><p class="step-desc">FATCA, FBAR, the Foreign Earned Income Exclusion — we understand the specific tax and financial reality of Americans moving abroad.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="newsletter">
+    <div class="newsletter-inner">
+      <span style="font-size:1.8rem;display:block;margin-bottom:14px">📬</span>
+      <h2 class="newsletter-title">The ExpatAce Weekly</h2>
+      <p class="newsletter-sub">Visa updates, cost of living breakdowns, and the cities everyone's talking about — free every week.</p>
+      <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
+        <input type="email" class="newsletter-input" placeholder="your@email.com" required id="newsletter-email">
+        <button type="submit" class="newsletter-btn">Join Free →</button>
+      <div style="display:flex;align-items:flex-start;gap:8px;margin-top:6px">
+  <input type="checkbox" id="nl-consent" required style="margin-top:2px;accent-color:#1a7a6e;cursor:pointer;flex-shrink:0">
+  <label for="nl-consent" style="font-size:11px;color:#94a3b8;line-height:1.5;cursor:pointer">I agree to receive the ExpatAce Weekly newsletter. Unsubscribe anytime. <a href="/privacy.html" target="_blank" style="color:#5eead4">Privacy Policy</a>.</label>
+</div>
+      </form>
+      <p class="newsletter-fine" id="newsletter-msg">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<section id="screen-quiz" class="screen">
+  <div class="quiz-header">
+    <div class="quiz-meta">
+      <span class="quiz-step-label" id="quiz-step-label">Question 1 of 12</span>
+      <button class="quiz-back" id="quiz-back-btn" onclick="quizBack()" style="display:none">← Back</button>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:8%"></div></div>
+  </div>
+  <div class="quiz-body" id="quiz-body"></div>
+</section>
+
+<section id="screen-loading" class="screen">
+  <span class="loading-globe">🌍</span>
+  <h2 class="loading-title">Finding your matches…</h2>
+  <p class="loading-sub">Scoring cities across 49 countries<br>against your answers</p>
+  <div class="loading-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+</section>
+
+<section id="screen-results" class="screen">
+  <div class="results-hero">
+    <div class="results-hero-inner">
+      <span class="results-badge">Your personalised results</span>
+      <h2 class="results-title" id="results-headline">Your top city matches</h2>
+      <p class="results-sub" id="results-sub">Based on your answers, here are the cities that fit your life.</p>
+    </div>
+  </div>
+  <div class="results-body">
+    <div id="results-cards"></div>
+
+    <!-- FEEDBACK SURVEY -->
+    <div id="feedback-card" style="background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:20px 18px;margin-bottom:14px;display:none" class="fade-in">
+      <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px">Quick question</p>
+      <p style="font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:14px;line-height:1.4">Did your results match what you were expecting?</p>
+      <div id="feedback-btns" style="display:flex;gap:8px;margin-bottom:0;flex-wrap:wrap">
+        <button onclick="submitFeedback('Yes')" style="flex:1;min-width:80px;background:var(--green-bg);border:1.5px solid rgba(5,150,105,0.25);color:var(--green);font-size:0.85rem;font-weight:700;padding:10px 12px;border-radius:8px;cursor:pointer;font-family:inherit;transition:all 0.15s">✅ Yes</button>
+        <button onclick="submitFeedback('Somewhat')" style="flex:1;min-width:80px;background:var(--amber-bg);border:1.5px solid rgba(217,119,6,0.25);color:var(--amber);font-size:0.85rem;font-weight:700;padding:10px 12px;border-radius:8px;cursor:pointer;font-family:inherit;transition:all 0.15s">🤔 Somewhat</button>
+        <button onclick="submitFeedback('Not really')" style="flex:1;min-width:80px;background:var(--red-bg);border:1.5px solid rgba(220,38,38,0.2);color:var(--red);font-size:0.85rem;font-weight:700;padding:10px 12px;border-radius:8px;cursor:pointer;font-family:inherit;transition:all 0.15s">❌ Not really</button>
+      </div>
+      <div id="feedback-followup" style="display:none;margin-top:12px">
+        <p style="font-size:0.83rem;color:var(--ink3);margin-bottom:8px">What's your #1 concern about making the move? <span style="color:var(--ink5)">(optional)</span></p>
+        <textarea id="feedback-text" rows="2" placeholder="e.g. healthcare costs, visa complexity, leaving family..." style="width:100%;background:var(--bg2);border:1.5px solid var(--border2);border-radius:8px;padding:10px 12px;font-size:0.85rem;font-family:inherit;color:var(--ink);outline:none;resize:none;line-height:1.5"></textarea>
+        <button onclick="submitFeedbackFull()" style="margin-top:8px;width:100%;background:var(--ink);color:#fff;border:none;border-radius:8px;padding:10px;font-size:0.83rem;font-weight:700;cursor:pointer;font-family:inherit">Send →</button>
+      </div>
+      <p id="feedback-thanks" style="display:none;font-size:0.85rem;color:var(--green);font-weight:600;margin-top:10px;text-align:center">✅ Thanks — your feedback helps us improve.</p>
+    </div>
+
+    <div class="email-card">
+      <div style="font-size:1.3rem;margin-bottom:4px">🔓</div>
+      <h3 class="email-title">Unlock your top 3 city matches</h3>
+      <p class="email-sub">Enter your email and we'll send your full results — city names revealed, complete cost breakdown, visa options, safety scores, and healthcare guide. Free, no spam.</p>
+      <form class="email-form" onsubmit="handleEmail(event)">
+        <input type="email" class="email-input" placeholder="your@email.com" required id="email-input">
+        <div style="display:flex;align-items:flex-start;gap:8px;margin-top:6px;margin-bottom:2px">
+  <input type="checkbox" id="quiz-consent" required style="margin-top:2px;accent-color:#1a7a6e;cursor:pointer;flex-shrink:0">
+  <label for="quiz-consent" style="font-size:11px;color:var(--ink4);line-height:1.5;cursor:pointer">I agree to receive my report by email and occasional ExpatAce updates. Unsubscribe anytime. <a href="/privacy.html" target="_blank" style="color:var(--teal)">Privacy Policy</a>.</label>
+</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button type="submit" class="btn-email" style="flex:1;min-width:180px">Unlock My Results →</button>
+          <button type="button" onclick="shareResults()" style="flex:0 0 auto;background:transparent;color:var(--teal);font-size:0.88rem;font-weight:700;padding:11px 18px;border-radius:8px;border:2px solid var(--teal);cursor:pointer;font-family:inherit;transition:all 0.15s;white-space:nowrap" onmouseover="this.style.background='var(--teal)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--teal)'">🔗 Share with Spouse or Partner</button>
+        </div>
+      </form>
+      <p class="email-fine">Free. No spam. Unsubscribe anytime.</p>
+      <p class="email-success" id="email-success">✅ Check your inbox — your top 3 cities and full results are on their way. Check spam if you don't see it within a minute.</p>
+    </div>
+    <button class="btn-retake" onclick="retakeQuiz()">↩ Retake the Quiz</button>
+    <button class="btn-retake" onclick="goHome()">🏠 Back to ExpatAce</button>
+    <div class="safety-note">
+      <p><strong style="color:var(--ink3)">About our scoring:</strong> ExpatAce uses a proprietary scoring system evaluating destinations across safety, political stability, healthcare, visa accessibility, cost of living, and expat infrastructure. Some countries and cities are not included because they fall below our safety threshold. Cost data: Numbeo March 2026. Safety: Global Peace Index 2025. Not legal, immigration, tax, or financial advice. <a href="methodology.html" style="color:var(--teal)">Full methodology →</a></p>
+    </div>
+  </div>
+</section>
+
+<div id="country-modal" class="modal-overlay" onclick="closeCountryModal(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-title">Choose a country</div>
+      <button class="modal-close" onclick="document.getElementById('country-modal').classList.remove('open')">✕</button>
+    </div>
+    <input type="text" class="modal-search" id="modal-search" placeholder="Search countries…" oninput="filterModal(this.value)">
+    <div class="modal-list" id="modal-list"></div>
+  </div>
+</div>
+
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">✈ ExpatAce</div>
+    <div class="footer-links">
+      <a href="destinations.html">Destinations</a>
+      <a href="flights.html">Flights</a>
+      <a href="news.html">News</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="why-americans.html">Why Americans</a>
+      <a href="#about">About</a>
+    </div>
+    <div class="footer-copy">© 2026 ExpatAce &nbsp;·&nbsp; <a href="/privacy.html" style="color:#94a3b8;text-decoration:none">Privacy Policy</a> &nbsp;·&nbsp; <a href="/privacy.html#do-not-sell" style="color:#94a3b8;text-decoration:none">Do Not Sell My Information</a></div>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;padding:10px 24px 20px;border-top:1px solid rgba(255,255,255,0.1);margin-top:10px;font-size:11px;color:rgba(255,255,255,0.35);line-height:1.7">
+    ExpatAce is an independent information aggregator for people considering a move abroad. We curate and present publicly available information as accurately and as currently as possible, but make no warranties regarding its completeness, accuracy, or timeliness. <strong style="color:rgba(255,255,255,0.5)">Nothing on this site constitutes legal, tax, financial, immigration, or professional advice of any kind.</strong> Always conduct your own research and, where appropriate, consult a licensed professional — including an immigration attorney, tax advisor, or financial planner — before making any decisions.
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="data.js"></script>
+<script src="quiz.js"></script>
+<script>
+// ── FEEDBACK SURVEY ───────────────────────────────────────────
+let _feedbackRating = '';
+
+function showFeedbackCard() {
+  const card = document.getElementById('feedback-card');
+  if (card) { card.style.display = 'block'; card.classList.add('fade-in'); }
+}
+
+function submitFeedback(rating) {
+  _feedbackRating = rating;
+  const btns = document.getElementById('feedback-btns');
+  btns.style.opacity = '0.4';
+  btns.style.pointerEvents = 'none';
+  document.getElementById('feedback-followup').style.display = 'block';
+}
+
+function submitFeedbackFull() {
+  const comment = document.getElementById('feedback-text').value.trim();
+  const topCity = (typeof results !== 'undefined' && results[0]) ? results[0].city + ', ' + results[0].country : '';
+  const payload = new FormData();
+  payload.append('rating', _feedbackRating);
+  payload.append('comment', comment || '(no comment)');
+  payload.append('top_match', topCity);
+  payload.append('_subject', 'ExpatAce Feedback — ' + _feedbackRating);
+  payload.append('_captcha', 'false');
+  payload.append('_template', 'box');
+  fetch('https://formsubmit.co/ajax/hello@expatace.com', { method:'POST', body:payload }).catch(()=>{});
+  document.getElementById('feedback-followup').style.display = 'none';
+  document.getElementById('feedback-thanks').style.display = 'block';
+}
+
+// ── SHOW FEEDBACK WHEN RESULTS LOAD ──────────────────────────
+(function() {
+  var target = document.getElementById('screen-results');
+  if (!target) return;
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(m) {
+      if (m.attributeName === 'class' && target.classList.contains('active')) {
+        setTimeout(showFeedbackCard, 800);
+      }
+    });
+  });
+  observer.observe(target, { attributes: true });
+})();
+</script>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#e2e8f0;padding:16px 24px;z-index:9999;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;font-size:13px;box-shadow:0 -4px 20px rgba(0,0,0,0.3)">
+  <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <p style="margin:0;line-height:1.5;color:#cbd5e1">We use Google Analytics to understand how visitors use our site. No advertising cookies. No data sales. <a href="/privacy.html" style="color:#5eead4;text-decoration:underline">Privacy Policy</a></p>
+    <div style="display:flex;gap:10px;flex-shrink:0">
+      <button onclick="setCookieConsent('declined')" style="background:transparent;border:1px solid #475569;color:#94a3b8;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-family:inherit;white-space:nowrap">Decline Analytics</button>
+      <button onclick="setCookieConsent('accepted')" style="background:#1a7a6e;border:none;color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;white-space:nowrap">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var consent = localStorage.getItem('expatace_consent');
+  if (!consent) { document.getElementById('cookie-banner').style.display='block'; }
+})();
+function setCookieConsent(val) {
+  localStorage.setItem('expatace_consent', val);
+  document.getElementById('cookie-banner').style.disp

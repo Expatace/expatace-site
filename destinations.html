@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popular Destinations — ExpatAce</title>
+<meta name="description" content="The top 12 countries North Americans are moving to, ranked by survey data from 116,000+ expats. Verified cost data, visa info, and city comparisons.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈</text></svg>">
+<style>
+:root{
+  --ink:#0f172a;--ink2:#334155;--ink3:#64748b;--ink4:#94a3b8;
+  --border:#e2e8f0;--bg:#fff;--bg2:#f8fafc;
+  --teal:#1a7a6e;--teal-light:#e8f4f2;
+  --sans:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6}
+a{color:inherit;text-decoration:none}
+
+.site-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100}
+.nav-logo{font-size:17px;font-weight:700;letter-spacing:-0.02em}
+.nav-logo span{color:var(--teal)}
+.nav-links{display:flex;gap:28px;font-size:13px;font-weight:500;color:var(--ink3)}
+.nav-links a:hover{color:var(--ink)}
+.nav-active{color:var(--ink)!important;border-bottom:1.5px solid var(--ink);padding-bottom:1px}
+.nav-cta{font-size:13px;font-weight:700;background:var(--ink);color:#fff;padding:9px 18px;border-radius:8px}
+.nav-cta:hover{background:var(--teal);color:#fff}
+
+.page-hero{background:var(--bg2);border-bottom:1px solid var(--border);padding:52px 32px 40px;text-align:center}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.hero-title{font-size:40px;font-weight:800;letter-spacing:-0.03em;margin-bottom:14px;line-height:1.1}
+.hero-sub{font-size:15px;color:var(--ink3);max-width:560px;margin:0 auto 20px;line-height:1.65}
+.source-pills{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.source-pill{display:inline-flex;align-items:center;gap:5px;background:#fff;border:1px solid var(--border);border-radius:20px;padding:5px 12px;font-size:11px;color:var(--ink3)}
+.source-pill strong{color:var(--ink2);font-weight:600}
+
+.usd-notice{background:#fefce8;border:1px solid #fde68a;border-radius:10px;padding:10px 18px;margin:24px auto 0;max-width:720px;font-size:12px;color:#854d0e;display:flex;align-items:flex-start;gap:8px;text-align:left}
+
+.wrap{max-width:1140px;margin:0 auto;padding:36px 32px}
+.section-label{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:22px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:box-shadow 0.2s,transform 0.2s;display:flex;flex-direction:column}
+.card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.1);transform:translateY(-4px)}
+.card-img-wrap{height:170px;position:relative;overflow:hidden;background:#e2e8f0}
+.card-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.35s;display:block}
+.card:hover .card-img-wrap img{transform:scale(1.06)}
+.card-rank{position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.62);color:#fff;font-size:14px;font-weight:800;padding:4px 11px;border-radius:20px;letter-spacing:0.01em;backdrop-filter:blur(4px)}
+.card-rank.top3{background:var(--teal)}
+.card-body{padding:15px;flex:1;display:flex;flex-direction:column}
+.card-flag-row{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.card-flag{font-size:22px;line-height:1}
+.card-source{font-size:11px;font-weight:600;color:var(--teal);letter-spacing:0.01em}
+.card-name{font-size:16px;font-weight:700;margin-bottom:2px}
+.card-cost{font-size:12px;color:var(--teal);font-weight:600;margin-bottom:8px}
+.card-desc{font-size:12px;color:var(--ink3);line-height:1.5;flex:1;margin-bottom:12px}
+.card-footer{border-top:1px solid var(--border);padding-top:10px;display:flex;align-items:center;justify-content:space-between}
+.card-footer-label{font-size:11px;color:var(--ink4)}
+.card-footer-cta{font-size:12px;font-weight:700;color:var(--teal)}
+
+.bottom-cta{background:var(--ink);color:#fff;border-radius:16px;padding:40px;text-align:center;margin:32px 0 8px}
+.bottom-cta h2{font-size:26px;font-weight:800;margin-bottom:8px;letter-spacing:-0.02em}
+.bottom-cta p{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:22px}
+.bottom-cta a{display:inline-block;background:var(--teal);color:#fff;font-size:14px;font-weight:700;padding:13px 30px;border-radius:10px}
+.bottom-cta a:hover{opacity:0.88}
+
+.footnote{font-size:11px;color:var(--ink4);text-align:center;padding:8px 32px 32px;line-height:1.7;max-width:800px;margin:0 auto}
+.footnote a{color:var(--teal)}
+
+@media(max-width:960px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}.hero-title{font-size:28px}.site-nav{padding:12px 16px}.nav-links{display:none}.wrap{padding:24px 16px}}
+@media(max-width:440px){.grid{grid-template-columns:1fr}}
+</style>
+  <link rel="canonical" href="https://expatace.com/destinations.html">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Browse the top destinations for Americans and Canadians moving abroad. Real cost data, visa info, safety scores, and city comparisons across 49 countries.">
+  <meta property="og:image" content="https://expatace.com/imgpanama.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Best Destinations for Americans Moving Abroad — ExpatAce">
+  <meta name="twitter:description" content="Browse the top destinations for Americans and Canadians moving abroad. Real cost data, visa info, safety scores, and city comparisons across 49 countries.">
+  <meta name="twitter:image" content="https://expatace.com/imgpanama.jpg">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="/" class="nav-logo">✈ Expat<span>Ace</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/destinations.html" class="nav-active">Destinations</a>
+    <a href="/flights.html">Flights</a>
+    <a href="/news.html">News</a>
+    <a href="/#about">About</a>
+  </div>
+  <a href="/" class="nav-cta">Take the Quiz →</a>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-eyebrow">Data-ranked · Updated 2025</div>
+  <h1 class="hero-title">Popular Destinations</h1>
+  <p class="hero-sub">The top 12 countries North Americans are choosing to live abroad — ranked by survey data from 116,000+ expats.</p>
+  <div class="source-pills">
+    <div class="source-pill">📊 <strong>Expatsi Survey 2024</strong> — 116,363 Americans</div>
+    <div class="source-pill">🏆 <strong>InterNations Expat Insider 2025</strong> — 10,000+ expats, 172 countries</div>
+    <div class="source-pill">🇺🇸 <strong>US State Dept</strong> — Americans Living Abroad 2024</div>
+  </div>
+  <div class="usd-notice">
+    <span style="font-size:15px;flex-shrink:0">💱</span>
+    <div><strong>USD Exchange Rate Notice:</strong> All cost estimates are in US Dollars (USD) based on Numbeo data, March 2026. Currency fluctuations may impact actual costs. Verify current rates before making financial decisions.</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="section-label">Top 12 Destinations for North Americans — 2025 Rankings</div>
+  <div class="grid" id="dest-grid"></div>
+
+  <div class="bottom-cta">
+    <h2>Not sure which country is right for you?</h2>
+    <p>Answer up to 16 questions. Get matched to the exact city that fits your lifestyle, budget, and goals.</p>
+    <a href="/">Take the Free Quiz →</a>
+  </div>
+</div>
+
+<div class="footnote">
+  Rankings based on: Expatsi Expat Survey 2024 (116,363 US respondents) · InterNations Expat Insider 2025 · US State Department Americans Living Abroad Report 2024 · Expat Insider 2025 by InterNations. Cost estimates in USD from Numbeo, March 2026 — exchange rates at time of collection, actual costs may vary. Not financial, legal, or immigration advice. Photos: Unsplash. <a href="/">Learn more about ExpatAce →</a>
+</div>
+
+<script>
+const DESTINATIONS = [
+  {
+    rank:1, country:"Portugal", flag:"🇵🇹", cost:"From $1,500/mo",
+    img:"https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=85",
+    desc:"#1 in the Expatsi survey of 116,000 Americans. D7 passive income visa, Mediterranean lifestyle, 50%+ cheaper than most US cities.",
+    source:"#1 Expatsi Survey 2024"
+  },
+  {
+    rank:2, country:"Mexico", flag:"🇲🇽", cost:"From $1,000/mo",
+    img:"https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=800&q=85",
+    desc:"More Americans live here than any other country — 1.6 million and growing. Close to home, vibrant culture, low cost. #1 for expat happiness.",
+    source:"#1 by Volume — US State Dept 2024"
+  },
+  {
+    rank:3, country:"Spain", flag:"🇪🇸", cost:"From $1,600/mo",
+    img:"https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=800&q=85",
+    desc:"#2 in Expatsi survey. Valencia topped InterNations' 2024 Quality of Life Index. Digital Nomad Visa and world-class healthcare.",
+    source:"#2 Expatsi Survey 2024"
+  },
+  {
+    rank:4, country:"France", flag:"🇫🇷", cost:"From $2,100/mo",
+    img:"https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=85",
+    desc:"Recommended to nearly half of all Expatsi participants. Long-visa residency options, world-class healthcare, culture, and cuisine.",
+    source:"#2 Most Recommended — Expatsi 2024"
+  },
+  {
+    rank:5, country:"United Kingdom", flag:"🇬🇧", cost:"From $2,400/mo",
+    img:"https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=85",
+    desc:"Top 3 most desired destination for Americans. English-speaking, no language barrier, strong job market. London and Edinburgh lead.",
+    source:"Top 3 — Expatsi Survey 2024"
+  },
+  {
+    rank:6, country:"Colombia", flag:"🇨🇴", cost:"From $1,100/mo",
+    img:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85",
+    desc:"Medellín's eternal spring (72°F year-round) and thriving nomad scene make it Latin America's fastest-growing expat destination.",
+    source:"Expat Insider 2025 — Top LatAm"
+  },
+  {
+    rank:7, country:"Thailand", flag:"🇹🇭", cost:"From $900/mo",
+    img:"https://images.unsplash.com/photo-1506665531195-3566af2b4dfa?w=800&q=85",
+    desc:"The original digital nomad capital. LTR visa for remote workers, world-class healthcare, and ultra-affordable cost of living.",
+    source:"Expat Insider 2025 — Top SE Asia"
+  },
+  {
+    rank:8, country:"Italy", flag:"🇮🇹", cost:"From $1,900/mo",
+    img:"https://images.unsplash.com/photo-1529260830199-42c24126f198?w=800&q=85",
+    desc:"Flat Tax regime caps income tax for new residents. 2025 Digital Nomad Visa launched. Rome, Milan, Florence — all with direct US flights.",
+    source:"Expat Insider 2025 — Top Europe"
+  },
+  {
+    rank:9, country:"Costa Rica", flag:"🇨🇷", cost:"From $1,500/mo",
+    img:"https://images.unsplash.com/photo-1518259102261-b40117eabbc9?w=800&q=85",
+    desc:"Nearly 120,000 Americans now call it home. Pensionado visa is one of the world's most generous retirement programs. Pura Vida.",
+    source:"US State Dept 2024 — 120k Americans"
+  },
+  {
+    rank:10, country:"Panama", flag:"🇵🇦", cost:"From $1,200/mo",
+    img:"imgpanama.jpg",
+    desc:"#1 on InterNations 2024 rankings — 94% of expats are happy. USD currency, Pensionado visa, modern infrastructure. Top for retirees.",
+    source:"#1 InterNations Expat Insider 2024"
+  },
+  {
+    rank:11, country:"Malaysia", flag:"🇲🇾", cost:"From $1,000/mo",
+    img:"https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&q=85",
+    desc:"English is an official language and Kuala Lumpur is SE Asia's most underrated expat city. The MM2H long-stay program is available but requires substantial income, a large fixed deposit, and in most tiers a property purchase — research current tier requirements carefully.",
+    source:"Expat Insider 2025 — Top SE Asia"
+  },
+  {
+    rank:12, country:"Japan", flag:"🇯🇵", cost:"From $1,600/mo",
+    img:"https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=85",
+    desc:"Safest megacity on earth. Americans' fastest-growing destination in Asia. World-class food, transport, healthcare, and culture.",
+    source:"US Expat Population Rankings 2025"
+  },
+];
+
+document.getElementById('dest-grid').innerHTML = DESTINATIONS.map(d => `
+  <div class="card" onclick="window.location.href='/?country=${encodeURIComponent(d.country)}'">
+    <div class="card-img-wrap">
+      <img src="${d.img}" alt="${d.country}" loading="lazy" onerror="this.style.display='none'">
+      <div class="card-rank${d.rank <= 3 ? ' top3' : ''}">#${d.rank}</div>
+    </div>
+    <div class="card-body">
+      <div class="card-flag-row">
+        <span class="card-flag">${d.flag}</span>
+        <span class="card-source">${d.source}</span>
+      </div>
+      <div class="card-name">${d.country}</div>
+      <div class="card-cost">${d.cost}</div>
+      <div class="card-desc">${d.desc}</div>
+      <div class="card-footer">
+        <span class="card-footer-label">Quiz for ${d.country}</span>
+        <span class="card-footer-cta">Find my city →</span>
+      </div>
+    </div>
+  </div>`).join('');
+</script>
+
+<footer style="background:#0f172a;color:rgba(255,255,255,0.5);font-family:var(--sans);font-size:12px;padding:20px 0;margin-top:0">
+  <div style="max-width:1140px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <div style="font-size:15px;font-weight:700;color:#fff;letter-spacing:-0.02em">✈ ExpatAce</div>
+    <div style="display:flex;gap:20px">
+      <a href="/destinations.html" style="color:rgba(255,255,255,0.5);text-decoration:none">Destinations</a>
+      <a href="/flights.html" style="color:rgba(255,255,255,0.5);text-decoration:none">Flights</a>
+      <a href="/news.html" style="color:rgba(255,255,255,0.5);text-decoration:none">News</a>
+      <a href="/#about" style="color:rgba(255,255,255,0.5);text-decoration:none">About</a>
+    </div>
+    <div style="color:rgba(255,255,255,0.3)">© 2026 ExpatAce &nbsp;·&nbsp; <a href="/privacy.html" style="color:#94a3b8;text-decoration:none">Privacy Policy</a> &nbsp;·&nbsp; <a href="/privacy.html#do-not-sell" style="color:#94a3b8;text-decoration:none">Do Not Sell My Information</a> · <a href="/privacy.html">Privacy Policy</a></div>
+  </div>
+  <div style="max-width:1140px;margin:10px auto 0;padding:10px 32px 0;border-top:1px solid rgba(255,255,255,0.08);font-size:11px;color:rgba(255,255,255,0.3);line-height:1.7">
+    ExpatAce is an independent information aggregator for people considering a move abroad. We curate and present publicly available information as accurately and as currently as possible, but make no warranties regarding its completeness, accuracy, or timeliness. <strong style="color:rgba(255,255,255,0.45)">Nothing on this site constitutes legal, tax, financial, immigration, or professional advice of any kind.</strong> Always conduct your own research and, where appropriate, consult a licensed professional — including an immigration attorney, tax advisor, or financial planner — before making any decisions.
+  </div>
+</footer>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#e2e8f0;padding:16px 24px;z-index:9999;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;font-size:13px;box-shadow:0 -4px 20px rgba(0,0,0,0.3)">
+  <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <p style="margin:0;line-height:1.5;color:#cbd5e1">We use Google Analytics to understand how visitors use our site. No advertising cookies. No data sales. <a href="/privacy.html" style="color:#5eead4;text-decoration:underline">Privacy Policy</a></p>
+    <div style="display:flex;gap:10px;flex-shrink:0">
+      <button onclick="setCookieConsent('declined')" style="background:transparent;border:1px solid #475569;color:#94a3b8;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-family:inherit;white-space:nowrap">Decline Analytics</button>
+      <button onclick="setCookieConsent('accepted')" style="background:#1a7a6e;border:none;color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;white-space:nowrap">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var consent = localStorage.getItem('expatace_consent');
+  if (!consent) { document.getElementById('cookie-banner').style.display='block'; }
+})();
+function setCookieConsent(val) {
+  localStorage.setItem('expatace_consent', val);
+  document.getElementById('cookie-banner').style.display='none';
+  if (val === 'declined') {
+    // Disable GA if declined
+    window['ga-disable-G-JF8N471XBX'] = true;
+  }
+}
+</script>
+
+</body>
+</html>

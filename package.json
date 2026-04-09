@@ -1,0 +1,9 @@
+{
+  "name": "expatace",
+  "version": "1.0.0",
+  "description": "ExpatAce - Find Your Perfect City to Live Abroad",
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "xml2js": "^0.4.23"
+  }
+}

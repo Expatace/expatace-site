@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Our Methodology — ExpatAce</title>
+  <meta name="description" content="How ExpatAce scores 102 cities across 49 countries. Data sources, scoring logic, limitations, and update schedule — everything you need to know about the numbers behind your results.">
+  <meta property="og:title" content="Our Methodology — ExpatAce">
+  <meta property="og:url" content="https://expatace.com/methodology">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JF8N471XBX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JF8N471XBX');</script>
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://expatace.com/imgpanama.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our Methodology — ExpatAce">
+  <meta name="twitter:description" content="How ExpatAce scores 102 cities across 49 countries. Data sources, scoring logic, limitations, and update schedule.">
+  <meta name="twitter:image" content="https://expatace.com/imgpanama.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --ink:#0f1923;--ink2:#2d3748;--ink3:#4a5568;--ink4:#718096;--ink5:#a0aec0;
+      --border:#e2e8f0;--border2:#cbd5e0;
+      --bg:#ffffff;--bg2:#f7f9fc;--bg3:#eef2f7;
+      --teal:#0891b2;--teal-dark:#0e7490;--teal-light:#e0f2fe;--teal-pale:#f0f9ff;
+      --green:#059669;--green-bg:#ecfdf5;
+      --amber:#d97706;--amber-bg:#fffbeb;
+      --radius:14px;--radius-sm:8px;
+      --shadow:0 1px 3px rgba(0,0,0,0.08),0 4px 16px rgba(0,0,0,0.06);
+      --shadow-lg:0 4px 6px rgba(0,0,0,0.05),0 10px 40px rgba(0,0,0,0.10);
+    }
+    html{font-size:16px;scroll-behavior:smooth}
+    body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+    .nav-logo-text{font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:800;color:var(--ink);letter-spacing:-0.02em}
+    .nav-links{display:flex;gap:24px}
+    .nav-link{font-size:0.875rem;font-weight:500;color:var(--ink3);text-decoration:none;transition:color 0.15s}
+    .nav-link:hover{color:var(--ink)}
+    .nav-link.active{color:var(--teal)}
+    .nav-cta{background:var(--teal);color:#fff;font-size:0.85rem;font-weight:700;padding:9px 22px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;transition:background 0.15s;text-decoration:none;white-space:nowrap}
+    .nav-cta:hover{background:#1a7a9a}
+    @media(max-width:600px){.nav-links{display:none}}
+
+    /* HERO */
+    .page-hero{background:var(--ink);padding:64px 24px 56px;text-align:center}
+    .page-hero-inner{max-width:680px;margin:0 auto}
+    .page-hero-badge{display:inline-block;background:rgba(8,145,178,0.18);border:1px solid rgba(8,145,178,0.3);color:#7dd3fc;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:20px}
+    .page-hero-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:1.05;letter-spacing:-0.03em;color:#f1f5f9;margin-bottom:16px}
+    .page-hero-sub{font-size:1rem;color:#94a3b8;line-height:1.7;max-width:560px;margin:0 auto}
+
+    /* CONTENT */
+    .content{max-width:800px;margin:0 auto;padding:64px 24px 80px}
+
+    /* SECTION */
+    .method-section{margin-bottom:56px}
+    .method-section:last-child{margin-bottom:0}
+    .section-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:var(--teal);color:#fff;font-size:0.72rem;font-weight:800;border-radius:50%;margin-bottom:14px}
+    .section-heading{font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:800;color:var(--ink);letter-spacing:-0.02em;margin-bottom:12px;line-height:1.2}
+    .section-lead{font-size:0.97rem;color:var(--ink3);line-height:1.75;margin-bottom:24px}
+
+    /* DATA SOURCE TABLE */
+    .source-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    .source-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:18px 20px;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:start}
+    @media(max-width:540px){.source-card{grid-template-columns:1fr}}
+    .source-icon{font-size:1.5rem;flex-shrink:0}
+    .source-body{}
+    .source-name{font-size:0.9rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+    .source-desc{font-size:0.8rem;color:var(--ink3);line-height:1.6}
+    .source-meta{text-align:right;flex-shrink:0}
+    .source-tag{display:inline-block;background:var(--teal-light);color:var(--teal-dark);font-size:0.67rem;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:0.04em;white-space:nowrap}
+    .source-updated{display:block;font-size:0.67rem;color:var(--ink5);margin-top:4px;text-align:right}
+    @media(max-width:540px){.source-meta{text-align:left}.source-updated{text-align:left}}
+
+    /* SCORING STEPS */
+    .scoring-steps{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+    .scoring-step{display:flex;gap:16px;padding:18px 20px;border-bottom:1px solid var(--border);align-items:flex-start}
+    .scoring-step:last-child{border-bottom:none}
+    .step-num-badge{width:26px;height:26px;background:var(--ink);color:#fff;font-size:0.7rem;font-weight:800;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+    .step-body{}
+    .step-title{font-size:0.88rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+    .step-desc{font-size:0.8rem;color:var(--ink3);line-height:1.65}
+
+    /* WEIGHT TABLE */
+    .weight-table{width:100%;border-collapse:collapse;font-size:0.83rem;margin-top:20px}
+    .weight-table th{background:var(--bg2);text-align:left;padding:10px 14px;font-size:0.7rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink4);border-bottom:1px solid var(--border2)}
+    .weight-table td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--ink3);vertical-align:top}
+    .weight-table tr:last-child td{border-bottom:none}
+    .weight-table td:first-child{font-weight:600;color:var(--ink)}
+    .weight-bar{display:flex;align-items:center;gap:8px}
+    .bar-track{flex:1;height:6px;background:var(--bg3);border-radius:100px;overflow:hidden}
+    .bar-fill{height:100%;background:var(--teal);border-radius:100px}
+    .bar-label{font-size:0.75rem;font-weight:700;color:var(--teal);min-width:32px;text-align:right}
+
+    /* INCLUDED/EXCLUDED */
+    .ie-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:540px){.ie-grid{grid-template-columns:1fr}}
+    .ie-card{border-radius:var(--radius-sm);padding:18px 20px}
+    .ie-included{background:var(--green-bg);border:1px solid rgba(5,150,105,0.2)}
+    .ie-excluded{background:#fef2f2;border:1px solid rgba(220,38,38,0.15)}
+    .ie-title{font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px}
+    .ie-included .ie-title{color:var(--green)}
+    .ie-excluded .ie-title{color:#dc2626}
+    .ie-list{list-style:none;padding:0}
+    .ie-list li{font-size:0.82rem;color:var(--ink3);padding:5px 0;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+    .ie-list li:last-child{border-bottom:none}
+    .ie-list li::before{font-size:0.75rem;flex-shrink:0;margin-top:2px}
+    .ie-included li::before{content:'✓';color:var(--green)}
+    .ie-excluded li::before{content:'✗';color:#dc2626}
+
+    /* LIMITATIONS */
+    .limit-list{display:grid;grid-template-columns:1fr;gap:10px}
+    .limit-item{background:var(--amber-bg);border:1px solid rgba(217,119,6,0.2);border-radius:var(--radius-sm);padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+    .limit-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+    .limit-text{font-size:0.83rem;color:var(--ink3);line-height:1.65}
+    .limit-text strong{font-weight:600;color:var(--ink);display:block;margin-bottom:2px}
+
+    /* UPDATE SCHEDULE */
+    .update-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+    .update-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px 18px;text-align:center}
+    .update-icon{font-size:1.6rem;margin-bottom:8px}
+    .update-source{font-size:0.83rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+    .update-freq{font-size:0.72rem;font-weight:700;color:var(--teal);background:var(--teal-light);padding:2px 9px;border-radius:100px;display:inline-block;margin-bottom:6px}
+    .update-last{font-size:0.72rem;color:var(--ink4)}
+
+    /* DISCLAIMER BOX */
+    .disclaimer{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:20px 22px;margin-top:48px}
+    .disclaimer p{font-size:0.8rem;color:var(--ink3);line-height:1.75}
+    .disclaimer strong{color:var(--ink)}
+
+    /* DIVIDER */
+    .section-divider{border:none;border-top:1px solid var(--border);margin:0 0 48px}
+
+    /* FOOTER */
+    .site-footer{background:var(--ink);color:rgba(255,255,255,0.6);font-size:12px;padding:20px 0;margin-top:0}
+    .footer-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .footer-logo-text{font-size:15px;font-weight:700;color:#fff;letter-spacing:-0.02em;font-family:'Playfair Display',Georgia,serif}
+    .footer-links{display:flex;gap:20px}
+    .footer-links a{color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.15s}
+    .footer-links a:hover{color:#fff}
+    .footer-copy{color:rgba(255,255,255,0.4)}
+    .footer-copy a{color:rgba(255,255,255,0.4);text-decoration:none}
+    .footer-disclaimer-strip{max-width:1100px;margin:0 auto;padding:10px 24px 20px;border-top:1px solid rgba(255,255,255,0.1);margin-top:10px;font-size:11px;color:rgba(255,255,255,0.35);line-height:1.7}
+    @media(max-width:600px){.footer-inner{flex-direction:column;text-align:center;gap:10px}}
+  </style>
+  <link rel="canonical" href="https://expatace.com/methodology.html">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/"><span class="nav-logo-text">✈ ExpatAce</span></a>
+    <div class="nav-links">
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link" href="destinations.html">Destinations</a>
+      <a class="nav-link" href="flights.html">Flights</a>
+      <a class="nav-link" href="news.html">News</a>
+      <a class="nav-link active" href="methodology.html">Methodology</a>
+    </div>
+    <a class="nav-cta" href="/">Take the Quiz →</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="page-hero-badge">How It Works</span>
+    <h1 class="page-hero-title">Our Methodology</h1>
+    <p class="page-hero-sub">Where the numbers come from, how cities get scored, what we include and exclude, and the limitations you need to know about before making any decisions.</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- SECTION 1: DATA SOURCES -->
+  <div class="method-section">
+    <div class="section-num">1</div>
+    <h2 class="section-heading">Data sources</h2>
+    <p class="section-lead">Every number in ExpatAce is sourced from a third-party dataset, dated, and linked to the original source. We do not estimate or guess. If reliable data isn't available for a destination, that destination is not scored.</p>
+
+    <div class="source-grid">
+      <div class="source-card">
+        <div class="source-icon">📊</div>
+        <div class="source-body">
+          <div class="source-name">Numbeo — Cost of Living</div>
+          <div class="source-desc">The world's largest crowd-sourced cost of living database. We use city-level data for rent, groceries, restaurants, utilities, and local transport. All-in monthly cost estimates in ExpatAce reflect your specific profile — party size, bedrooms, and budget — applied against Numbeo's city averages.</div>
+        </div>
+        <div class="source-meta">
+          <span class="source-tag">Cost of Living</span>
+          <span class="source-updated">Updated March 2026</span>
+        </div>
+      </div>
+
+      <div class="source-card">
+        <div class="source-icon">🛡️</div>
+        <div class="source-body">
+          <div class="source-name">Global Peace Index — Safety Scores</div>
+          <div class="source-desc">Published annually by the Institute for Economics and Peace, the GPI ranks 163 countries across 23 indicators including conflict, societal safety, and militarisation. We use the country-level GPI score to screen destinations and weight safety in our city scoring. Countries below our safety threshold are excluded from results entirely.</div>
+        </div>
+        <div class="source-meta">
+          <span class="source-tag">Safety</span>
+          <span class="source-updated">GPI 2025/26</span>
+        </div>
+      </div>
+
+      <div class="source-card">
+        <div class="source-icon">🎓</div>
+        <div class="source-body">
+          <div class="source-name">PISA — Education Rankings</div>
+          <div class="source-desc">The OECD's Programme for International Student Assessment measures reading, mathematics, and science performance across 80+ countries. We use PISA scores to rate education quality for subscribers who select education as a priority in the quiz. Only relevant if you have school-age children.</div>
+        </div>
+        <div class="source-meta">
+          <span class="source-tag">Education</span>
+          <span class="source-updated">PISA 2022</span>
+        </div>
+      </div>
+
+      <div class="source-card">
+        <div class="source-icon">📋</div>
+        <div class="source-body">
+          <div class="source-name">IRS — US Tax Treaties and FEIE</div>
+          <div class="source-desc">Tax treaty data is sourced directly from IRS.gov treaty pages and updated when changes are reported. FEIE eligibility and Foreign Tax Credit applicability are assessed by country. We flag special local tax programmes (such as Portugal's NHR) where these exist for new residents. This is general information, not tax advice.</div>
+        </div>
+        <div class="source-meta">
+          <span class="source-tag">US Tax</span>
+          <span class="source-updated">IRS 2025/26</span>
+        </div>
+      </div>
+
+      <div class="source-card">
+        <div class="source-icon">🛂</div>
+        <div class="source-body">
+          <div class="source-name">Official Government Sources — Visa Data</div>
+          <div class="source-desc">Visa names, minimum income requirements, and typical PR timelines are sourced from official government consulate and immigration authority websites for each country. These are subject to change — always verify current requirements with the relevant embassy or a licensed immigration attorney before applying.</div>
+        </div>
+        <div class="source-meta">
+          <span class="source-tag">Visas</span>
+          <span class="source-updated">Verified 2025/26</span>
+        </div>
+      </div>
+
+      <div class="source-card">
+        <div class="source-icon">👥</div>
+        <div class="source-body">
+          <div class="source-name">Expat Community Size — Estimated</div>
+          <div class="source-desc">Expat community size ratings (Small / Medium / Large / Very Large) are estimates derived from Facebook group membership data, US State Department registration data, and published expat survey data. These are indicative only — not precise counts.</div>
+        </div>
+        <div class="source-meta">
+          <span class="source-tag">Community</span>
+          <span class="source-updated">Estimated 2025</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 2: SCORING -->
+  <div class="method-section">
+    <div class="section-num">2</div>
+    <h2 class="section-heading">How the scoring works</h2>
+    <p class="section-lead">When you complete the quiz, your answers are compared against our database of 102 cities across 49 countries. Each city receives a match score from 0–100 based on how well it fits your specific answers. Your top 5 are returned in ranked order.</p>
+
+    <div class="scoring-steps">
+      <div class="scoring-step">
+        <div class="step-num-badge">1</div>
+        <div class="step-body">
+          <div class="step-title">Budget filter — hard gate</div>
+          <div class="step-desc">Your stated monthly budget is applied as a hard filter first. Any city where the all-in monthly cost for your profile (party size + bedrooms) exceeds your budget is scored zero and excluded from your results entirely. A city can score perfectly on every other dimension — if it's unaffordable for your profile, it doesn't appear.</div>
+        </div>
+      </div>
+      <div class="scoring-step">
+        <div class="step-num-badge">2</div>
+        <div class="step-body">
+          <div class="step-title">Safety filter — minimum threshold</div>
+          <div class="step-desc">Countries below our GPI safety threshold are excluded regardless of other factors. We do not show unsafe destinations regardless of how well they match your other answers. The threshold is reviewed annually against the current GPI rankings.</div>
+        </div>
+      </div>
+      <div class="scoring-step">
+        <div class="step-num-badge">3</div>
+        <div class="step-body">
+          <div class="step-title">Weighted scoring across remaining factors</div>
+          <div class="step-desc">Cities that pass the budget and safety filters are scored across the remaining quiz dimensions. Each dimension is weighted based on what research shows matters most to North Americans making permanent relocation decisions.</div>
+        </div>
+      </div>
+      <div class="scoring-step">
+        <div class="step-num-badge">4</div>
+        <div class="step-body">
+          <div class="step-title">Top 5 returned</div>
+          <div class="step-desc">The 5 highest-scoring cities are returned as your matches, ranked by total score. Cities with identical scores are ranked by cost efficiency — more affordable city first.</div>
+        </div>
+      </div>
+    </div>
+
+    <table class="weight-table">
+      <thead>
+        <tr>
+          <th>Factor</th>
+          <th>Weight</th>
+          <th>What it measures</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cost of living</td>
+          <td>
+            <div class="weight-bar">
+              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
+              <div class="bar-label">High</div>
+            </div>
+          </td>
+          <td>How well the city's all-in monthly cost fits within your stated budget</td>
+        </tr>
+        <tr>
+          <td>Safety</td>
+          <td>
+            <div class="weight-bar">
+              <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+              <div class="bar-label">High</div>
+            </div>
+          </td>
+          <td>Country-level GPI score, weighted more heavily if you flagged safety as a priority</td>
+        </tr>
+        <tr>
+          <td>Climate match</td>
+          <td>
+            <div class="weight-bar">
+              <div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
+              <div class="bar-label">Med</div>
+            </div>
+          </td>
+          <td>How closely the city's climate profile matches your selected preference</td>
+        </tr>
+        <tr>
+          <td>Setting</td>
+          <td>
+            <div class="weight-bar">
+              <div class="bar-track"><div class="bar-fill" style="width:55%"></div></div>
+              <div class="bar-label">Med</div>
+            </div>
+          </td>
+          <td>Urban / suburban / coastal / rural match against your stated preference</td>
+        </tr>
+        <tr>
+          <td>Expat infrastructure</td>
+          <td>
+            <div class="weight-bar">
+              <div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>
+              <div class="bar-label">Med</div>
+            </div>
+          </td>
+          <td>English availability, North American expat community size, international connectivity</td>
+        </tr>
+        <tr>
+          <td>Education</td>
+          <td>
+            <div class="weight-bar">
+              <div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>
+              <div class="bar-label">Low</div>
+            </div>
+          </td>
+          <td>PISA ranking — only applied when you indicated school-age children in your party</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 3: INCLUDED / EXCLUDED -->
+  <div class="method-section">
+    <div class="section-num">3</div>
+    <h2 class="section-heading">What's included and excluded</h2>
+    <p class="section-lead">Our database covers 102 cities across 49 countries. Not every country in the world is included — we apply specific criteria for inclusion.</p>
+
+    <div class="ie-grid">
+      <div class="ie-card ie-included">
+        <div class="ie-title">✓ Included</div>
+        <ul class="ie-list">
+          <li>Countries with a GPI safety score above our minimum threshold</li>
+          <li>Countries with reliable Numbeo cost of living data at city level</li>
+          <li>Countries with established long-stay visa pathways for Americans</li>
+          <li>Countries with at least one established expat community</li>
+          <li>Cities with a minimum population base for practical daily life</li>
+          <li>Countries with a functioning US Embassy or Consulate</li>
+        </ul>
+      </div>
+      <div class="ie-card ie-excluded">
+        <div class="ie-title">✗ Excluded</div>
+        <ul class="ie-list">
+          <li>Countries with a Level 3 or Level 4 US State Department advisory</li>
+          <li>Countries with no reliable cost of living data</li>
+          <li>Countries where long-stay visas for Americans are unavailable or highly restricted</li>
+          <li>Countries with active armed conflict or significant civil unrest</li>
+          <li>Cities where we cannot verify basic infrastructure and services</li>
+          <li>Countries sanctioned by the US Government</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 4: LIMITATIONS -->
+  <div class="method-section">
+    <div class="section-num">4</div>
+    <h2 class="section-heading">Limitations you should know about</h2>
+    <p class="section-lead">Our data is as accurate and current as our sources allow. But there are real limitations that every ExpatAce user should understand before making any decisions.</p>
+
+    <div class="limit-list">
+      <div class="limit-item">
+        <div class="limit-icon">📊</div>
+        <div class="limit-text">
+          <strong>Cost data reflects averages, not guarantees</strong>
+          Numbeo data is crowd-sourced and reflects averages across a city. Your actual costs will depend on neighbourhood, lifestyle, and specific circumstances. A 2-bedroom apartment in central Lisbon costs significantly more than one in the suburbs — our estimate reflects a city-wide average, not a specific rental.
+        </div>
+      </div>
+      <div class="limit-item">
+        <div class="limit-icon">🛂</div>
+        <div class="limit-text">
+          <strong>Visa rules change frequently</strong>
+          Visa income thresholds, application requirements, and PR timelines are updated by governments without notice. We verify and update our visa data regularly, but always confirm current requirements directly with the relevant embassy or a licensed immigration attorney before applying.
+        </div>
+      </div>
+      <div class="limit-item">
+        <div class="limit-icon">📋</div>
+        <div class="limit-text">
+          <strong>Tax information is general and not advice</strong>
+          Tax treaty data and programme information (FEIE, Foreign Tax Credit, NHR, etc.) is general educational information. Your personal tax situation depends on your income sources, residency status, and individual circumstances. Always consult a qualified US expat tax professional before making any decisions.
+        </div>
+      </div>
+      <div class="limit-item">
+        <div class="limit-icon">🛡️</div>
+        <div class="limit-text">
+          <strong>Safety scores are country-level, not city-level</strong>
+          The Global Peace Index scores are national averages. Safety can vary significantly within a country — and even within a city. Our safety score reflects the country's overall position, not specific neighbourhood conditions. Always research current local safety conditions independently.
+        </div>
+      </div>
+      <div class="limit-item">
+        <div class="limit-icon">🌍</div>
+        <div class="limit-text">
+          <strong>102 cities is not the whole world</strong>
+          Our database covers the cities most commonly chosen by Americans relocating abroad based on published expat survey data. There are many excellent destinations not yet in our database. The absence of a city does not mean it's a poor choice — only that we have not yet added it.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- SECTION 5: UPDATE SCHEDULE -->
+  <div class="method-section">
+    <div class="section-num">5</div>
+    <h2 class="section-heading">Update schedule</h2>
+    <p class="section-lead">Data freshness matters when you're making a permanent life decision. Here is how often each data source is refreshed.</p>
+
+    <div class="update-grid">
+      <div class="update-card">
+        <div class="update-icon">📊</div>
+        <div class="update-source">Numbeo costs</div>
+        <span class="update-freq">Quarterly</span>
+        <div class="update-last">Last updated: March 2026</div>
+      </div>
+      <div class="update-card">
+        <div class="update-icon">🛡️</div>
+        <div class="update-source">GPI safety</div>
+        <span class="update-freq">Annually</span>
+        <div class="update-last">GPI 2025/26 edition</div>
+      </div>
+      <div class="update-card">
+        <div class="update-icon">🎓</div>
+        <div class="update-source">PISA education</div>
+        <span class="update-freq">Every 3 years</span>
+        <div class="update-last">PISA 2022 (latest)</div>
+      </div>
+      <div class="update-card">
+        <div class="update-icon">🛂</div>
+        <div class="update-source">Visa data</div>
+        <span class="update-freq">As reported</span>
+        <div class="update-last">Verified 2025/26</div>
+      </div>
+      <div class="update-card">
+        <div class="update-icon">📋</div>
+        <div class="update-source">IRS tax data</div>
+        <span class="update-freq">Annually</span>
+        <div class="update-last">IRS 2025/26</div>
+      </div>
+      <div class="update-card">
+        <div class="update-icon">🗓️</div>
+        <div class="update-source">Full database</div>
+        <span class="update-freq">Quarterly</span>
+        <div class="update-last">Next review: June 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <p><strong>Important:</strong> ExpatAce is an independent information aggregator. Nothing on this site or in our email series constitutes legal, tax, financial, immigration, insurance, or investment advice of any kind. All data is general in nature and may change. Cost estimates are averages and will vary in practice. Visa and tax rules change frequently. Always conduct your own research and, where appropriate, consult a licensed professional — including an immigration attorney, US expat tax advisor, and financial planner — before making any relocation decisions. ExpatAce is not a law firm, tax practice, investment advisor, or insurance broker.</p>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-logo-text">✈ ExpatAce</span>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="flights.html">Flights</a>
+      <a href="news.html">News</a>
+      <a href="methodology.html">Methodology</a>
+    </div>
+    <div class="footer-copy">© 2026 ExpatAce &nbsp;·&nbsp; <a href="/privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="/privacy.html#do-not-sell">Do Not Sell My Information</a></div>
+  </div>
+  <div class="footer-disclaimer-strip">
+    ExpatAce is an independent information aggregator. <strong style="color:rgba(255,255,255,0.5)">Nothing on this site constitutes legal, tax, financial, immigration, or professional advice of any kind.</strong> Always consult a licensed professional before making any decisions.
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Latest expat news, visa updates, cost of living data, and destination insights for Americans considering a move abroad. Updated daily from 30+ sources.">
+  <title>Expat News & Insights — ExpatAce</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈</text></svg>">
+<style>
+:root{
+  --ink:#121212;--ink2:#333;--ink3:#666;--ink4:#999;
+  --border:#e2e2e2;--border2:#ccc;--bg:#fff;--bg2:#f8f8f6;
+  --teal:#1a7a6e;--accent:#c0392b;
+  --serif:'Georgia','Times New Roman',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--serif);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--teal)}
+img{display:block}
+
+/* NAV */
+.site-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;border-bottom:1px solid var(--border);font-family:var(--sans)}
+.nav-logo{font-size:17px;font-weight:700;letter-spacing:-0.02em}
+.nav-logo span{color:var(--teal)}
+.nav-links{display:flex;gap:22px;font-size:13px;color:var(--ink3)}
+.nav-links a:hover{color:var(--ink)}
+.nav-active{color:var(--ink)!important;font-weight:600;border-bottom:1.5px solid var(--ink)}
+.nav-cta{font-size:13px;font-weight:600;background:var(--ink);color:#fff;padding:8px 16px;border-radius:6px}
+.nav-cta:hover{background:var(--teal);color:#fff}
+
+/* API WARNING */
+.api-warning{display:none;background:#fef3c7;border-bottom:1px solid #f59e0b;padding:8px 24px;font-family:var(--sans);font-size:12px;color:#92400e;text-align:center}
+
+/* TICKER */
+.ticker-bar{background:var(--ink);color:#fff;display:flex;align-items:center;height:34px;overflow:hidden;font-family:var(--sans)}
+.ticker-label{background:var(--accent);color:#fff;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0 14px;height:100%;display:flex;align-items:center;white-space:nowrap;flex-shrink:0}
+.ticker-wrap{overflow:hidden;flex:1}
+.ticker-track{display:flex;white-space:nowrap;animation:ticker 55s linear infinite}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.t-item{font-size:12px;padding:0 32px 0 0;color:rgba(255,255,255,0.7);display:inline-flex;align-items:center;gap:8px}
+.t-item strong{color:#fff;font-weight:600}
+.t-dot{width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0}
+
+/* MASTHEAD */
+.masthead{text-align:center;padding:20px 24px 14px;border-bottom:2px solid var(--ink)}
+.mast-eyebrow{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:5px}
+.mast-title{font-size:34px;font-weight:700;letter-spacing:-0.02em;line-height:1;margin-bottom:6px}
+.mast-meta{font-family:var(--sans);font-size:12px;color:var(--ink3);display:flex;align-items:center;justify-content:center;gap:12px}
+
+/* TABS */
+.country-tabs{display:flex;border-bottom:2px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch;font-family:var(--sans);background:var(--bg2);gap:4px;padding:8px 24px}
+.country-tabs::-webkit-scrollbar{display:none}
+.c-tab{font-size:12px;font-weight:600;padding:6px 14px;cursor:pointer;white-space:nowrap;color:var(--ink3);border-radius:20px;border:1px solid transparent;transition:all 0.15s;flex-shrink:0}
+.c-tab.active{color:var(--teal);background:#fff;border-color:var(--teal)}
+.c-tab:hover:not(.active){color:var(--ink);background:#fff}
+.region-tabs::-webkit-scrollbar{display:none}
+.r-tab{font-size:12px;font-weight:600;letter-spacing:0.04em;padding:10px 20px;cursor:pointer;white-space:nowrap;color:var(--ink3);border-bottom:2px solid transparent;transition:color 0.15s,border-color 0.15s;flex-shrink:0}
+.r-tab.active{color:var(--ink);border-bottom-color:var(--ink)}
+.r-tab:hover:not(.active){color:var(--ink)}
+
+/* LAYOUT */
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.sec-label{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);padding:14px 0 10px;border-top:2px solid var(--ink);display:flex;align-items:center;gap:8px;margin-top:4px}
+.live-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+
+/* TOP GRID — 3 col */
+.top-grid{display:grid;grid-template-columns:260px 1fr 230px;gap:0;padding:14px 0;border-bottom:1px solid var(--border)}
+.col-l{padding-right:22px;border-right:1px solid var(--border)}
+.col-c{padding:0 22px}
+.col-r{padding-left:22px;border-left:1px solid var(--border)}
+
+/* Shared text styles */
+.kicker{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:3px}
+.meta{font-family:var(--sans);font-size:10px;color:var(--ink4)}
+.visa-tag{display:inline-block;font-family:var(--sans);font-size:9px;font-weight:600;background:#fff3cd;color:#856404;border:1px solid #ffc107;border-radius:3px;padding:1px 5px;margin-left:5px;vertical-align:middle}
+
+/* Text story (left col) */
+.txt-story{display:block;padding:10px 0;border-bottom:1px solid var(--border)}
+.txt-story:last-child{border-bottom:none}
+.txt-story:hover .ts-hl{color:var(--teal)}
+.ts-hl{font-size:14px;font-weight:700;line-height:1.3;margin-bottom:3px;transition:color 0.1s}
+.ts-sum{font-size:12px;color:var(--ink3);line-height:1.45;margin-bottom:3px}
+
+/* Hero (center) */
+.hero-story{display:block}
+.hero-story:hover .h-hl{color:var(--teal)}
+.hero-img{width:100%;aspect-ratio:16/9;border-radius:2px;margin-bottom:10px;overflow:hidden;position:relative;background:#111}
+.hero-img img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}
+.hero-img-cap{position:absolute;bottom:6px;left:8px;font-family:var(--sans);font-size:9px;color:rgba(255,255,255,0.85);background:rgba(0,0,0,0.4);padding:2px 6px;border-radius:2px;z-index:1}
+.h-hl{font-size:22px;font-weight:700;line-height:1.25;margin-bottom:6px;transition:color 0.1s}
+.h-sum{font-size:13px;color:var(--ink3);line-height:1.6;margin-bottom:5px}
+
+/* Feature + minis (right) */
+.feat-story{display:block;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.feat-story:hover .f-hl{color:var(--teal)}
+.feat-img{width:100%;aspect-ratio:4/3;border-radius:2px;margin-bottom:7px;overflow:hidden;position:relative;background:#111}
+.feat-img img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}
+.f-hl{font-size:14px;font-weight:700;line-height:1.3;margin-bottom:3px;transition:color 0.1s}
+.mini-story{display:flex;gap:9px;padding:9px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.mini-story:last-child{border-bottom:none}
+.mini-story:hover .m-hl{color:var(--teal)}
+.mini-flag{width:52px;height:44px;border-radius:2px;flex-shrink:0;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size:28px;background:var(--bg2)}
+.m-hl{font-size:12px;font-weight:700;line-height:1.35;margin-bottom:2px;transition:color 0.1s}
+
+/* ── COUNTRY SECTION — flag/photo anchor + text cards ── */
+.country-section{margin-bottom:0}
+.country-header{display:flex;align-items:stretch;border-top:2px solid var(--ink);margin-top:16px;margin-bottom:14px}
+.country-header-img{width:220px;flex-shrink:0;overflow:hidden;position:relative;border-radius:0 0 2px 2px}
+.country-header-img img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}
+.country-header-img-bg{width:100%;height:100%;position:absolute;top:0;left:0;display:flex;align-items:center;justify-content:center;font-size:64px;background:var(--bg2)}
+.country-header-text{padding:14px 20px;flex:1;border-left:1px solid var(--border)}
+.country-flag-lg{font-size:32px;margin-bottom:6px}
+.country-name{font-size:20px;font-weight:700;letter-spacing:-0.01em;margin-bottom:3px}
+.country-desc{font-family:var(--sans);font-size:12px;color:var(--ink3);line-height:1.5}
+
+/* Text-only story cards for imageless sources */
+.story-list{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.story-card{display:block;padding:12px 16px 12px 0;border-right:1px solid var(--border)}
+.story-card:nth-child(3n){border-right:none;padding-right:0}
+.story-card:nth-child(n+4){border-top:1px solid var(--border);padding-top:12px}
+.story-card:nth-child(-n+3){padding-top:0}
+.story-card:hover .sc-hl{color:var(--teal)}
+.sc-hl{font-size:14px;font-weight:700;line-height:1.3;margin-bottom:4px;transition:color 0.1s}
+.sc-sum{font-size:12px;color:var(--ink3);line-height:1.5;margin-bottom:4px}
+
+/* Affiliate strip */
+.aff-strip{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:11px 0;margin:20px 0}
+.aff-inner{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.aff-lbl{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);white-space:nowrap}
+.aff-pill{font-family:var(--sans);font-size:12px;font-weight:600;padding:5px 14px;border:1px solid var(--border2);border-radius:20px;color:var(--ink2);transition:border-color 0.15s,color 0.15s}
+.aff-pill:hover{border-color:var(--teal);color:var(--teal)}
+
+/* Safe harbor */
+.safe-harbor{border-top:1px solid var(--border);padding:16px 0 28px;font-family:var(--sans);font-size:11px;color:var(--ink4);line-height:1.65}
+.safe-harbor a{color:var(--teal)}
+.safe-title{font-weight:700;color:var(--ink3);margin-bottom:5px;font-size:11px;letter-spacing:0.05em;text-transform:uppercase}
+
+/* States */
+.loading-state{display:flex;align-items:center;justify-content:center;padding:48px;font-family:var(--sans);color:var(--ink3);font-size:13px;gap:10px}
+.spinner{width:18px;height:18px;border:2px solid var(--border2);border-top-color:var(--teal);border-radius:50%;animation:spin 0.8s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Responsive */
+@media(max-width:820px){
+  .top-grid{grid-template-columns:1fr}
+  .col-l{border-right:none;padding-right:0;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:12px}
+  .col-c{padding:0}
+  .col-r{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:12px;margin-top:12px}
+  .story-list{grid-template-columns:repeat(2,1fr)}
+  .country-header-img{width:140px}
+  .mast-title{font-size:26px}
+  .nav-links{display:none}
+}
+@media(max-width:500px){
+  .story-list{grid-template-columns:1fr}
+  .wrap{padding:0 16px}
+  .country-header{flex-direction:column}
+  .country-header-img{width:100%;height:160px}
+}
+</style>
+  <link rel="canonical" href="https://expatace.com/news.html">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Latest news for Americans moving abroad. Visa updates, cost of living changes, and expat community coverage across 12 countries.">
+  <meta property="og:image" content="https://expatace.com/imgpanama.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Expat News & Insights — ExpatAce">
+  <meta name="twitter:description" content="Latest news for Americans moving abroad. Visa updates, cost of living changes, and expat community coverage across 12 countries.">
+  <meta name="twitter:image" content="https://expatace.com/imgpanama.jpg">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="/" class="nav-logo">✈ Expat<span>Ace</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/destinations.html">Destinations</a>
+    <a href="/flights.html">Flights</a>
+    <a href="/news.html" class="nav-active">News</a>
+    <a href="/#about">About</a>
+  </div>
+  <a href="/" class="nav-cta">Take the Quiz →</a>
+</nav>
+
+<div class="api-warning" id="api-warning">
+  ⚠️ High traffic detected — some news feeds may be temporarily limited. Full updates resume shortly.
+</div>
+
+<div class="ticker-bar">
+  <div class="ticker-label">Live</div>
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="ticker-track">
+      <div class="t-item"><div class="t-dot"></div><strong>Loading headlines…</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="masthead">
+  <div class="mast-eyebrow">ExpatAce Intelligence</div>
+  <div class="mast-title">Expat News &amp; Insights</div>
+  <div class="mast-meta">
+    <span id="today-date"></span>
+    <span>·</span>
+    <span>Curated expat-focused sources</span>
+    <span>·</span>
+    <span>Updated on every visit</span>
+  </div>
+</div>
+
+<!-- tabs removed — single unified feed -->
+
+<div class="wrap">
+  <div class="sec-label"><div class="live-dot"></div>Top Stories</div>
+  <div id="top-grid-wrap"><div class="loading-state"><div class="spinner"></div>Loading stories…</div></div>
+
+  <div class="aff-strip">
+    <div class="aff-inner">
+      <div class="aff-lbl">Moving abroad?</div>
+      <a href="https://safetywing.com/?referenceID=expatace" target="_blank" rel="noopener" class="aff-pill">🛡 SafetyWing Health Insurance</a>
+      <a href="https://wise.com/invite/expatace" target="_blank" rel="noopener" class="aff-pill">💸 Wise — Send Money Abroad</a>
+      <a href="https://www.airalo.com/?partner=expatace" target="_blank" rel="noopener" class="aff-pill">📱 Airalo eSIM</a>
+    </div>
+  </div>
+
+  <div id="country-sections"></div>
+
+  <div class="safe-harbor">
+    <div class="safe-title">Editorial Notice</div>
+    ExpatAce curates and links to third-party news sources. We are not the publisher, author, or editor of any linked content and make no editorial claims or warranties regarding its accuracy or completeness. All stories open directly on the original publisher's website. Visa, immigration, tax, and legal information is provided for general awareness only — requirements change frequently. <strong>Nothing on this page constitutes legal or immigration advice.</strong> Always verify current requirements with the relevant embassy, consulate, or a licensed immigration attorney. <a href="/">Learn more about ExpatAce →</a>
+  </div>
+</div>
+
+<script>
+const API_BASE = '/api/rss-proxy?num=8&url=';
+const API_DAILY_LIMIT = 10000;
+
+// Content filter
+const BLOCKED = ['murder','shooting','gunshot','bomb','explosion','terrorist',
+  'massacre','genocide','rape','sexual assault','child abuse','pedophil',
+  'trafficking','racist','racism','white suprema','nazi','hate crime',
+  'suicide','self-harm','overdose','decapitat','behead','torture',
+  'narco','cartel','drug bust','drug lord','arrest','police chief'];
+
+const VISA_WORDS = ['visa','residency','residence permit','immigration','passport',
+  'AIMA','DNV','D7','D8','golden visa','nomad visa','work permit','UMA',
+  'CUSMA','express entry','LTR','LTM','tax regime','flat tax'];
+
+// ── HELPERS ──────────────────────────────────────────────────────────
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function strip(s) {
+  return String(s||'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
+}
+function titleCase(s) {
+  if (!s) return '';
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+function ago(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr);
+  if (isNaN(d)) return '';
+  const diff = Math.floor((Date.now() - d) / 1000);
+  if (diff < 3600) return Math.floor(diff/60) + 'm ago';
+  if (diff < 86400) return Math.floor(diff/3600) + 'h ago';
+  return Math.floor(diff/86400) + 'd ago';
+}
+function isFakeImg(url) {
+  if (!url) return true;
+  if (url.includes('1x1') || url.includes('pixel') || url.includes('spacer') || url.includes('blank')) return true;
+  if (url.endsWith('.gif')) return true;
+  // Reject WordPress thumbnails of any size (e.g. -150x150, -300x200, -768x512)
+  if (/-\d+x\d+\.(jpg|jpeg|png|webp)/i.test(url)) return true;
+  return false;
+}
+function upgradeImgUrl(url) {
+  if (!url) return url;
+  // Strip WordPress thumbnail size suffix to get full-size image
+  return url.replace(/-\d+x\d+(\.(jpg|jpeg|png|webp))/i, '$1');
+}
+function extractImg(html) {
+  const m = /<img[^>]+src=["']([^"']+)["']/i.exec(html||'');
+  return m ? m[1] : '';
+}
+function isBlocked(s) {
+  const text = ((s.title||'') + ' ' + (s.summary||'')).toLowerCase();
+  return BLOCKED.some(w => text.includes(w));
+}
+function vtag(s) {
+  const text = ((s.title||'') + ' ' + (s.summary||'')).toLowerCase();
+  if (VISA_WORDS.some(w => text.includes(w.toLowerCase()))) {
+    return '<span class="visa-tag">Visa</span>';
+  }
+  return '';
+}
+
+const SOURCES = [
+  {name:'Portugal Resident',    url:'https://www.portugalresident.com/category/life/expat-life/feed/',                   country:'Portugal',      flag:'🇵🇹', region:'europe'},
+  {name:'Greek Reporter',       url:'https://greekreporter.com/tag/golden-visa/feed/',          country:'Greece',        flag:'🇬🇷', region:'europe'},
+  {name:'The Local Spain',      url:'https://feeds.thelocal.com/rss/es',                      country:'Spain',         flag:'🇪🇸', region:'europe'},
+  {name:'The Olive Press',       url:'https://www.theolivepress.es/feed/',                     country:'Spain',         flag:'🇪🇸', region:'europe'},
+  {name:'International Living', url:'https://internationalliving.com/feed/',                   country:'International', flag:'🌍', region:'all'},
+  {name:'Mexperience',          url:'https://www.mexperience.com/feed/',                       country:'Mexico',        flag:'🇲🇽', region:'americas'},
+  {name:'CIC News',             url:'https://www.cicnews.com/feed',                            country:'Canada',        flag:'🇨🇦', region:'americas'},
+
+  {name:'Greenback Expat Tax',  url:'https://www.greenbacktaxservices.com/feed/',              country:'Tax & Finance', flag:'💰', region:'all'},
+  {name:'Citizen Remote',       url:'https://citizenremote.com/blog/feed/',                    country:'Visas & Nomad', flag:'🛂', region:'all'},
+  {name:'Expat Focus',          url:'https://www.expatfocus.com/feed',                         country:'Expat Life',    flag:'🧳', region:'all'},
+  {name:'Nomad Gate',           url:'https://nomadgate.com/feed/',                             country:'Nomad Visas',   flag:'✈️', region:'all'},
+  {name:'The Local France',     url:'https://feeds.thelocal.com/rss/fr',                      country:'France',        flag:'🇫🇷', region:'europe'},
+  {name:'The Local Italy',       url:'https://feeds.thelocal.com/rss/it',                      country:'Italy',         flag:'🇮🇹', region:'europe'},
+  {name:'Expat Network',         url:'https://www.expatnetwork.com/feed',                      country:'United Kingdom', flag:'🇬🇧', region:'europe'},
+  {name:'Colombia Reports',      url:'https://colombiareports.com/feed',                       country:'Colombia',      flag:'🇨🇴', region:'americas'},
+  {name:'Tico Times',            url:'https://ticotimes.net/feed',                             country:'Costa Rica',    flag:'🇨🇷', region:'americas'},
+  {name:'Inside Costa Rica',     url:'https://insidecostarica.com/feed',                      country:'Costa Rica',    flag:'🇨🇷', region:'americas'},
+  {name:'Thaiger',               url:'https://thethaiger.com/feed',                            country:'Thailand',      flag:'🇹🇭', region:'asia'},
+  {name:'The Local Malaysia',    url:'https://feeds.thelocal.com/rss/my',                      country:'Malaysia',      flag:'🇲🇾', region:'asia'},
+];
+
+let allStories = [];
+
+// ── FETCH ────────────────────────────────────────────────────────────
+async function fetchFeed(src) {
+  try {
+    const r = await fetch(API_BASE + encodeURIComponent(src.url));
+    if (!r.ok) return [];
+    const d = await r.json();
+    if (d.status !== 'ok' || !d.items) return [];
+    return d.items.slice(0,10).map(i => ({
+      title: titleCase((i.title||'').replace(/&amp;/g,'&').replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/<[^>]*>/g,'')),
+      link: i.link || '#',
+      summary: (i.description || '').slice(0,200),
+      rawImage: upgradeImgUrl(i.thumbnail || ''),
+      rawDate: new Date(i.pubDate || 0),
+      date: ago(i.pubDate||''),
+      source: src.name,
+      country: src.country,
+      flag: src.flag,
+    })).filter(s => s.title && s.link && !isBlocked(s));
+  } catch { return []; }
+}
+
+async function loadAll() {
+  const firstBatch = SOURCES.slice(0, 6);
+  const secondBatch = SOURCES.slice(6);
+
+  // Fetch first 4 feeds and render immediately
+  const firstResults = await Promise.allSettled(firstBatch.map(s => fetchFeed(s)));
+  allStories = firstResults.flatMap(r => r.status==='fulfilled' ? r.value : []);
+  allStories.sort((a, b) => b.rawDate - a.rawDate);
+  if (allStories.length) { render(); buildTicker(); }
+
+  // Fetch remaining 6 feeds in background and merge
+  const secondResults = await Promise.allSettled(secondBatch.map(s => fetchFeed(s)));
+  const secondStories = secondResults.flatMap(r => r.status==='fulfilled' ? r.value : []);
+  allStories = [...allStories, ...secondStories];
+  allStories.sort((a, b) => b.rawDate - a.rawDate);
+  render();
+  buildTicker();
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────
+function render() {
+  if (!allStories.length) {
+    document.getElementById('top-grid-wrap').innerHTML = '<div class="loading-state"><div class="spinner"></div>Loading stories…</div>';
+    document.getElementById('country-sections').innerHTML = '';
+    return;
+  }
+
+  // Top grid: prefer stories with real images for the visual slots, but keep date order
+  const withImg = allStories.filter(s => !isFakeImg(s.rawImage));
+  const withoutImg = allStories.filter(s => isFakeImg(s.rawImage));
+  const topStories = [...withImg.slice(0,7), ...withoutImg].slice(0,7);
+
+  renderTop(topStories);
+
+  // Remaining stories below top grid — all sorted by date
+  const rest = allStories.slice(7);
+  if (!rest.length) {
+    document.getElementById('country-sections').innerHTML = '';
+    return;
+  }
+
+  document.getElementById('country-sections').innerHTML = `
+    <div class="sec-label" style="margin-top:20px"><div class="live-dot"></div>More Stories</div>
+    <div class="story-list">
+      ${rest.map(s => `
+        <a class="story-card" href="${esc(s.link)}" target="_blank" rel="noopener">
+          <div class="kicker">${esc(s.flag)} ${esc(s.source)} · ${esc(s.date)}</div>
+          <div class="sc-hl">${esc(s.title)}${vtag(s)}</div>
+          <div class="sc-sum">${esc(s.summary.slice(0,130))}…</div>
+        </a>`).join('')}
+    </div>`;
+}
+
+function renderTop(stories) {
+  if (stories.length < 3) {
+    document.getElementById('top-grid-wrap').innerHTML = '<div class="loading-state"><div class="spinner"></div>Loading…</div>';
+    return;
+  }
+  const FALLBACK = 'https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1600&q=90';
+  const getFallback = s => FALLBACK;
+  const hero = stories[0];
+  const leftCol = stories.slice(1, 4);
+  const feat = stories[4] || stories[1];
+  const minis = stories.slice(5, 7);
+
+  document.getElementById('top-grid-wrap').innerHTML = `
+  <div class="top-grid">
+    <div class="col-l">
+      ${leftCol.map(s => `
+        <a class="txt-story" href="${esc(s.link)}" target="_blank" rel="noopener">
+          <div class="kicker">${esc(s.flag)} ${esc(s.source)} · ${esc(s.date)}</div>
+          <div class="ts-hl">${esc(s.title)}${vtag(s)}</div>
+          <div class="ts-sum">${esc(s.summary.slice(0,110))}…</div>
+        </a>`).join('')}
+    </div>
+    <div class="col-c">
+      <a class="hero-story" href="${esc(hero.link)}" target="_blank" rel="noopener">
+        <div class="hero-img">
+          <img src="${esc(!isFakeImg(hero.rawImage) ? hero.rawImage : getFallback(hero))}" alt="${esc(hero.title)}" loading="lazy" onerror="this.src='${esc(FALLBACK)}'">
+          <div class="hero-img-cap">${esc(hero.source)}</div>
+        </div>
+        <div class="kicker">${esc(hero.flag)} ${esc(hero.source)} · ${esc(hero.date)}</div>
+        <div class="h-hl">${esc(hero.title)}${vtag(hero)}</div>
+        <div class="h-sum">${esc(hero.summary.slice(0,200))}…</div>
+      </a>
+    </div>
+    <div class="col-r">
+      <a class="feat-story" href="${esc(feat.link)}" target="_blank" rel="noopener">
+        <div class="feat-img">
+          <img src="${esc(!isFakeImg(feat.rawImage) ? feat.rawImage : getFallback(feat))}" alt="${esc(feat.title)}" loading="lazy" onerror="this.src='${esc(FALLBACK)}'">
+        </div>
+        <div class="kicker">${esc(feat.flag)} ${esc(feat.source)}</div>
+        <div class="f-hl">${esc(feat.title)}${vtag(feat)}</div>
+        <div class="meta">${esc(feat.date)}</div>
+      </a>
+      ${minis.map(s => `
+        <a class="mini-story" href="${esc(s.link)}" target="_blank" rel="noopener">
+          <div class="mini-flag">${esc(s.flag)}</div>
+          <div>
+            <div class="kicker" style="margin-bottom:2px">${esc(s.source)}</div>
+            <div class="m-hl">${esc(s.title)}</div>
+            <div class="meta">${esc(s.date)}</div>
+          </div>
+        </a>`).join('')}
+    </div>
+  </div>`;
+}
+
+// ── TICKER ────────────────────────────────────────────────────────────
+function buildTicker() {
+  if (!allStories.length) return;
+  // Take 2 newest stories from each source
+  const seen = {};
+  const items = [];
+  for (const s of allStories) {
+    const count = seen[s.source] || 0;
+    if (count < 2) {
+      items.push(s);
+      seen[s.source] = count + 1;
+    }
+    if (Object.keys(seen).length >= SOURCES.length && items.length >= SOURCES.length * 2) break;
+  }
+  document.getElementById('ticker-track').innerHTML = [...items,...items].map(s =>
+    `<div class="t-item"><div class="t-dot"></div><strong>${esc(s.flag)} ${esc(s.source)}</strong>&nbsp;&nbsp;${esc(s.title.slice(0,65))}${s.title.length>65?'…':''}</div>`
+  ).join('');
+}
+
+document.getElementById('today-date').textContent =
+  new Date().toLocaleDateString('en-US', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
+
+loadAll();
+</script>
+
+<footer style="background:#121212;color:rgba(255,255,255,0.5);font-family:var(--sans);font-size:12px;padding:20px 0;margin-top:0">
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <div style="font-size:15px;font-weight:700;color:#fff;letter-spacing:-0.02em">✈ ExpatAce</div>
+    <div style="display:flex;gap:20px">
+      <a href="/destinations.html" style="color:rgba(255,255,255,0.5);text-decoration:none">Destinations</a>
+      <a href="/flights.html" style="color:rgba(255,255,255,0.5);text-decoration:none">Flights</a>
+      <a href="/news.html" style="color:rgba(255,255,255,0.5);text-decoration:none">News</a>
+      <a href="/#about" style="color:rgba(255,255,255,0.5);text-decoration:none">About</a>
+    </div>
+    <div style="color:rgba(255,255,255,0.3)">© 2026 ExpatAce &nbsp;·&nbsp; <a href="/privacy.html" style="color:#94a3b8;text-decoration:none">Privacy Policy</a> &nbsp;·&nbsp; <a href="/privacy.html#do-not-sell" style="color:#94a3b8;text-decoration:none">Do Not Sell My Information</a> · <a href="/privacy.html">Privacy Policy</a></div>
+  </div>
+  <div style="max-width:1100px;margin:10px auto 0;padding:10px 24px 0;border-top:1px solid rgba(255,255,255,0.08);font-size:11px;color:rgba(255,255,255,0.3);line-height:1.7">
+    ExpatAce is an independent information aggregator for people considering a move abroad. We curate and present publicly available information as accurately and as currently as possible, but make no warranties regarding its completeness, accuracy, or timeliness. <strong style="color:rgba(255,255,255,0.45)">Nothing on this site constitutes legal, tax, financial, immigration, or professional advice of any kind.</strong> Always conduct your own research and, where appropriate, consult a licensed professional — including an immigration attorney, tax advisor, or financial planner — before making any decisions.
+  </div>
+</footer>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#e2e8f0;padding:16px 24px;z-index:9999;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;font-size:13px;box-shadow:0 -4px 20px rgba(0,0,0,0.3)">
+  <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+    <p style="margin:0;line-height:1.5;color:#cbd5e1">We use Google Analytics to understand how visitors use our site. No advertising cookies. No data sales. <a href="/privacy.html" style="color:#5eead4;text-decoration:underline">Privacy Policy</a></p>
+    <div style="display:flex;gap:10px;flex-shrink:0">
+      <button onclick="setCookieConsent('declined')" style="background:transparent;border:1px solid #475569;color:#94a3b8;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-family:inherit;white-space:nowrap">Decline Analytics</button>
+      <button onclick="setCookieConsent('accepted')" style="background:#1a7a6e;border:none;color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;white-space:nowrap">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var consent = localStorage.getItem('expatace_consent');
+  if (!consent) { document.getElementById('cookie-banner').style.display='block'; }
+})();
+function setCookieConsent(val) {
+  localStorage.setItem('expatace_consent', val);
+  document.getElementById('cookie-banner').style.display='none';
+  if (val === 'declined') {
+    // Disable GA if declined
+    window['ga-disable-G-JF8N471XBX'] = true;
+  }
+}
+</script>
+
+</body>
+</html>
