@@ -1,9 +1,0 @@
-{
-  "name": "expatace-functions",
-  "version": "1.0.0",
-  "description": "Netlify serverless functions for ExpatAce",
-  "dependencies": {
-    "node-fetch": "^2.6.1",
-    "xml2js": "^0.4.23"
-  }
-}
