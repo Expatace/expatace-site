@@ -448,7 +448,7 @@ function renderQuestion() {
     <div class="options-grid fade-in">
       ${q.options.map(opt => `
         <button class="option-btn ${answers[q.id] === opt.value ? 'selected' : ''}"
-          onclick="selectAnswer('${opt.value}', this)">
+          data-value="${opt.value}">
           <span class="opt-icon">${opt.icon}</span>
           <span class="opt-text">
             <span class="opt-label">${opt.label}</span>
@@ -471,6 +471,13 @@ function renderQuestion() {
       </div>
     ` : ''}
   `;
+  
+  // Add event listeners to option buttons
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      selectAnswer(this.dataset.value, this);
+    });
+  });
 }
 
 function selectAnswer(value, btn) {

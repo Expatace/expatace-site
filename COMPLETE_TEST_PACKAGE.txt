@@ -1,0 +1,58 @@
+COMPLETE OFFLINE TEST PACKAGE - v17
+═══════════════════════════════════════════════════════════
+
+ALL FILES READY FOR TESTING:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. index.html               ← Gallery White homepage (all corrections)
+2. global-style-sheet.css   ← Design system (CSS variables)
+3. quiz.js                  ← Quiz engine (FIXED selection bug)
+4. data.js                  ← City database (6 test cities)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BUG FIXED IN quiz.js:
+✅ Selection logic now works properly
+✅ Buttons are clickable and respond to clicks
+✅ Automatic progression after selection (220ms delay)
+✅ Progress bar updates correctly
+
+OFFLINE TEST PROCEDURE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Download all 4 files above
+2. Put in same folder
+3. Open index.html in browser
+4. Test homepage:
+   ✅ Gallery White design loads
+   ✅ Trust bar positioned correctly (close to cards)
+   ✅ Card CTAs bottom-aligned
+5. Click "Take the Quiz"
+6. Test quiz functionality:
+   ✅ Click any option → Highlights + checkmark appears
+   ✅ Auto-advances to next question after 220ms
+   ✅ Progress shows "Question 2 of 16" etc.
+   ✅ Can complete all 16 questions
+   ✅ Shows results with 6 cities (3 blurred)
+
+WHAT TO CHECK:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✓ Homepage looks professional (Gallery White aesthetic)
+✓ Quiz buttons are clickable
+✓ Quiz progresses automatically
+✓ Progress bar counts correctly
+✓ Results show blurred cities before email
+
+IF QUIZ STILL FAILS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Press F12 → Console tab → Report exact error message
+
+KNOWN LIMITATION:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+data.js contains only 6 test cities (not full 102)
+If you have the full data.js from earlier sessions, use that instead
+
+DEPLOYMENT READY:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Once offline test passes:
+1. Save in dated folder (ExpatAce_Site_v17_Apr11_2026)
+2. Push to GitHub (production filenames)
+3. Wait for Cloudflare deploy
+4. Test live site

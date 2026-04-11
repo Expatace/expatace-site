@@ -1,0 +1,52 @@
+QUIZ JAVASCRIPT BUG FIX
+═══════════════════════════════════════════════════════════
+
+BUG IDENTIFIED:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Line 451: onclick="selectAnswer('${opt.value}', this)"
+
+PROBLEM: When onclick is set as an HTML attribute string, the 'this' 
+keyword refers to the global window object, NOT the button element.
+
+RESULT: selectAnswer receives window instead of the button, so it can't
+update the button's visual state (add 'selected' class, show checkmark).
+
+User can't make selections because the buttons don't respond to clicks.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FIX APPLIED:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Removed inline onclick attribute
+✅ Added data-value attribute to store option value
+✅ Added event delegation using addEventListener after rendering
+✅ Now 'this' correctly refers to the clicked button element
+
+NEW CODE:
+1. Button markup: <button data-value="${opt.value}">
+2. After rendering: document.querySelectorAll('.option-btn').forEach(btn => {
+     btn.addEventListener('click', function() {
+       selectAnswer(this.dataset.value, this);
+     });
+   });
+
+BENEFITS:
+✅ Proper JavaScript context ('this' = button element)
+✅ Cleaner separation of HTML and JS
+✅ Works reliably across all browsers
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROGRESS BAR STATUS:
+✅ Already working correctly (no bug found)
+   - Shows "Question X of Y" based on effective total
+   - Excludes skipped conditional questions from count
+   - Updates with each question advancement
+
+TESTING:
+1. Click "Take the Quiz" → Quiz launches
+2. Click any option → Button highlights, shows checkmark
+3. After 220ms delay → Automatically advances to next question
+4. Progress bar updates: "Question 2 of 16" etc.
+5. All 16 questions should be reachable
+
+FILES UPDATED:
+- quiz.js (selection logic fixed)
