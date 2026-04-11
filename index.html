@@ -4,307 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>ExpatAce — Find Your Perfect City to Live Abroad</title>
-  <meta name="description" content="Answer up to 16 questions and ExpatAce matches you to real cities — personalised to your budget, lifestyle, safety needs and goals. The data-driven relocation engine for people ready to move abroad.">
-  <meta property="og:title" content="ExpatAce — Find Your Perfect City to Live Abroad">
-  <meta property="og:url" content="https://expatace.com">
-  <meta property="og:type" content="website">
-  <meta property="og:description" content="Answer 16 questions and ExpatAce matches you to the exact cities where your dollar buys a safer, richer life abroad. Built for Americans and Canadians.">
-  <meta property="og:image" content="https://expatace.com/imgpanama.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ExpatAce — Find Your Perfect City to Live Abroad">
-  <meta name="twitter:description" content="Answer 16 questions and ExpatAce matches you to the exact cities where your dollar buys a safer, richer life abroad. Built for Americans and Canadians.">
-  <meta name="twitter:image" content="https://expatace.com/imgpanama.jpg">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JF8N471XBX"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JF8N471XBX');</script>
+  <meta name="description" content="Answer 16 questions and ExpatAce matches you to real cities — personalised to your budget, lifestyle, safety needs and goals. The data-driven relocation engine for Americans ready to move abroad.">
+  
+  <!-- Gallery White: Inter Font + Playfair Display -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="sovereign-analyst-gallery-white.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Gallery White CSS - Final Polished Version -->
+  <link rel="stylesheet" href="sovereign-analyst-gallery-white-FINAL.css">
+  
+  <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="canonical" href="https://expatace.com/">
 </head>
 <body>
 
 <nav class="nav" id="site-nav">
   <div class="nav-inner">
-    <a class="nav-logo" href="/">
-      <svg width="180" height="32" viewBox="0 0 180 32" xmlns="http://www.w3.org/2000/svg" style="display:block">
-        <text x="0" y="24" font-family="'Playfair Display', Georgia, serif" font-size="20" font-weight="600" letter-spacing="3.2" fill="var(--ink)">EXPAT</text>
-        <path d="M97 11 L100.5 16 L94 16 Z M100.5 21 L97 16 L94 16 Z" fill="#C5A059"/>
-        <text x="108" y="24" font-family="'Playfair Display', Georgia, serif" font-size="20" font-weight="600" letter-spacing="3.2" fill="var(--ink)">ACE</text>
-      </svg>
+    <a class="nav-logo" onclick="goHome()">
+      <span class="nav-logo-text">EXPAT <span style="color:#C5A059">✦</span> ACE</span>
     </a>
     <div class="nav-links">
-      <a class="nav-link" href="/">Home</a>
-      <a class="nav-link" href="destinations.html">Destinations</a>
-      <a class="nav-link" href="flights.html">Flights</a>
-      <a class="nav-link" href="news.html">News</a>
-      <a class="nav-link" href="methodology.html">Methodology</a>
-      <a class="nav-link" href="why-americans.html">Why Americans</a>
-      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" onclick="goHome()">COUNTRIES</a>
+      <a class="nav-link" href="flights.html">FLIGHTS</a>
+      <a class="nav-link" href="#about">ABOUT</a>
     </div>
     <button class="nav-cta" onclick="startQuiz()">Take the Quiz →</button>
   </div>
 </nav>
 
 <section id="screen-home" class="screen active">
-    <div class="hero">
-    <img src="imgpanama.jpg" alt="Panama City skyline" class="hero-bg-img">
+  <div class="hero">
     <div class="hero-inner">
-      <a href="why-americans.html" style="text-decoration:none"><span class="hero-badge">🇺🇸 &nbsp; Optimized for Americans</span></a>
-      <div class="hero-eyebrow">The data-driven relocation engine for people ready to move abroad.</div>
-      <h1 class="hero-title">Your Dollar Goes Further Abroad.</h1>
-      <p class="hero-title-sub">Explore an upgraded retirement abroad.</p>
-      <p class="hero-tagline">Americans are overpaying for a lower quality of life. Our 2026 destination engine finds the exact cities where your dollar buys a safer, richer, more intentional life.</p>
-      <button onclick="startQuiz()" style="display:block;margin:0 auto 20px;background:var(--teal);color:#fff;font-size:1.1rem;font-weight:800;padding:16px 40px;border-radius:12px;border:none;cursor:pointer;font-family:inherit;letter-spacing:0.01em;box-shadow:0 4px 18px rgba(32,142,173,0.35);transition:transform 0.15s,box-shadow 0.15s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 24px rgba(32,142,173,0.45)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 18px rgba(32,142,173,0.35)'">Find My Perfect City →</button>
-      <div style="border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;padding:12px 0;margin-bottom:28px">
-        <div style="font-size:0.72rem;font-weight:600;color:#94a3b8;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px">Verified data sources</div>
-        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px">
-          <span style="display:inline-flex;align-items:center;gap:6px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;padding:6px 14px;font-size:0.78rem;font-weight:600;color:#334155">🛡️ Safety-Screened (GPI 2025/26)</span>
-          <span style="display:inline-flex;align-items:center;gap:6px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;padding:6px 14px;font-size:0.78rem;font-weight:600;color:#334155">📊 Numbeo Verified Costs</span>
-          <span style="display:inline-flex;align-items:center;gap:6px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;padding:6px 14px;font-size:0.78rem;font-weight:600;color:#334155">📋 IRS Tax Optimized</span>
-          <span style="display:inline-flex;align-items:center;gap:6px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:20px;padding:6px 14px;font-size:0.78rem;font-weight:600;color:#334155">🎓 PISA Education Data</span>
-        </div>
-      </div>
+      <span class="hero-badge">🇺🇸 BUILT FOR AMERICANS</span>
+      <div class="hero-eyebrow">Explore your future lifestyle.</div>
+      <h1 class="hero-title">Living Abroad!</h1>
+      <p class="hero-title-sub">From fantasy to reality.</p>
+      <p class="hero-tagline">Answer 16 questions. Get matched to real cities. Not just countries.</p>
+      
       <div class="entry-grid">
-        <div class="entry-card" onclick="startQuiz()">
+        <!-- Primary/Recommended Card -->
+        <div class="entry-card primary" onclick="startQuiz()">
+          <div class="entry-card-tag">RECOMMENDED</div>
           <span class="entry-card-icon">🎯</span>
-          <div class="entry-card-title">I don't know where to go</div>
-          <div class="entry-card-sub">Answer up to 16 questions. We score 102 cities across 49 countries and show your top 5 city matches — not just countries.</div>
-          <button onclick="startQuiz()" style="margin-top:14px;width:100%;background:var(--teal);color:#fff;font-size:0.82rem;font-weight:700;padding:10px 16px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;transition:background 0.15s" onmouseover="this.style.background='#1a7a9a'" onmouseout="this.style.background='var(--teal)'">Take the quiz →</button>
+          <div class="entry-card-title">Find My Best Match</div>
+          <div class="entry-card-sub">Analyze 50+ data points—including healthcare quality, cost of living, and safety—to find your perfect city.</div>
+          <div class="entry-card-cta">Take the Quiz →</div>
         </div>
-        <div class="entry-card" onclick="openCountryModal()">
+        
+        <!-- Secondary/Ghost Card -->
+        <div class="entry-card" onclick="scrollToCountries()">
           <span class="entry-card-icon">🗺️</span>
-          <div class="entry-card-title">I have a country in mind</div>
-          <div class="entry-card-sub">Browse destinations with city comparisons, real cost data, and visa info.</div>
-          <button onclick="openCountryModal()" style="margin-top:14px;width:100%;background:transparent;color:var(--teal);font-size:0.82rem;font-weight:700;padding:10px 16px;border-radius:8px;border:2px solid var(--teal);cursor:pointer;font-family:inherit;transition:all 0.15s" onmouseover="this.style.background='var(--teal)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--teal)'">Browse countries →</button>
+          <div class="entry-card-title">Search by City</div>
+          <div class="entry-card-sub">Already have a destination in mind? Get a deep-dive report on local costs, infrastructure, and residency requirements.</div>
+          <div class="entry-card-cta">Search Cities →</div>
         </div>
-      </div>
-      <div class="hero-trust">
-        <span class="trust-item">📊 Numbeo verified data</span>
-        <span class="trust-item">🛡️ GPI safety screening</span>
-        <span class="trust-item">🌍 102 cities · 49 countries</span>
-        <span class="trust-item">✅ Free</span>
       </div>
     </div>
+    
+    <!-- Trust Bar - Repositioned outside hero-inner, below cards -->
+    <div class="hero-trust">
+      <span class="trust-item">📊 Numbeo verified data</span>
+      <span class="trust-item">🛡️ GPI safety screening</span>
+      <span class="trust-item">🌍 100+ countries</span>
+      <span class="trust-item">✅ Free</span>
+    </div>
   </div>
+
+  <!-- Continue with rest of original structure -->
   <div class="section">
     <div class="section-inner">
       <p class="section-eyebrow">How it works</p>
       <h2 class="section-title">City-level precision.<br>Not generic lists.</h2>
       <p class="section-sub">Most expat tools show you the same top 10 countries. ExpatAce scores thousands of cities against your specific answers and shows you the real matches.</p>
       <div class="steps-grid">
-        <div class="step-card"><div class="step-num">1</div><span class="step-icon">📋</span><h3 class="step-title">16 Questions to Your New Life</h3><p class="step-desc">We cross-reference your budget against Numbeo cost-of-living, GPI safety scores, PISA education data, and 2026 tax treaties to find your top 5 global matches.</p></div>
+        <div class="step-card"><div class="step-num">1</div><span class="step-icon">📋</span><h3 class="step-title">Answer 16 questions</h3><p class="step-desc">Budget, climate, safety, city type, healthcare, lifestyle, visa situation — takes about 3 minutes.</p></div>
         <div class="step-card"><div class="step-num">2</div><span class="step-icon">🔬</span><h3 class="step-title">We score every city</h3><p class="step-desc">Our engine cross-references your answers against cost, safety, climate, QoL, and expat infrastructure for every city in our database.</p></div>
         <div class="step-card"><div class="step-num">3</div><span class="step-icon">🎯</span><h3 class="step-title">Get your top 5 cities</h3><p class="step-desc">Ranked by fit. Real cost breakdowns, safety scores, and the tools you need to take the next step.</p></div>
       </div>
     </div>
   </div>
-  <div class="section section-alt" id="countries">
-    <div class="section-inner" style="text-align:center">
-      <p class="section-eyebrow">Popular destinations</p>
-      <h2 class="section-title">Where are North Americans moving?</h2>
-      <p class="section-sub">Explore the top 12 countries North Americans are choosing — ranked by survey data from 116,000+ expats. Full cost breakdowns, visa info, and city comparisons.</p>
-      <a href="destinations.html" style="display:inline-block;background:var(--ink);color:#fff;font-size:0.9rem;font-weight:700;padding:13px 28px;border-radius:var(--radius);text-decoration:none;margin-top:8px">View Popular Destinations →</a>
-    </div>
-  </div>
-    <div class="section" id="about">
-    <div class="section-inner">
-      <p class="section-eyebrow">Why ExpatAce</p>
-      <h2 class="section-title">A decision engine.<br>Not a travel blog.</h2>
-      <p class="section-sub">We source every number, date it, and attribute it. No sponsored content. Data you can trust.</p>
-      <div class="steps-grid">
-        <div class="step-card" style="padding-top:24px"><span class="step-icon">🎯</span><h3 class="step-title">City-level precision</h3><p class="step-desc">Spain isn't one place. Barcelona costs twice Extremadura. We match you to the right city, not just the right country.</p></div>
-        <div class="step-card" style="padding-top:24px"><span class="step-icon">📊</span><h3 class="step-title">Verified, sourced data</h3><p class="step-desc">Cost data from Numbeo — the world's largest cost of living database. Safety from Global Peace Index 2025. Every figure sourced and dated.</p></div>
-        <div class="step-card" style="padding-top:24px"><span class="step-icon">🛡️</span><h3 class="step-title">Safety-first screening</h3><p class="step-desc">Every destination screened against GPI 2025. Countries below our safety threshold are not in our results.</p></div>
-        <div class="step-card" style="padding-top:24px"><span class="step-icon">🇺🇸</span><h3 class="step-title">Optimized for Americans</h3><p class="step-desc">FATCA, FBAR, the Foreign Earned Income Exclusion — we understand the specific tax and financial reality of Americans moving abroad.</p></div>
-      </div>
-    </div>
-  </div>
-  <div class="newsletter">
-    <div class="newsletter-inner">
-      <span style="font-size:1.8rem;display:block;margin-bottom:14px">📬</span>
-      <h2 class="newsletter-title">The ExpatAce Weekly</h2>
-      <p class="newsletter-sub">Visa updates, cost of living breakdowns, and the cities everyone's talking about — free every week.</p>
-      <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
-        <input type="email" class="newsletter-input" placeholder="your@email.com" required id="newsletter-email">
-        <button type="submit" class="newsletter-btn">Join Free →</button>
-      <div style="display:flex;align-items:flex-start;gap:8px;margin-top:6px">
-  <input type="checkbox" id="nl-consent" required style="margin-top:2px;accent-color:#1a7a6e;cursor:pointer;flex-shrink:0">
-  <label for="nl-consent" style="font-size:11px;color:#94a3b8;line-height:1.5;cursor:pointer">I agree to receive the ExpatAce Weekly newsletter. Unsubscribe anytime. <a href="/privacy.html" target="_blank" style="color:#5eead4">Privacy Policy</a>.</label>
-</div>
-      </form>
-      <p class="newsletter-fine" id="newsletter-msg">No spam. Unsubscribe anytime.</p>
-    </div>
-  </div>
 </section>
 
-<section id="screen-quiz" class="screen">
-  <div class="quiz-header">
-    <div class="quiz-meta">
-      <span class="quiz-step-label" id="quiz-step-label">Question 1 of 12</span>
-      <button class="quiz-back" id="quiz-back-btn" onclick="quizBack()" style="display:none">← Back</button>
-    </div>
-    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:8%"></div></div>
-  </div>
-  <div class="quiz-body" id="quiz-body"></div>
-</section>
-
-<section id="screen-loading" class="screen">
-  <span class="loading-globe">🌍</span>
-  <h2 class="loading-title">Finding your matches…</h2>
-  <p class="loading-sub">Scoring cities across 49 countries<br>against your answers</p>
-  <div class="loading-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-</section>
-
-<section id="screen-results" class="screen">
-  <div class="results-hero">
-    <div class="results-hero-inner">
-      <span class="results-badge">Your personalised results</span>
-      <h2 class="results-title" id="results-headline">Your top city matches</h2>
-      <p class="results-sub" id="results-sub">Based on your answers, here are the cities that fit your life.</p>
-    </div>
-  </div>
-  <div class="results-body">
-    <div id="results-cards"></div>
-
-    <!-- FEEDBACK SURVEY -->
-    <div id="feedback-card" style="background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:20px 18px;margin-bottom:14px;display:none" class="fade-in">
-      <p style="font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px">Quick question</p>
-      <p style="font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:14px;line-height:1.4">Did your results match what you were expecting?</p>
-      <div id="feedback-btns" style="display:flex;gap:8px;margin-bottom:0;flex-wrap:wrap">
-        <button onclick="submitFeedback('Yes')" style="flex:1;min-width:80px;background:var(--green-bg);border:1.5px solid rgba(5,150,105,0.25);color:var(--green);font-size:0.85rem;font-weight:700;padding:10px 12px;border-radius:8px;cursor:pointer;font-family:inherit;transition:all 0.15s">✅ Yes</button>
-        <button onclick="submitFeedback('Somewhat')" style="flex:1;min-width:80px;background:var(--amber-bg);border:1.5px solid rgba(217,119,6,0.25);color:var(--amber);font-size:0.85rem;font-weight:700;padding:10px 12px;border-radius:8px;cursor:pointer;font-family:inherit;transition:all 0.15s">🤔 Somewhat</button>
-        <button onclick="submitFeedback('Not really')" style="flex:1;min-width:80px;background:var(--red-bg);border:1.5px solid rgba(220,38,38,0.2);color:var(--red);font-size:0.85rem;font-weight:700;padding:10px 12px;border-radius:8px;cursor:pointer;font-family:inherit;transition:all 0.15s">❌ Not really</button>
-      </div>
-      <div id="feedback-followup" style="display:none;margin-top:12px">
-        <p style="font-size:0.83rem;color:var(--ink3);margin-bottom:8px">What's your #1 concern about making the move? <span style="color:var(--ink5)">(optional)</span></p>
-        <textarea id="feedback-text" rows="2" placeholder="e.g. healthcare costs, visa complexity, leaving family..." style="width:100%;background:var(--bg2);border:1.5px solid var(--border2);border-radius:8px;padding:10px 12px;font-size:0.85rem;font-family:inherit;color:var(--ink);outline:none;resize:none;line-height:1.5"></textarea>
-        <button onclick="submitFeedbackFull()" style="margin-top:8px;width:100%;background:var(--ink);color:#fff;border:none;border-radius:8px;padding:10px;font-size:0.83rem;font-weight:700;cursor:pointer;font-family:inherit">Send →</button>
-      </div>
-      <p id="feedback-thanks" style="display:none;font-size:0.85rem;color:var(--green);font-weight:600;margin-top:10px;text-align:center">✅ Thanks — your feedback helps us improve.</p>
-    </div>
-
-    <div class="email-card">
-      <div style="font-size:1.3rem;margin-bottom:4px">🔓</div>
-      <h3 class="email-title">Unlock your top 3 city matches</h3>
-      <p class="email-sub">Enter your email and we'll send your full results — city names revealed, complete cost breakdown, visa options, safety scores, and healthcare guide. Free, no spam.</p>
-      <form class="email-form" onsubmit="handleEmail(event)">
-        <input type="email" class="email-input" placeholder="your@email.com" required id="email-input">
-        <div style="display:flex;align-items:flex-start;gap:8px;margin-top:6px;margin-bottom:2px">
-  <input type="checkbox" id="quiz-consent" required style="margin-top:2px;accent-color:#1a7a6e;cursor:pointer;flex-shrink:0">
-  <label for="quiz-consent" style="font-size:11px;color:var(--ink4);line-height:1.5;cursor:pointer">I agree to receive my report by email and occasional ExpatAce updates. Unsubscribe anytime. <a href="/privacy.html" target="_blank" style="color:var(--teal)">Privacy Policy</a>.</label>
-</div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button type="submit" class="btn-email" style="flex:1;min-width:180px">Unlock My Results →</button>
-          <button type="button" onclick="shareResults()" style="flex:0 0 auto;background:transparent;color:var(--teal);font-size:0.88rem;font-weight:700;padding:11px 18px;border-radius:8px;border:2px solid var(--teal);cursor:pointer;font-family:inherit;transition:all 0.15s;white-space:nowrap" onmouseover="this.style.background='var(--teal)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--teal)'">🔗 Share with Spouse or Partner</button>
-        </div>
-      </form>
-      <p class="email-fine">Free. No spam. Unsubscribe anytime.</p>
-      <p class="email-success" id="email-success">✅ Check your inbox — your top 3 cities and full results are on their way. Check spam if you don't see it within a minute.</p>
-    </div>
-    <button class="btn-retake" onclick="retakeQuiz()">↩ Retake the Quiz</button>
-    <button class="btn-retake" onclick="goHome()">🏠 Back to ExpatAce</button>
-    <div class="safety-note">
-      <p><strong style="color:var(--ink3)">About our scoring:</strong> ExpatAce uses a proprietary scoring system evaluating destinations across safety, political stability, healthcare, visa accessibility, cost of living, and expat infrastructure. Some countries and cities are not included because they fall below our safety threshold. Cost data: Numbeo March 2026. Safety: Global Peace Index 2025. Not legal, immigration, tax, or financial advice. <a href="methodology.html" style="color:var(--teal)">Full methodology →</a></p>
-    </div>
-  </div>
-</section>
-
-<div id="country-modal" class="modal-overlay" onclick="closeCountryModal(event)">
-  <div class="modal-box">
-    <div class="modal-header">
-      <div class="modal-title">Choose a country</div>
-      <button class="modal-close" onclick="document.getElementById('country-modal').classList.remove('open')">✕</button>
-    </div>
-    <input type="text" class="modal-search" id="modal-search" placeholder="Search countries…" oninput="filterModal(this.value)">
-    <div class="modal-list" id="modal-list"></div>
-  </div>
-</div>
-
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-logo">EXPAT ✦ ACE</div>
-    <div class="footer-links">
-      <a href="destinations.html">Destinations</a>
-      <a href="flights.html">Flights</a>
-      <a href="news.html">News</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="why-americans.html">Why Americans</a>
-      <a href="#about">About</a>
-    </div>
-    <div class="footer-copy">© 2026 ExpatAce &nbsp;·&nbsp; <a href="/privacy.html" style="color:#94a3b8;text-decoration:none">Privacy Policy</a> &nbsp;·&nbsp; <a href="/privacy.html#do-not-sell" style="color:#94a3b8;text-decoration:none">Do Not Sell My Information</a></div>
-  </div>
-  <div style="max-width:1100px;margin:0 auto;padding:10px 24px 20px;border-top:1px solid rgba(255,255,255,0.1);margin-top:10px;font-size:11px;color:rgba(255,255,255,0.35);line-height:1.7">
-    ExpatAce is an independent information aggregator for people considering a move abroad. We curate and present publicly available information as accurately and as currently as possible, but make no warranties regarding its completeness, accuracy, or timeliness. <strong style="color:rgba(255,255,255,0.5)">Nothing on this site constitutes legal, tax, financial, immigration, or professional advice of any kind.</strong> Always conduct your own research and, where appropriate, consult a licensed professional — including an immigration attorney, tax advisor, or financial planner — before making any decisions.
-  </div>
-</footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="data.js"></script>
+<script src="data.js"></script>
 <script src="quiz.js"></script>
 <script>
-// ── FEEDBACK SURVEY ───────────────────────────────────────────
-let _feedbackRating = '';
-
-function showFeedbackCard() {
-  const card = document.getElementById('feedback-card');
-  if (card) { card.style.display = 'block'; card.classList.add('fade-in'); }
-}
-
-function submitFeedback(rating) {
-  _feedbackRating = rating;
-  const btns = document.getElementById('feedback-btns');
-  btns.style.opacity = '0.4';
-  btns.style.pointerEvents = 'none';
-  document.getElementById('feedback-followup').style.display = 'block';
-}
-
-function submitFeedbackFull() {
-  const comment = document.getElementById('feedback-text').value.trim();
-  const topCity = (typeof results !== 'undefined' && results[0]) ? results[0].city + ', ' + results[0].country : '';
-  const payload = new FormData();
-  payload.append('rating', _feedbackRating);
-  payload.append('comment', comment || '(no comment)');
-  payload.append('top_match', topCity);
-  payload.append('_subject', 'ExpatAce Feedback — ' + _feedbackRating);
-  payload.append('_captcha', 'false');
-  payload.append('_template', 'box');
-  fetch('https://formsubmit.co/ajax/hello@expatace.com', { method:'POST', body:payload }).catch(()=>{});
-  document.getElementById('feedback-followup').style.display = 'none';
-  document.getElementById('feedback-thanks').style.display = 'block';
-}
-
-// ── SHOW FEEDBACK WHEN RESULTS LOAD ──────────────────────────
-(function() {
-  var target = document.getElementById('screen-results');
-  if (!target) return;
-  var observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(m) {
-      if (m.attributeName === 'class' && target.classList.contains('active')) {
-        setTimeout(showFeedbackCard, 800);
-      }
-    });
-  });
-  observer.observe(target, { attributes: true });
-})();
+function startQuiz(){document.getElementById('screen-home').classList.remove('active');document.getElementById('screen-quiz').classList.add('active');}
+function goHome(){document.getElementById('screen-quiz').classList.remove('active');document.getElementById('screen-home').classList.add('active');}
+function scrollToCountries(){document.getElementById('countries').scrollIntoView({behavior:'smooth'});}
 </script>
 
-<!-- Cookie Consent Banner -->
-<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#0f172a;color:#e2e8f0;padding:16px 24px;z-index:9999;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;font-size:13px;box-shadow:0 -4px 20px rgba(0,0,0,0.3)">
-  <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
-    <p style="margin:0;line-height:1.5;color:#cbd5e1">We use Google Analytics to understand how visitors use our site. No advertising cookies. No data sales. <a href="/privacy.html" style="color:#5eead4;text-decoration:underline">Privacy Policy</a></p>
-    <div style="display:flex;gap:10px;flex-shrink:0">
-      <button onclick="setCookieConsent('declined')" style="background:transparent;border:1px solid #475569;color:#94a3b8;padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;font-family:inherit;white-space:nowrap">Decline Analytics</button>
-      <button onclick="setCookieConsent('accepted')" style="background:#1a7a6e;border:none;color:#fff;padding:8px 18px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:700;font-family:inherit;white-space:nowrap">Accept</button>
-    </div>
-  </div>
-</div>
-<script>
-(function(){
-  var consent = localStorage.getItem('expatace_consent');
-  if (!consent) { document.getElementById('cookie-banner').style.display='block'; }
-})();
-function setCookieConsent(val) {
-  localStorage.setItem('expatace_consent', val);
-  document.getElementById('cookie-banner').style.disp
+</body>
+</html>

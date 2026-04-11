@@ -1,5 +1,5 @@
 // ExpatAce Quiz Engine
-// 12 questions, city-level scoring, dual entry points
+// 16 questions, city-level scoring, dual entry points
 
 // ── EDUCATION DATA — PISA 2022 (Math + Reading + Science average) ───
 // Source: OECD PISA 2022 Results, published December 2023
