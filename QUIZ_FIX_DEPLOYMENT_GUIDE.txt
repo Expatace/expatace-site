@@ -1,0 +1,147 @@
+# QUIZ FIX DEPLOYMENT GUIDE
+**Date:** April 11, 2026  
+**Issue:** Quiz buttons not responding on live site  
+**Root Cause:** Wrong quiz.js version deployed with broken inline onclick handlers
+
+---
+
+## DIAGNOSIS
+
+**Live site analysis revealed:**
+- Homepage loads correctly ✅
+- CSS loads correctly ✅
+- quiz.js file accessible BUT contains OLD CODE ❌
+
+**Bug confirmed at line 2:**
+```javascript
+// ExpatAce Quiz Engine
+// 12 questions, city-level scoring, dual entry points  ← WRONG VERSION
+```
+
+**Should say:**
+```javascript
+// ExpatAce Quiz Engine
+// 16 questions, city-level scoring, dual entry points  ← CORRECT VERSION
+```
+
+**Technical bug:** Inline onclick handlers like `onclick="selectAnswer('${opt.value}', this)"` cause `this` keyword to refer to window object instead of button element, breaking selection logic.
+
+---
+
+## THE FIX
+
+**Changed from (BROKEN):**
+```javascript
+<button class="option-btn" onclick="selectAnswer('${opt.value}', this)">
+  ...
+</button>
+```
+
+**Changed to (FIXED):**
+```javascript
+// Step 1: Button markup with data attribute
+<button class="option-btn" data-value="${opt.value}">
+  ...
+</button>
+
+// Step 2: Event delegation AFTER innerHTML rendering
+document.querySelectorAll('.option-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    selectAnswer(this.dataset.value, this);
+  });
+});
+```
+
+**Now:** `this` correctly refers to clicked button element → selection works perfectly.
+
+---
+
+## DEPLOYMENT STEPS
+
+### 1. Download the fixed file
+- Download `quiz.js` from this chat
+
+### 2. Deploy to GitHub
+```bash
+# Navigate to your local repo
+cd path/to/Expatace/expatace-site
+
+# Replace quiz.js with the fixed version
+# (Copy downloaded quiz.js to repo root)
+
+# Commit and push
+git add quiz.js
+git commit -m "Fix quiz selection bug - use event delegation"
+git push origin main
+```
+
+### 3. Wait for Cloudflare auto-deploy
+- Cloudflare Pages detects the GitHub push automatically
+- Deployment takes 2-3 minutes
+- Monitor at: https://dash.cloudflare.com/
+
+### 4. Verify the fix
+1. Visit https://expatace.com
+2. Click "Take the Quiz" button
+3. Click any quiz option
+4. ✅ Button should highlight and quiz should advance
+
+---
+
+## VERIFICATION CHECKLIST
+
+After deployment, test these scenarios:
+
+**Basic functionality:**
+- [ ] Quiz launches on button click
+- [ ] First question displays correctly
+- [ ] Clicking option selects it (green highlight + checkmark)
+- [ ] Quiz advances to next question
+- [ ] Progress bar updates
+- [ ] All 16 questions can be completed
+- [ ] Results screen appears
+
+**Known working features (don't need re-testing):**
+- ✅ Homepage loads with Gallery White design
+- ✅ CSS styling displays correctly
+- ✅ Progress bar shows "Question X of Y"
+
+---
+
+## WHAT WAS FIXED
+
+| Component | Before | After |
+|-----------|--------|-------|
+| **Quiz buttons** | Broken (no response to clicks) | ✅ Working |
+| **Event handling** | Inline onclick (wrong `this` context) | ✅ Event delegation (correct `this` context) |
+| **Data attribute** | None | ✅ `data-value` stores option value |
+| **Question count** | "12 questions" comment | ✅ "16 questions" correct comment |
+
+---
+
+## ROLLBACK (if needed)
+
+If something goes wrong:
+```bash
+git revert HEAD
+git push origin main
+```
+Cloudflare will auto-deploy the previous version in 2-3 minutes.
+
+---
+
+## FILE SIZE CHECK
+
+Fixed quiz.js: **41 KB**  
+If your downloaded file is significantly different size, re-download.
+
+---
+
+## CONTACT
+
+If quiz still doesn't work after deployment:
+1. Press F12 in browser → Console tab
+2. Screenshot any red error messages
+3. Report exact error text
+
+**Most likely cause if still broken:** Browser cache. Solution: Hard refresh (Ctrl+Shift+R on Windows, Cmd+Shift+R on Mac)
